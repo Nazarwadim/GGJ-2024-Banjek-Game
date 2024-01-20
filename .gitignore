@@ -1,0 +1,6 @@
+# Godot 4+ specific ignores
+.godot/
+
+
+# Addons ignores
+addons/phantom_camera/examples
