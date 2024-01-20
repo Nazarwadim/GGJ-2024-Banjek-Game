@@ -14,9 +14,14 @@ config/name="Ggj-2024-banjek-game"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+InventorySystem="*res://addons/inventory-system/core/inventory_system.tscn"
+BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/finite_state_machine/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/better-terrain/plugin.cfg", "res://addons/finite_state_machine/plugin.cfg", "res://addons/inventory-system/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/utility_ai/plugin.cfg")
 
 [rendering]
 
