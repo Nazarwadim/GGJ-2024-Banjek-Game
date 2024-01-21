@@ -18,10 +18,23 @@ config/icon="res://icon.svg"
 
 InventorySystem="*res://addons/inventory-system/core/inventory_system.tscn"
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+GuiTransitions="*res://addons/simple-gui-transitions/singleton.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/better-terrain/plugin.cfg", "res://addons/finite_state_machine/plugin.cfg", "res://addons/inventory-system/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/utility_ai/plugin.cfg")
+enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/better-terrain/plugin.cfg", "res://addons/finite_state_machine/plugin.cfg", "res://addons/inventory-system/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/simple-gui-transitions/plugin.cfg", "res://addons/utility_ai/plugin.cfg")
+
+[gui_transitions]
+
+config/default/auto_start=true
+config/default/fade_layout=true
+config/default/center_pivot=true
+config/default/duration=0.5
+config/default/delay=0.5
+config/default/transition_type="QUAD"
+config/default/ease_type="IN_OUT"
+config/default/animation_enter=4
+config/default/animation_leave=4
 
 [rendering]
 

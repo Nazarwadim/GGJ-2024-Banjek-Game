@@ -1,0 +1,77 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dctv6r4kljoxs"]
+
+[ext_resource type="FontFile" uid="uid://bmdql51fls1ad" path="res://resources/fonts/stanberry.ttf" id="1_tqpha"]
+
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0.67, 0.67, 0.67, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.28, 0.28, 0.28, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="2"]
+bg_color = Color(0.171, 0.69345, 0.9, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0.52, 0.6, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="3"]
+bg_color = Color(0.1729, 0.701155, 0.91, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0.243137, 0.278431, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="4"]
+bg_color = Color(0.129412, 0.517647, 0.670588, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0.243137, 0.278431, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="5"]
+bg_color = Color(0.0855, 0.346725, 0.45, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0.243137, 0.278431, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[resource]
+default_font = ExtResource("1_tqpha")
+default_font_size = 18
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 10
+Button/styles/disabled = SubResource("1")
+Button/styles/focus = SubResource("2")
+Button/styles/hover = SubResource("3")
+Button/styles/normal = SubResource("4")
+Button/styles/pressed = SubResource("5")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 10
+TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
