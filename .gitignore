@@ -3,4 +3,6 @@
 
 
 # Addons ignores
-addons/phantom_camera/examples
+addons/phantom_camera/examples/
+addons/gloot/examples/
+addons/simple-gui-transitions/example/

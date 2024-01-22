@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxoakt32optig"]
+
+[ext_resource type="Shader" path="res://resources/shaders/outline.gdshader" id="1_fpr68"]
+[ext_resource type="Texture2D" uid="uid://came4rmiw27fs" path="res://assets/items/item_key.png" id="2_lgr2i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6q6y"]
+shader = ExtResource("1_fpr68")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ki5l7"]
+radius = 5.47566
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_c6q6y")
+position = Vector2(1, -27)
+texture = ExtResource("2_lgr2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6.39193, 3.86453)
+shape = SubResource("CircleShape2D_ki5l7")

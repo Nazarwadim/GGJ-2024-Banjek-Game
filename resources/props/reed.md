@@ -1,0 +1,1 @@
+This folder is for non-scriptable scenes like tree or car
