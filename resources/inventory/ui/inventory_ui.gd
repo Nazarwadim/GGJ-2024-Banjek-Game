@@ -7,7 +7,6 @@ class_name InventoryUI
 @onready var grid_items_container :GridContainer= $GridItemsContainer
 
 var _inventory_updater = InventoryUIUpdater.new(self)
-
 func update() -> void:
 	_inventory_updater.update()
 

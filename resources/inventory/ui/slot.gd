@@ -4,7 +4,7 @@ extends Panel
 @onready var back_ground = $BackGround
 
 func _ready():
-	var duplicated_material :Material= back_ground.material.duplicate(true)
+	var duplicated_material :Material= back_ground.material.duplicate()
 	back_ground.material = duplicated_material
 	back_ground.material.set_shader_parameter("line_thickness", 0)
 

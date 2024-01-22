@@ -1,19 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://5o00n7k3w2xb"]
+[gd_scene load_steps=6 format=3 uid="uid://5o00n7k3w2xb"]
 
 [ext_resource type="PackedScene" uid="uid://bxoakt32optig" path="res://resources/prefabs/player/player.tscn" id="1_hl405"]
+[ext_resource type="PackedScene" uid="uid://bvngaac7bi8t0" path="res://resources/inventory/ui/inventory_ui.tscn" id="2_72t77"]
 [ext_resource type="PackedScene" uid="uid://da63d4xi31igy" path="res://resources/inventory/ui/hotbar/hot_bar.tscn" id="2_75pr4"]
 [ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="3_w2ujp"]
+[ext_resource type="Texture2D" uid="uid://d2gm6qw1hu6p2" path="res://assets/inventory/frame.png" id="5_l3c57"]
 
 [node name="InventoryExample" type="Node"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_hl405")]
 position = Vector2(119, 110)
 
-[node name="HotBar" parent="." instance=ExtResource("2_75pr4")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HotBar" parent="CanvasLayer" instance=ExtResource("2_75pr4")]
 offset_left = 283.0
 offset_top = 429.0
 offset_right = -677.0
 offset_bottom = -111.0
 inventory = ExtResource("3_w2ujp")
 
-[connection signal="current_slot_changed" from="HotBar" to="CharacterBody2D" method="_on_hot_bar_current_slot_changed"]
+[node name="InventoryUI" parent="CanvasLayer" instance=ExtResource("2_72t77")]
+offset_left = 365.0
+offset_top = 69.0
+offset_right = -275.0
+offset_bottom = -291.0
+
+[node name="BackGround" parent="CanvasLayer/InventoryUI" index="0"]
+scale = Vector2(1.17002, 2.39028)
+texture = ExtResource("5_l3c57")
+
+[connection signal="current_slot_changed" from="CanvasLayer/HotBar" to="CharacterBody2D" method="_on_hot_bar_current_slot_changed"]
+
+[editable path="CanvasLayer/InventoryUI"]
