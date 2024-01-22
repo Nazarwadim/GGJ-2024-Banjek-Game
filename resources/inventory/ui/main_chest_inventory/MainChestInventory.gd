@@ -48,7 +48,6 @@ func _emit_signals_from_seting_current_item(index:float) -> void:
 	if index != _current_slot_index:
 		current_slot_changed.emit(floor(index))
 	elif Time.get_ticks_msec() - _timer_msec < double_select_time_ms:
-		print(Time.get_ticks_msec() - _timer_msec)
 		select_double_clicked.emit(index)
 	_timer_msec = Time.get_ticks_msec()
 	
