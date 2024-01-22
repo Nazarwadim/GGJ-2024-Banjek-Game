@@ -1,19 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://5o00n7k3w2xb"]
+[gd_scene load_steps=6 format=3 uid="uid://5o00n7k3w2xb"]
 
 [ext_resource type="PackedScene" uid="uid://bxoakt32optig" path="res://resources/prefabs/player/player.tscn" id="1_hl405"]
-[ext_resource type="PackedScene" uid="uid://bvngaac7bi8t0" path="res://resources/inventory/ui/inventory_ui.tscn" id="2_72t77"]
 [ext_resource type="PackedScene" uid="uid://da63d4xi31igy" path="res://resources/inventory/ui/hotbar/hot_bar.tscn" id="2_75pr4"]
-[ext_resource type="Script" path="res://resources/inventory/ui/main_chest_inventory/MainChestInventory.gd" id="2_rlcd8"]
-[ext_resource type="Resource" uid="uid://b8bhkecems0nc" path="res://resources/inventory/items/apple.tres" id="3_krubn"]
+[ext_resource type="PackedScene" uid="uid://b8fovaesjaw4s" path="res://resources/inventory/ui/main_chest_inventory/main_chest_inventory.tscn" id="2_n5sux"]
 [ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="3_w2ujp"]
-[ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="5_4bts0"]
-[ext_resource type="Texture2D" uid="uid://d2gm6qw1hu6p2" path="res://assets/inventory/frame.png" id="5_l3c57"]
-[ext_resource type="Theme" uid="uid://cxbdqv0cxcy1m" path="res://resources/themes/theme.tres" id="7_4rm6l"]
-[ext_resource type="Script" path="res://resources/inventory/ui/main_chest_inventory/MainChestInventoryHandler.gd" id="8_0nl51"]
-
-[sub_resource type="Resource" id="Resource_kvjlj"]
-script = ExtResource("5_4bts0")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([null, null, null, null, null, null, null, null, ExtResource("3_krubn"), null, null, null, null, null, null, null, null, null])
+[ext_resource type="Script" path="res://resources/inventory/ui/item_mover/ItemMover.gd" id="5_rnmof"]
 
 [node name="InventoryExample" type="Node"]
 
@@ -22,53 +13,7 @@ position = Vector2(119, 110)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MainChestInventory" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 595.0
-offset_top = 176.0
-offset_right = 595.0
-offset_bottom = 176.0
-script = ExtResource("2_rlcd8")
-inventory = SubResource("Resource_kvjlj")
-
-[node name="InventoryUI" parent="CanvasLayer/MainChestInventory" instance=ExtResource("2_72t77")]
-visible = true
-modulate = Color(1, 1, 1, 0.921569)
-layout_mode = 1
-offset_right = 55.0
-offset_bottom = 43.0
-
-[node name="BackGround" parent="CanvasLayer/MainChestInventory/InventoryUI" index="0"]
-offset_right = 300.0
-offset_bottom = 300.0
-texture = ExtResource("5_l3c57")
-patch_margin_left = 0
-patch_margin_top = 0
-patch_margin_right = 0
-patch_margin_bottom = 0
-
-[node name="GridItemsContainer" parent="CanvasLayer/MainChestInventory/InventoryUI" index="1"]
-offset_left = 19.0
-offset_top = 50.0
-offset_right = 279.0
-offset_bottom = 90.0
-
-[node name="CurrentItemLabel" type="Label" parent="CanvasLayer/MainChestInventory"]
-layout_mode = 0
-offset_left = 73.0
-offset_top = 15.0
-offset_right = 229.0
-offset_bottom = 39.0
-theme = ExtResource("7_4rm6l")
-text = "
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-justification_flags = 162
-
-[node name="MainChestInventoryHandler" type="Node" parent="CanvasLayer/MainChestInventory"]
-script = ExtResource("8_0nl51")
+[node name="MainChestInventory" parent="CanvasLayer" instance=ExtResource("2_n5sux")]
 
 [node name="HotBar" parent="CanvasLayer" instance=ExtResource("2_75pr4")]
 modulate = Color(1, 1, 1, 0.921569)
@@ -78,6 +23,15 @@ offset_right = -657.0
 offset_bottom = -122.0
 inventory = ExtResource("3_w2ujp")
 
-[connection signal="current_slot_changed" from="CanvasLayer/HotBar" to="CharacterBody2D" method="_on_hot_bar_current_slot_changed"]
+[node name="ItemMover" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("main_chest_inventory_ui", "hot_bar")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_rnmof")
+main_chest_inventory_ui = NodePath("../MainChestInventory")
+hot_bar = NodePath("../HotBar")
 
-[editable path="CanvasLayer/MainChestInventory/InventoryUI"]
+[connection signal="select_double_clicked" from="CanvasLayer/MainChestInventory" to="CanvasLayer/ItemMover" method="_on_main_chest_inventory_select_double_clicked"]
+[connection signal="current_slot_changed" from="CanvasLayer/HotBar" to="CharacterBody2D" method="_on_hot_bar_current_slot_changed"]
+[connection signal="select_double_clicked" from="CanvasLayer/HotBar" to="CanvasLayer/ItemMover" method="_on_hot_bar_select_double_clicked"]

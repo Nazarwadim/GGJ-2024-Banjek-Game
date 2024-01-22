@@ -33,5 +33,7 @@ func _update_slots_texture() -> void:
 	for slot in slots:
 		if _inventory_ui.inventory.items[i] != null:
 			slot.item_texture.texture = _inventory_ui.inventory.items[i].texture
+		else:
+			slot.item_texture.texture = null
 		i+=1
 

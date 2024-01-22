@@ -2,16 +2,21 @@ extends Control
 class_name HotBar
 
 @export var inventory :Inventory
+@export var double_select_time_ms:int = 500
+
 @onready var count_items :int= $InventoryUI.get_node("GridItemsContainer").columns
 @onready var _inventory_ui :InventoryUI= $InventoryUI
-
 @onready var current_item_label :Label= $CurrentItemLabel
 @onready var current_item_texture = $CurrentItemTexture
 
-signal current_slot_changed(current_slot_index:int)
+signal current_slot_changed(index:int)
+
+## emite only once, when item changed to another and double selected
+signal select_double_clicked(index:int)
 
 var _current_slot_index:float
-	
+var _timer_msec:int = - double_select_time_ms
+
 func _ready() -> void:
 	_inventory_ui.inventory = inventory
 	_inventory_ui.open()
@@ -26,14 +31,24 @@ func update_inventory() -> void:
 
 func set_current_item(index:float) -> void:
 	_set_outline_by_index(index)
-	if floor(index) != floor(_current_slot_index):
-		current_slot_changed.emit(floor(index))
+	_emit_signals_from_seting_current_item(index)
+	
 	_current_slot_index = index
+	
 	if inventory.items[floor(index)] == null:
 		current_item_label.text = " "
 		current_item_texture.texture = null
 		return
-	_set_current_itep_props(index)
+	_set_current_itep_props(floor(index))
+
+func _emit_signals_from_seting_current_item(index:float) -> void:
+	if floor(index) != floor(_current_slot_index):
+		current_slot_changed.emit(floor(index))
+		_timer_msec = Time.get_ticks_msec()
+	elif index - _current_slot_index == 0 :
+		if Time.get_ticks_msec() - _timer_msec < double_select_time_ms:
+			select_double_clicked.emit(index)
+			
 
 func _set_current_itep_props(index:int) -> void:
 	current_item_label.text = inventory.items[index].name

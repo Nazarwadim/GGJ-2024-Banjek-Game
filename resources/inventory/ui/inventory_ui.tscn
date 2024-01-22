@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://resources/inventory/ui/inventory_ui.gd" id="1_5l84x"]
 
-[node name="InventoryUI" type="Control" groups=["inventory"]]
+[node name="InventoryUI" type="Control"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
