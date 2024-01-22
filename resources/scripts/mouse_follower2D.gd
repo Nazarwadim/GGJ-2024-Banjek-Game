@@ -10,6 +10,7 @@ class_name MouseFollower2D
 
 @export var is_lepr:bool
 @export var is_look_at:bool
+@export var is_global_position:bool
 @export var lerp_speed:float
 
 @export var offset:Vector2
@@ -20,7 +21,7 @@ func _ready():
 	_set_process_mode()
 
 func _physics_process(delta):
-	var _target_position = get_global_mouse_position()
+	var _target_position =  _get_mouse_position()
 	if is_lepr:
 		node2d.position = _lerp_position(_target_position ,delta)
 	else:
@@ -34,3 +35,8 @@ func _lerp_position(target_position, delta) -> Vector2:
 
 func _set_process_mode() -> void:
 	process_mode = Node.PROCESS_MODE_INHERIT if is_working else Node.PROCESS_MODE_DISABLED
+
+func _get_mouse_position() -> Vector2:
+	if is_global_position:
+		return get_global_mouse_position()
+	return get_local_mouse_position()

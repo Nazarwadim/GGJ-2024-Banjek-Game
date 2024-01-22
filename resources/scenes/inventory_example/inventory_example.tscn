@@ -1,0 +1,80 @@
+[gd_scene load_steps=14 format=3 uid="uid://5o00n7k3w2xb"]
+
+[ext_resource type="PackedScene" uid="uid://bxoakt32optig" path="res://resources/prefabs/player/player.tscn" id="1_hl405"]
+[ext_resource type="PackedScene" uid="uid://da63d4xi31igy" path="res://resources/inventory/ui/hotbar/hot_bar.tscn" id="2_75pr4"]
+[ext_resource type="PackedScene" uid="uid://b8fovaesjaw4s" path="res://resources/inventory/ui/main_chest_inventory/main_chest_inventory.tscn" id="2_n5sux"]
+[ext_resource type="Resource" uid="uid://b8bhkecems0nc" path="res://resources/inventory/items/apple.tres" id="3_krubn"]
+[ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="3_w2ujp"]
+[ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="4_ml26q"]
+[ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="5_4bts0"]
+[ext_resource type="Script" path="res://resources/inventory/ui/item_mover/ItemMover.gd" id="5_rnmof"]
+[ext_resource type="Script" path="res://resources/scripts/inventory_container_object.gd" id="6_ijmes"]
+[ext_resource type="Texture2D" uid="uid://cmdbs58pradck" path="res://icon.svg" id="10_1ne12"]
+
+[sub_resource type="Resource" id="Resource_prh2x"]
+script = ExtResource("5_4bts0")
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("4_ml26q"), ExtResource("3_krubn"), ExtResource("3_krubn"), null, ExtResource("3_krubn"), ExtResource("4_ml26q")])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0mmc"]
+size = Vector2(125, 124)
+
+[sub_resource type="Resource" id="Resource_gkrlm"]
+script = ExtResource("5_4bts0")
+items = Array[Resource("res://resources/inventory/core/item.gd")]([null, null, null, null, null, null, null, null, null, null, null, null])
+
+[node name="InventoryExample" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainChestInventory" parent="CanvasLayer" instance=ExtResource("2_n5sux")]
+
+[node name="HotBar" parent="CanvasLayer" instance=ExtResource("2_75pr4")]
+modulate = Color(1, 1, 1, 0.921569)
+offset_left = 303.0
+offset_top = 418.0
+offset_right = -657.0
+offset_bottom = -122.0
+inventory = ExtResource("3_w2ujp")
+
+[node name="ItemMover" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("main_chest_inventory_ui", "hot_bar")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_rnmof")
+main_chest_inventory_ui = NodePath("../MainChestInventory")
+hot_bar = NodePath("../HotBar")
+
+[node name="Chest1" type="Area2D" parent="."]
+position = Vector2(568, 166)
+script = ExtResource("6_ijmes")
+inventory = SubResource("Resource_prh2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest1"]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_f0mmc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Chest1"]
+modulate = Color(1, 0, 1, 1)
+texture = ExtResource("10_1ne12")
+
+[node name="Chest2" type="Area2D" parent="."]
+position = Vector2(851, 167)
+script = ExtResource("6_ijmes")
+inventory = SubResource("Resource_gkrlm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest2"]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_f0mmc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Chest2"]
+texture = ExtResource("10_1ne12")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_hl405")]
+position = Vector2(404, 179)
+
+[connection signal="select_double_clicked" from="CanvasLayer/MainChestInventory" to="CanvasLayer/ItemMover" method="_on_main_chest_inventory_select_double_clicked"]
+[connection signal="current_slot_changed" from="CanvasLayer/HotBar" to="CharacterBody2D" method="_on_hot_bar_current_slot_changed"]
+[connection signal="select_double_clicked" from="CanvasLayer/HotBar" to="CanvasLayer/ItemMover" method="_on_hot_bar_select_double_clicked"]
+[connection signal="inventory_container_area_entered" from="CharacterBody2D" to="CanvasLayer/MainChestInventory" method="_on_character_body_2d_inventory_container_area_entered"]
+[connection signal="inventory_container_area_exited" from="CharacterBody2D" to="CanvasLayer/MainChestInventory" method="_on_character_body_2d_inventory_container_area_exited"]
