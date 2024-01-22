@@ -1,18 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://5f0vq80kppen"]
+[gd_scene load_steps=5 format=3 uid="uid://5f0vq80kppen"]
 
 [ext_resource type="Script" path="res://resources/inventory/ui/slot.gd" id="1_h3kbv"]
+[ext_resource type="Shader" path="res://resources/shaders/outline.gdshader" id="2_p4g6d"]
 [ext_resource type="Texture2D" uid="uid://bbn1mji1ijj4e" path="res://assets/inventory/slot.png" id="2_pktbc"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5l73"]
+shader = ExtResource("2_p4g6d")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
 [node name="SlotUI" type="Panel"]
+modulate = Color(1, 1, 1, 0.803922)
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_h3kbv")
 
 [node name="BackGround" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_k5l73")
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 42.0
+offset_bottom = 43.0
 texture = ExtResource("2_pktbc")
 
 [node name="ItemTexture" type="TextureRect" parent="."]

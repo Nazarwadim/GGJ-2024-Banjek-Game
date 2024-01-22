@@ -19,3 +19,6 @@ texture = ExtResource("1_wu0ao")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6.39193, 3.86453)
 shape = SubResource("CircleShape2D_ki5l7")
+
+[node name="ItemPosition" type="Marker2D" parent="."]
+position = Vector2(58, -26)

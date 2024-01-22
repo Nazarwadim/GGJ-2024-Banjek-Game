@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://da63d4xi31igy"]
+
+[ext_resource type="Texture2D" uid="uid://da431v8xtjqtc" path="res://assets/inventory/hot_bar.png" id="1_gakji"]
+[ext_resource type="Script" path="res://resources/inventory/ui/hotbar/hot_bar.gd" id="1_mrff8"]
+[ext_resource type="PackedScene" uid="uid://bvngaac7bi8t0" path="res://resources/inventory/ui/inventory_ui.tscn" id="2_qh2nm"]
+[ext_resource type="Theme" uid="uid://cxbdqv0cxcy1m" path="res://resources/themes/theme.tres" id="3_3kk0a"]
+[ext_resource type="Script" path="res://resources/inventory/ui/hotbar/HotBarInputHandler.gd" id="5_4oigw"]
+
+[node name="HotBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -960.0
+offset_bottom = -540.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mrff8")
+
+[node name="BackGround" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 96.0
+texture = ExtResource("1_gakji")
+
+[node name="CurrentItemLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 12.0
+offset_right = 324.0
+offset_bottom = 36.0
+theme = ExtResource("3_3kk0a")
+text = "name of the item"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="CurrentItemTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 44.0
+offset_right = 48.0
+offset_bottom = 76.0
+expand_mode = 1
+
+[node name="InventoryUI" parent="." instance=ExtResource("2_qh2nm")]
+layout_mode = 1
+offset_left = 74.0
+offset_top = 25.0
+offset_right = 74.0
+offset_bottom = 25.0
+
+[node name="GridItemsContainer" parent="InventoryUI" index="1"]
+offset_left = 11.0
+offset_top = 13.0
+offset_right = 271.0
+offset_bottom = 53.0
+
+[node name="HotBarInputHandler" type="Node" parent="." node_paths=PackedStringArray("hot_bar")]
+script = ExtResource("5_4oigw")
+hot_bar = NodePath("..")
+
+[editable path="InventoryUI"]

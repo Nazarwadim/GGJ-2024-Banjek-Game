@@ -8,12 +8,9 @@ class_name InventoryUI
 
 var _inventory_updater = InventoryUIUpdater.new(self)
 
-func _ready():
-	open()
-
 func update() -> void:
 	_inventory_updater.update()
-	
+
 func open() -> void:
 	_inventory_updater.update()
 	visible = true
