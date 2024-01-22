@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxoakt32optig"]
+[gd_scene load_steps=9 format=3 uid="uid://bxoakt32optig"]
 
 [ext_resource type="Script" path="res://resources/prefabs/player/player.gd" id="1_4ny21"]
 [ext_resource type="Texture2D" uid="uid://cmyunnuoxtigv" path="res://icon.png" id="1_wu0ao"]
 [ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="2_rsx5n"]
+[ext_resource type="Script" path="res://resources/scripts/inventory_container_object.gd" id="4_453se"]
+[ext_resource type="Script" path="res://resources/scripts/inventory_interactor_area.gd" id="4_g76hd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ki5l7"]
 radius = 5.47566
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o05ud"]
+radius = 65.123
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p7jic"]
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_4ny21")
-inventory = ExtResource("2_rsx5n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -24,3 +30,22 @@ shape = SubResource("CircleShape2D_ki5l7")
 position = Vector2(58, -26)
 
 [node name="InventoryInteractorArea" type="Area2D" parent="."]
+script = ExtResource("4_g76hd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryInteractorArea"]
+shape = SubResource("CircleShape2D_o05ud")
+debug_color = Color(0.733333, 0.6, 0.701961, 0.0941176)
+
+[node name="InventoryContainerObject" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_453se")
+inventory = ExtResource("2_rsx5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryContainerObject"]
+shape = SubResource("CircleShape2D_p7jic")
+
+[connection signal="area_entered" from="InventoryInteractorArea" to="InventoryInteractorArea" method="_on_area_entered"]
+[connection signal="area_exited" from="InventoryInteractorArea" to="InventoryInteractorArea" method="_on_area_exited"]
+[connection signal="inventory_container_area_entered" from="InventoryInteractorArea" to="." method="_on_inventory_interactor_area_inventory_container_area_entered"]
+[connection signal="inventory_container_area_exited" from="InventoryInteractorArea" to="." method="_on_inventory_interactor_area_inventory_container_area_exited"]

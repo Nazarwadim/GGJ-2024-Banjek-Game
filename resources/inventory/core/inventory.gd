@@ -15,3 +15,11 @@ func move_item_to_inventory(inventoty:Inventory, from:int, to:int) -> void:
 	assert(inventoty.items[to] == null, "Item in index " + str(to) + " must be empty")
 	inventoty.items[to] = items[from]
 	items[from] = null
+
+func find_first_free_cell() -> int:
+	var iteration:int = 0
+	for item in items:
+		if item == null:
+			return iteration
+		iteration +=1
+	return -1

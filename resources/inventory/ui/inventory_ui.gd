@@ -11,8 +11,9 @@ func update() -> void:
 	_inventory_updater.update()
 
 func open() -> void:
-	_inventory_updater.update()
+	$AnimationPlayer.play("show")
 	visible = true
 
 func close() -> void:
+	$AnimationPlayer.play("hide")
 	visible = false

@@ -20,6 +20,7 @@ var _timer_msec:int = - double_select_time_ms
 func _ready() -> void:
 	_inventory_ui.inventory = inventory
 	_inventory_ui.open()
+	_inventory_ui.update()
 	$HotBarInputHandler.connect_slots_input()
 	set_current_item(_current_slot_index)
 
@@ -44,11 +45,10 @@ func set_current_item(index:float) -> void:
 func _emit_signals_from_seting_current_item(index:float) -> void:
 	if floor(index) != floor(_current_slot_index):
 		current_slot_changed.emit(floor(index))
-		_timer_msec = Time.get_ticks_msec()
 	elif index - _current_slot_index == 0 :
 		if Time.get_ticks_msec() - _timer_msec < double_select_time_ms:
 			select_double_clicked.emit(index)
-			
+	_timer_msec = Time.get_ticks_msec()		
 
 func _set_current_itep_props(index:int) -> void:
 	current_item_label.text = inventory.items[index].name
