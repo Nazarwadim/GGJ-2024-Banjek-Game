@@ -9,7 +9,6 @@ func _init(inventory_ui:InventoryUI):
 func update() -> void:
 	_update_slots_count()
 	_update_slots_texture()
-	_update_frame_size()
 	
 	
 func _update_slots_count() -> void:	
@@ -36,16 +35,3 @@ func _update_slots_texture() -> void:
 			slot.item_texture.texture = _inventory_ui.inventory.items[i].texture
 		i+=1
 
-func _update_frame_size() -> void:
-	var items_count := _inventory_ui.grid_items_container.get_child_count()
-	var columns := _inventory_ui.grid_items_container.columns
-	var rows := items_count / columns + 1
-	
-	if items_count % columns == 0:
-		rows -= 1
-	
-	var margine_size := Vector2(_inventory_ui.back_ground.patch_margin_left + _inventory_ui.back_ground.patch_margin_right,\
-		_inventory_ui.back_ground.patch_margin_top + _inventory_ui.back_ground.patch_margin_bottom) 
-	_inventory_ui.back_ground.size = \
-		(_slot.instantiate().size + Vector2(6, 6)) * Vector2(columns, rows)\
-		 + margine_size

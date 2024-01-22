@@ -2,7 +2,7 @@ extends Control
 class_name HotBar
 
 @export var inventory :Inventory
-@export var count_items := 6
+@onready var count_items :int= $InventoryUI.get_node("GridItemsContainer").columns
 @onready var _inventory_ui :InventoryUI= $InventoryUI
 
 @onready var current_item_label :Label= $CurrentItemLabel
