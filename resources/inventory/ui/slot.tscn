@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://5f0vq80kppen"]
+
+[ext_resource type="Script" path="res://resources/inventory/ui/slot.gd" id="1_h3kbv"]
+[ext_resource type="Texture2D" uid="uid://bbn1mji1ijj4e" path="res://assets/inventory/slot.png" id="2_pktbc"]
+
+[node name="SlotUI" type="Panel"]
+custom_minimum_size = Vector2(40, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_h3kbv")
+
+[node name="BackGround" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_pktbc")
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 36.0
+offset_bottom = 36.0
+expand_mode = 1

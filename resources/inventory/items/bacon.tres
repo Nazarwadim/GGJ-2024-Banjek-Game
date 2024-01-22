@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bx2g6ou77m3jj"]
+
+[ext_resource type="Script" path="res://resources/inventory/core/item.gd" id="1_haw8x"]
+[ext_resource type="Texture2D" uid="uid://sls3wqoy7tj0" path="res://assets/food/bacon.png" id="2_y7k2k"]
+
+[resource]
+script = ExtResource("1_haw8x")
+name = "bacon"
+texture = ExtResource("2_y7k2k")
+properties = {}

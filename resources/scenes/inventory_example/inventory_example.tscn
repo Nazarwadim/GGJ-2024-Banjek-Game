@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://5o00n7k3w2xb"]
+
+[ext_resource type="PackedScene" uid="uid://bxoakt32optig" path="res://resources/prefabs/player/player.tscn" id="1_hl405"]
+[ext_resource type="PackedScene" uid="uid://bvngaac7bi8t0" path="res://resources/inventory/ui/inventory_ui.tscn" id="2_72t77"]
+[ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="3_w2ujp"]
+
+[node name="InventoryExample" type="Node"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_hl405")]
+position = Vector2(94, 120)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerInventory" parent="CanvasLayer" instance=ExtResource("2_72t77")]
+offset_left = 168.0
+offset_top = 182.0
+offset_right = -472.0
+offset_bottom = -178.0
+inventory = ExtResource("3_w2ujp")
