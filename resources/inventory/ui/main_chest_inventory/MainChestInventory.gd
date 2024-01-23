@@ -1,6 +1,4 @@
 extends Control
-class_name MainChestInventoryUI
-
 signal current_slot_changed(index:int)
 
 ## emite only once, when item changed to another and double selected
@@ -8,7 +6,7 @@ signal select_double_clicked(index:int)
 
 @export var inventory:Inventory
 @export var double_select_time_ms:int = 500
-@onready var _inventory_ui :InventoryUI= $InventoryUI
+@onready var _inventory_ui = $InventoryUI
 @onready var current_item_label = $InventoryUI/CurrentItemLabel
 
 var _current_slot_index:int

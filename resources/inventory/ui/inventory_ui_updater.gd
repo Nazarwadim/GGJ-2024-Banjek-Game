@@ -1,13 +1,11 @@
-class_name InventoryUIUpdater
-
-var _inventory_ui:InventoryUI
+var _inventory_ui:Control
 var _slot = preload("slot.tscn")
 
-func _init(inventory_ui:InventoryUI):
+func _init(inventory_ui:Control):
 	_inventory_ui = inventory_ui
 
 func update() -> void:
-	var grid_items := _inventory_ui.grid_items_container.get_children()
+	var grid_items :Array= _inventory_ui.grid_items_container.get_children()
 	_update_slots_count(grid_items)
 	_update_slots_texture(grid_items)
 	

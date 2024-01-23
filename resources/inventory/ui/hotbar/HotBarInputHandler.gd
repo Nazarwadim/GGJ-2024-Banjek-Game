@@ -1,6 +1,6 @@
 extends Node
 
-@export var hot_bar:HotBar
+@export var hot_bar:Control
 
 func _input(event:InputEvent):
 	if not (event is InputEventMouseButton and (event.is_action("next_hot_bar_slot") or event.is_action("previous_hot_bar_slot")) ):

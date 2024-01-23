@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="3_w2ujp"]
 [ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="4_ml26q"]
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="5_4bts0"]
-[ext_resource type="Script" path="res://resources/inventory/ui/item_mover/ItemMover.gd" id="5_rnmof"]
+[ext_resource type="Script" path="res://resources/inventory/scripts/item_mover.gd" id="5_rnmof"]
 [ext_resource type="Script" path="res://resources/inventory/scripts/inventory_container_object.gd" id="6_ijmes"]
 [ext_resource type="Texture2D" uid="uid://cmdbs58pradck" path="res://icon.svg" id="10_1ne12"]
 

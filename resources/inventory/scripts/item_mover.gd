@@ -1,7 +1,7 @@
 extends Control
-
-@export var main_chest_inventory_ui:MainChestInventoryUI
-@export var hot_bar:HotBar
+class_name ItemMover
+@export var main_chest_inventory_ui:Control
+@export var hot_bar:Control
 
 func _on_hot_bar_select_double_clicked(index:int) -> void:
 	if hot_bar.inventory.items[index] == null or main_chest_inventory_ui.inventory == null:
