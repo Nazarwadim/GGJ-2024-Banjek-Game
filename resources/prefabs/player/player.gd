@@ -34,7 +34,6 @@ func _on_hot_bar_current_slot_changed(_current_slot_index):
 
 func _on_inventory_interactor_area_inventory_container_area_entered(inventory):
 	inventory_container_area_entered.emit(inventory)
-
-
+	
 func _on_inventory_interactor_area_inventory_container_area_exited():
 	inventory_container_area_exited.emit()
