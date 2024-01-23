@@ -14,7 +14,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _get_direction() -> Vector2:
-	var direction:Vector2
+	var direction:Vector2 = Vector2.ZERO
 	if Input.is_action_pressed("ui_up"):
 		direction.y = -1
 	elif Input.is_action_pressed("ui_down"):
