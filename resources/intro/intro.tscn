@@ -1,0 +1,170 @@
+[gd_scene load_steps=6 format=3 uid="uid://1hdphkxy2m6n"]
+
+[ext_resource type="Script" path="res://resources/intro/start_animation.gd" id="2_3ta3v"]
+[ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://assets/fonts/stanberry.ttf" id="3_0yw3b"]
+
+[sub_resource type="Animation" id="Animation_uuunf"]
+resource_name = "Intro"
+length = 4.5
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("audio_intro")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9, 3.2, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 0.756863), Color(1, 1, 1, 0.780392), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextEdit:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.25, 2.15, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": ["", "Banjek Studio", "Banjek Studio
+presents"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextEdit:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.05, 1.8, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(89, 63), Vector2(194, 153), Vector2(270, 271)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextEdit:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.8, 4, 4.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [false, false, true, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextEdit:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.15, 1.5, 1.85, 2.2, 2.55, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.020751, -1.5708, -3.14159, -4.18879, -6.28319, -6.45772]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextEdit:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.95, 1.6, 2.25, 2.65, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.42, 0.42), Vector2(0.81, 0.81), Vector2(1.43, 1.43), Vector2(0.91, 0.91), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c28ud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextEdit:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["B"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextEdit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(151, -214)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_80fbq"]
+_data = {
+"Intro": SubResource("Animation_uuunf"),
+"RESET": SubResource("Animation_c28ud")
+}
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="start_animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_80fbq")
+}
+autoplay = "Intro"
+script = ExtResource("2_3ta3v")
+
+[node name="audio_intro" type="AudioStreamPlayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextEdit" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 151.0
+offset_top = -214.0
+offset_right = 801.0
+offset_bottom = 2.0
+rotation = 0.00577617
+mouse_force_pass_scroll_events = false
+theme_override_fonts/normal_font = ExtResource("3_0yw3b")
+theme_override_font_sizes/normal_font_size = 101
+text = "B"
+scroll_active = false
+autowrap_mode = 2
+tab_size = 5
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[connection signal="animation_finished" from="start_animation" to="start_animation" method="_on_animation_finished"]
