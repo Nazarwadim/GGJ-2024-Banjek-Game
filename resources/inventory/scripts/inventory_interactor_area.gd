@@ -13,5 +13,5 @@ func _on_area_entered(area):
 		inventory_container_area_entered.emit(area.inventory)
 
 func _on_area_exited(area):
-	if area is InventoryContainerObject:
+	if area is InventoryContainer:
 		inventory_container_area_exited.emit()
