@@ -1,5 +1,5 @@
 extends Area2D
-class_name InventoryContainerObject
+class_name InventoryContainer
 @export var inventory:Inventory
 
 func _ready():
