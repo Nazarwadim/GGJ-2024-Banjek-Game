@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="4_ml26q"]
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="5_4bts0"]
 [ext_resource type="Script" path="res://resources/inventory/scripts/item_mover.gd" id="5_rnmof"]
-[ext_resource type="Script" path="res://resources/inventory/scripts/inventory_container_object.gd" id="6_ijmes"]
+[ext_resource type="Script" path="res://resources/inventory/scripts/inventory_container.gd" id="6_ijmes"]
 [ext_resource type="Texture2D" uid="uid://cmdbs58pradck" path="res://icon.svg" id="10_1ne12"]
 
 [sub_resource type="Resource" id="Resource_prh2x"]
@@ -76,5 +76,5 @@ position = Vector2(404, 179)
 [connection signal="select_double_clicked" from="CanvasLayer/MainChestInventory" to="CanvasLayer/ItemMover" method="_on_main_chest_inventory_select_double_clicked"]
 [connection signal="current_slot_changed" from="CanvasLayer/HotBar" to="CharacterBody2D" method="_on_hot_bar_current_slot_changed"]
 [connection signal="select_double_clicked" from="CanvasLayer/HotBar" to="CanvasLayer/ItemMover" method="_on_hot_bar_select_double_clicked"]
-[connection signal="inventory_container_area_entered" from="CharacterBody2D" to="CanvasLayer/MainChestInventory" method="_on_character_body_2d_inventory_container_area_entered"]
-[connection signal="inventory_container_area_exited" from="CharacterBody2D" to="CanvasLayer/MainChestInventory" method="_on_character_body_2d_inventory_container_area_exited"]
+[connection signal="inventory_closed" from="CharacterBody2D" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
+[connection signal="inventory_opened" from="CharacterBody2D" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]
