@@ -1,12 +1,10 @@
 extends Control
-class_name InventoryUI
-
 @export var inventory:Inventory
 
 @onready var back_ground = $BackGround
 @onready var grid_items_container :GridContainer= $GridItemsContainer
 
-var _inventory_updater = InventoryUIUpdater.new(self)
+var _inventory_updater = preload("res://resources/inventory/ui/inventory_ui_updater.gd").new(self)
 func update() -> void:
 	_inventory_updater.update()
 
