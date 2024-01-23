@@ -49,8 +49,8 @@ func _set_outline_by_index(index:int) -> void:
 		var slot_before := grid_container.get_child( _current_slot_index )
 		slot_before.disable_outline()
 
-func _on_character_body_2d_inventory_container_area_entered(inventory):
-	open_inventory(inventory)
+func _on_player_inventory_opened(inventory_):
+	open_inventory(inventory_)
 
-func _on_character_body_2d_inventory_container_area_exited():
+func _on_player_inventory_closed():
 	close_inventory()
