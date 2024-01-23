@@ -45,7 +45,5 @@ inventory = ExtResource("2_rsx5n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryContainerObject"]
 shape = SubResource("CircleShape2D_p7jic")
 
-[connection signal="area_entered" from="InventoryInteractorArea" to="InventoryInteractorArea" method="_on_area_entered"]
-[connection signal="area_exited" from="InventoryInteractorArea" to="InventoryInteractorArea" method="_on_area_exited"]
 [connection signal="inventory_container_area_entered" from="InventoryInteractorArea" to="." method="_on_inventory_interactor_area_inventory_container_area_entered"]
 [connection signal="inventory_container_area_exited" from="InventoryInteractorArea" to="." method="_on_inventory_interactor_area_inventory_container_area_exited"]
