@@ -59,7 +59,7 @@ modulate = Color(1, 0, 1, 1)
 texture = ExtResource("10_1ne12")
 
 [node name="Chest2" type="Area2D" parent="."]
-position = Vector2(851, 167)
+position = Vector2(839, 164)
 script = ExtResource("6_ijmes")
 inventory = SubResource("Resource_gkrlm")
 

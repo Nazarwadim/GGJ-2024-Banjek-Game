@@ -29,6 +29,7 @@ func get_current_slot_index() -> float:
 
 func update_inventory() -> void:
 	_inventory_ui.update()
+	set_current_item(_current_slot_index)
 
 func set_current_item(index:float) -> void:
 	_set_outline_by_index(index)
