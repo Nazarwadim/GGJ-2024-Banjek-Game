@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="5_4bts0"]
 [ext_resource type="AudioStream" uid="uid://bjmncgvusi3md" path="res://assets/kenney_rpgaudio/Audio/drawKnife1.ogg" id="5_412gg"]
 [ext_resource type="Script" path="res://resources/inventory/scripts/item_mover.gd" id="5_rnmof"]
-[ext_resource type="Script" path="res://resources/inventory/scripts/inventory_container.gd" id="6_ijmes"]
+[ext_resource type="Script" path="res://resources/inventory/scripts/inventory2d/inventory_container.gd" id="6_ijmes"]
 [ext_resource type="Texture2D" uid="uid://cmdbs58pradck" path="res://icon.svg" id="10_1ne12"]
 
 [sub_resource type="Resource" id="Resource_prh2x"]
@@ -80,8 +80,8 @@ position = Vector2(404, 179)
 
 [connection signal="current_slot_changed" from="CanvasLayer/MainChestInventory" to="CanvasLayer/AudioStreamPlayer" method="play"]
 [connection signal="select_double_clicked" from="CanvasLayer/MainChestInventory" to="CanvasLayer/ItemMover" method="_on_main_chest_inventory_select_double_clicked"]
-[connection signal="current_slot_changed" from="CanvasLayer/HotBar" to="CharacterBody2D" method="_on_hot_bar_current_slot_changed"]
 [connection signal="current_slot_changed" from="CanvasLayer/HotBar" to="CanvasLayer/AudioStreamPlayer" method="play"]
+[connection signal="current_slot_changed" from="CanvasLayer/HotBar" to="CharacterBody2D" method="_on_hot_bar_current_slot_changed"]
 [connection signal="select_double_clicked" from="CanvasLayer/HotBar" to="CanvasLayer/ItemMover" method="_on_hot_bar_select_double_clicked"]
 [connection signal="inventory_closed" from="CharacterBody2D" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="CharacterBody2D" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]

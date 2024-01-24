@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://resources/prefabs/player/player.gd" id="1_4ny21"]
 [ext_resource type="Texture2D" uid="uid://cmyunnuoxtigv" path="res://icon.png" id="1_wu0ao"]
 [ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="2_rsx5n"]
-[ext_resource type="Script" path="res://resources/inventory/scripts/inventory_container.gd" id="4_453se"]
-[ext_resource type="Script" path="res://resources/inventory/scripts/inventory_interactor.gd" id="4_g76hd"]
+[ext_resource type="Script" path="res://resources/inventory/scripts/inventory2d/inventory_container.gd" id="4_453se"]
+[ext_resource type="Script" path="res://resources/inventory/scripts/inventory2d/inventory_interactor.gd" id="4_g76hd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ki5l7"]
 radius = 5.47566
