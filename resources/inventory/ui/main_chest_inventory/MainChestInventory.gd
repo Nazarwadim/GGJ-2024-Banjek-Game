@@ -46,7 +46,7 @@ func _set_outline_by_index(index:int) -> void:
 	var slot := grid_container.get_child(index)
 	slot.enable_outline()
 	if _current_slot_index != index:
-		var slot_before := grid_container.get_child( _current_slot_index )
+		var slot_before := grid_container.get_child(_current_slot_index)
 		slot_before.disable_outline()
 
 func _on_player_inventory_opened(inventory_):

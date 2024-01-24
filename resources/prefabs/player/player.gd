@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 signal inventory_opened(inventory:Inventory)
 signal inventory_closed
-	
+signal item_picked
+signal item_droped
+
 ##TODO change this to normal movement
 const SPEED = 300.0
 func _physics_process(_delta):
@@ -37,3 +39,10 @@ func _on_inventory_container_area_entered(inventory:InventoryContainer):
 ##TODO make it in state interact_inventory	
 func _on_inventory_container_area_exited():
 	inventory_closed.emit()
+
+func _on_item_entered(item_container:ItemContainer):
+	var first_free_cell :int= $InventoryContainerObject.inventory.find_first_free_cell()
+	if first_free_cell >= 0:
+		$InventoryContainerObject.inventory.items[first_free_cell] = item_container.item
+		item_container.pick_item()
+		item_picked.emit()
