@@ -1,7 +1,7 @@
 extends Resource
 
 ##This fabric creates Scene by item name
-class_name ItemContainerFabric
+class_name ItemContainerFactory
 
 @export var item_containers:Array[PackedScene]
 
