@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal inventory_opened(inventory:Inventory)
 signal inventory_closed
-
+	
 ##TODO change this to normal movement
 const SPEED = 300.0
 func _physics_process(_delta):
