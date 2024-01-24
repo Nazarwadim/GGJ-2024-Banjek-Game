@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://1hdphkxy2m6n"]
+[gd_scene load_steps=7 format=3 uid="uid://1hdphkxy2m6n"]
 
+[ext_resource type="AudioStream" uid="uid://dbuq84s1d7ukh" path="res://assets/intro/metalPot1.ogg" id="1_uybvk"]
 [ext_resource type="Script" path="res://resources/intro/start_animation.gd" id="2_3ta3v"]
-[ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://assets/fonts/stanberry.ttf" id="3_0yw3b"]
+[ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://resources/fonts/stanberry.ttf" id="3_0yw3b"]
 
 [sub_resource type="Animation" id="Animation_uuunf"]
 resource_name = "Intro"
 length = 4.5
-step = 0.05
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,8 +14,12 @@ tracks/0/path = NodePath("audio_intro")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"clips": [],
-"times": PackedFloat32Array()
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_uybvk")
+}],
+"times": PackedFloat32Array(1.4)
 }
 tracks/0/use_blend = true
 tracks/1/type = "value"
@@ -25,7 +29,7 @@ tracks/1/path = NodePath("ColorRect:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9, 3.2, 4.5),
+"times": PackedFloat32Array(0, 0.7, 1.2, 2.7, 4.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 0.756863), Color(1, 1, 1, 0.780392), Color(0, 0, 0, 1)]
@@ -37,10 +41,10 @@ tracks/2/path = NodePath("TextEdit:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.25, 2.15, 2.8),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(1.3, 2.1, 2.5, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": ["", "Banjek Studio", "Banjek Studio
+"values": ["", "Banjek", "Banjek Studio", "Banjek Studio
 presents"]
 }
 tracks/3/type = "value"
@@ -50,7 +54,7 @@ tracks/3/path = NodePath("TextEdit:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.05, 1.8, 2.4),
+"times": PackedFloat32Array(1.1, 1.6, 2.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(89, 63), Vector2(194, 153), Vector2(270, 271)]
@@ -74,10 +78,10 @@ tracks/5/path = NodePath("TextEdit:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(1.15, 1.5, 1.85, 2.2, 2.55, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(1, 1.3, 2, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [-0.020751, -1.5708, -3.14159, -4.18879, -6.28319, -6.45772]
+"values": [-0.020751, -1.5708, -6.28319, -6.45772]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -86,7 +90,7 @@ tracks/6/path = NodePath("TextEdit:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.95, 1.6, 2.25, 2.65, 2.9),
+"times": PackedFloat32Array(1, 1.6, 2.1, 2.5, 2.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0.42, 0.42), Vector2(0.81, 0.81), Vector2(1.43, 1.43), Vector2(0.91, 0.91), Vector2(1, 1)]
@@ -149,13 +153,14 @@ offset_bottom = 540.0
 color = Color(0, 0, 0, 1)
 
 [node name="TextEdit" type="RichTextLabel" parent="."]
+visible = false
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 151.0
 offset_top = -214.0
 offset_right = 801.0
 offset_bottom = 2.0
-rotation = 0.00577617
+rotation = -6.45772
 mouse_force_pass_scroll_events = false
 theme_override_fonts/normal_font = ExtResource("3_0yw3b")
 theme_override_font_sizes/normal_font_size = 101
