@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ggj-2024-banjek-game"
-run/main_scene="res://resources/intro/intro_2.tscn"
+run/main_scene="res://resources/intro/intro.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0.623529, 0.564706, 0.580392, 1)
 config/icon="res://icon.png"
