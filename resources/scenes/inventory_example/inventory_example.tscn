@@ -80,7 +80,7 @@ texture = ExtResource("10_1ne12")
 position = Vector2(404, 179)
 
 [node name="Apple" parent="." instance=ExtResource("12_53e67")]
-position = Vector2(158, 130)
+position = Vector2(217, 391)
 
 [connection signal="current_slot_changed" from="CanvasLayer/MainChestInventory" to="CanvasLayer/AudioStreamPlayer" method="play"]
 [connection signal="select_double_clicked" from="CanvasLayer/MainChestInventory" to="CanvasLayer/ItemMover" method="_on_main_chest_inventory_select_double_clicked"]
