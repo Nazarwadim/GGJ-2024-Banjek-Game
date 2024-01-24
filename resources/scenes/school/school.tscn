@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="TileSet" uid="uid://cggso6br063l" path="res://resources/scenes/school/school_tileset.tres" id="1_1ca3p"]
-[ext_resource type="PackedScene" uid="uid://dk7b344a2x21x" path="res://resources/scenes/player/player.tscn" id="2_vmcjx"]
+[ext_resource type="PackedScene" uid="uid://dk7b344a2x21x" path="res://resources/prefabs/player/player.tscn" id="2_vmcjx"]
 
 [node name="School" type="Node2D"]
 y_sort_enabled = true

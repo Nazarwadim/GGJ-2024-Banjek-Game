@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://5o00n7k3w2xb"]
 
-[ext_resource type="PackedScene" uid="uid://bxoakt32optig" path="res://resources/prefabs/player/player.tscn" id="1_hl405"]
+[ext_resource type="PackedScene" uid="uid://bxoakt32optig" path="res://resources/prefabs/player_temp/player.tscn" id="1_hl405"]
 [ext_resource type="PackedScene" uid="uid://da63d4xi31igy" path="res://resources/inventory/ui/hotbar/hot_bar.tscn" id="2_75pr4"]
 [ext_resource type="PackedScene" uid="uid://b8fovaesjaw4s" path="res://resources/inventory/ui/main_chest_inventory/main_chest_inventory.tscn" id="2_n5sux"]
 [ext_resource type="Resource" uid="uid://b8bhkecems0nc" path="res://resources/inventory/items/apple.tres" id="3_krubn"]
