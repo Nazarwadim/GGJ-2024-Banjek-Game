@@ -4,7 +4,7 @@ extends PlayerBaseState
 func on_enter() -> void:
 	player.velocity = Vector2.ZERO
 	player.animation_tree.get("parameters/playback").travel("Idle")
-	player.inventory_opened.emit(inventory_interactor.entering_inventory)
+	player.inventory_opened.emit(inventory_interactor.entering_inventory.inventory)
 	inventory_interactor.entering_inventory.inventory_opened.emit()
 
 func on_input(event:InputEvent):
@@ -12,5 +12,6 @@ func on_input(event:InputEvent):
 		change_state("Idle")
 		
 func on_exit() -> void:
-	inventory_interactor.entering_inventory.inventory_closed.emit()
+	if inventory_interactor.entering_inventory != null:
+		inventory_interactor.entering_inventory.inventory_closed.emit()
 	player.inventory_closed.emit()

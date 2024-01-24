@@ -1,13 +1,15 @@
 extends CharacterBody2D
 class_name Player
 @export var speed: int = 180
+@export var items_spawn_node:Node
 @onready var animation_tree :AnimationTree= $AnimationTree
-var _hot_bar_slot_index:int = -1
+var _hot_bar_slot_index:int = 0
 	
 signal inventory_opened(inventory:Inventory)
 signal inventory_closed
 signal item_picked
 signal item_droped
+signal item_used
 
 func get_hot_bar_slot_index() -> int:
 	return _hot_bar_slot_index
