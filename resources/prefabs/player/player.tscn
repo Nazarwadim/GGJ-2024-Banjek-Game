@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dk7b344a2x21x"]
+[gd_scene load_steps=62 format=3 uid="uid://dk7b344a2x21x"]
 
 [ext_resource type="Script" path="res://resources/prefabs/player/player.gd" id="1_qvpmr"]
 [ext_resource type="Texture2D" uid="uid://bs06pg4k8oj7k" path="res://assets/player/walk.png" id="2_5sanj"]
@@ -12,7 +12,13 @@
 [ext_resource type="Script" path="res://resources/prefabs/player/states/using_item.gd" id="10_vtslu"]
 [ext_resource type="Script" path="res://resources/prefabs/player/states/picking_item.gd" id="11_ec5ov"]
 [ext_resource type="Script" path="res://resources/prefabs/player/states/droping_item.gd" id="12_rl3wk"]
-[ext_resource type="Script" path="res://resources/prefabs/player/interucting_inventory.gd" id="13_g6y38"]
+[ext_resource type="Script" path="res://resources/prefabs/player/states/interacting_inventory.gd" id="13_g6y38"]
+[ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="14_ifqw6"]
+[ext_resource type="Script" path="res://resources/prefabs/player/states/start.gd" id="14_teymv"]
+[ext_resource type="Resource" uid="uid://b8bhkecems0nc" path="res://resources/inventory/items/apple.tres" id="15_q60dj"]
+[ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="16_dohe2"]
+[ext_resource type="Texture2D" uid="uid://cmdbs58pradck" path="res://icon.svg" id="17_khm53"]
+[ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="18_vcedf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0tbx"]
 radius = 7.0
@@ -108,7 +114,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_d1pgd"]
 resource_name = "using_down"
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -125,7 +130,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_m7nuk"]
 resource_name = "using_left"
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -142,7 +146,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_7j03u"]
 resource_name = "using_right"
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -159,7 +162,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_qu7jw"]
 resource_name = "using_up"
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -363,6 +365,17 @@ radius = 4.12311
 [sub_resource type="CircleShape2D" id="CircleShape2D_1255f"]
 radius = 27.0
 
+[sub_resource type="Resource" id="Resource_nc1os"]
+script = ExtResource("16_dohe2")
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("14_ifqw6"), ExtResource("15_q60dj"), ExtResource("15_q60dj"), null, ExtResource("15_q60dj"), ExtResource("14_ifqw6")])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xxb5"]
+size = Vector2(125, 124)
+
+[sub_resource type="Resource" id="Resource_nogxx"]
+script = ExtResource("16_dohe2")
+items = Array[Resource("res://resources/inventory/core/item.gd")]([null, null, null, null, null, null, null, null, null, null, null, null])
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_qvpmr")
@@ -394,6 +407,8 @@ parameters/UsingItem/blend_position = Vector2(0, 0.00588238)
 parameters/Walk/blend_position = Vector2(-0.013089, 0.0323529)
 
 [node name="InventoryContainer" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("4_453se")
 inventory = ExtResource("2_rsx5n")
 
@@ -418,34 +433,72 @@ debug_color = Color(0.921569, 0.6, 0.701961, 0.0470588)
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("7_cud08")
-current_state = NodePath("Idle")
+current_state = NodePath("Start")
 
-[node name="Idle" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_inventory_interactor", "_item_interactor", "player")]
+[node name="Start" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("14_teymv")
+
+[node name="Idle" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_interactor", "item_interactor", "inventory_container", "player")]
 script = ExtResource("8_oju8f")
-_inventory_interactor = NodePath("../../InventoryInteractor")
-_item_interactor = NodePath("../../ItemInteractor")
+inventory_interactor = NodePath("../../InventoryInteractor")
+item_interactor = NodePath("../../ItemInteractor")
+inventory_container = NodePath("../../InventoryContainer")
 player = NodePath("../..")
 
-[node name="Walk" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_inventory_interactor", "_item_interactor", "player")]
+[node name="Walk" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_interactor", "item_interactor", "inventory_container", "player")]
 script = ExtResource("9_8lanl")
-_inventory_interactor = NodePath("../../InventoryInteractor")
-_item_interactor = NodePath("../../ItemInteractor")
+inventory_interactor = NodePath("../../InventoryInteractor")
+item_interactor = NodePath("../../ItemInteractor")
+inventory_container = NodePath("../../InventoryContainer")
 player = NodePath("../..")
 
 [node name="UsingItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("10_vtslu")
 player = NodePath("../..")
 
-[node name="PickingUpItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+[node name="PickingUpItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_container", "item_interactor", "player")]
 script = ExtResource("11_ec5ov")
+inventory_container = NodePath("../../InventoryContainer")
+item_interactor = NodePath("../../ItemInteractor")
 player = NodePath("../..")
 
 [node name="DropingItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("12_rl3wk")
 player = NodePath("../..")
 
-[node name="InventoryInteraction" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+[node name="InventoryInteraction" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_interactor", "player")]
 script = ExtResource("13_g6y38")
+inventory_interactor = NodePath("../../InventoryInteractor")
 player = NodePath("../..")
+
+[node name="Temp" type="Node" parent="."]
+
+[node name="Chest1" type="Area2D" parent="Temp"]
+position = Vector2(568, 166)
+script = ExtResource("4_453se")
+inventory = SubResource("Resource_nc1os")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temp/Chest1"]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_0xxb5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Temp/Chest1"]
+modulate = Color(1, 0, 1, 1)
+texture = ExtResource("17_khm53")
+
+[node name="Chest2" type="Area2D" parent="Temp"]
+position = Vector2(839, 164)
+script = ExtResource("4_453se")
+inventory = SubResource("Resource_nogxx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temp/Chest2"]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_0xxb5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Temp/Chest2"]
+texture = ExtResource("17_khm53")
+
+[node name="Apple" parent="Temp" instance=ExtResource("18_vcedf")]
+position = Vector2(92, 88)
 
 [connection signal="state_changed" from="FiniteStateMachine" to="." method="_on_finite_state_machine_state_changed"]
