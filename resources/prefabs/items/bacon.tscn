@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://8tcvi55nfakb"]
+[gd_scene load_steps=6 format=3 uid="uid://8tcvi55nfakb"]
 
 [ext_resource type="PackedScene" uid="uid://c1ku1ohtr5nvt" path="res://resources/prefabs/items/base_item_container.tscn" id="1_jhwlx"]
 [ext_resource type="Texture2D" uid="uid://sls3wqoy7tj0" path="res://assets/items/food/bacon.png" id="2_j1ev8"]
 [ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="2_pi4na"]
+[ext_resource type="Material" uid="uid://ca4q61upesk86" path="res://resources/materials/item_shader_matedial.tres" id="3_cforr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oqvaa"]
 radius = 6.69732
@@ -17,4 +18,5 @@ rotation = -1.16413
 shape = SubResource("CapsuleShape2D_oqvaa")
 
 [node name="Sprite2D" parent="." index="1"]
+material = ExtResource("3_cforr")
 texture = ExtResource("2_j1ev8")

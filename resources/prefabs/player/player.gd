@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 @export var speed: int = 180
 @export var items_spawn_node:Node
+@export var debug_print_states:bool
 @onready var animation_tree :AnimationTree= $AnimationTree
 var _hot_bar_slot_index:int = 0
 	
@@ -21,7 +22,8 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _on_finite_state_machine_state_changed(new_state):
-	print(new_state.name)
+	if debug_print_states:
+		print(new_state.name)	
 
 func _on_hot_bar_current_slot_changed(current_slot_index):
 	_hot_bar_slot_index = current_slot_index
