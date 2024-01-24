@@ -420,19 +420,23 @@ debug_color = Color(0.921569, 0.6, 0.701961, 0.0470588)
 script = ExtResource("7_cud08")
 current_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+[node name="Idle" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_inventory_interactor", "_item_interactor", "player")]
 script = ExtResource("8_oju8f")
+_inventory_interactor = NodePath("../../InventoryInteractor")
+_item_interactor = NodePath("../../ItemInteractor")
 player = NodePath("../..")
 
-[node name="Walk" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+[node name="Walk" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_inventory_interactor", "_item_interactor", "player")]
 script = ExtResource("9_8lanl")
+_inventory_interactor = NodePath("../../InventoryInteractor")
+_item_interactor = NodePath("../../ItemInteractor")
 player = NodePath("../..")
 
 [node name="UsingItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("10_vtslu")
 player = NodePath("../..")
 
-[node name="PickingItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+[node name="PickingUpItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("11_ec5ov")
 player = NodePath("../..")
 
