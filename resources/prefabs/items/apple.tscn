@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://3p8xa0bhhhfh"]
+
+[ext_resource type="PackedScene" uid="uid://c1ku1ohtr5nvt" path="res://resources/prefabs/items/base_item_container.tscn" id="1_7jpym"]
+[ext_resource type="Material" uid="uid://ca4q61upesk86" path="res://resources/materials/item_shader_matedial.tres" id="2_ntphs"]
+[ext_resource type="Resource" uid="uid://b8bhkecems0nc" path="res://resources/inventory/items/apple.tres" id="2_ub2p3"]
+[ext_resource type="Texture2D" uid="uid://dq1y1i64485nj" path="res://assets/items/food/apple.png" id="3_qmigk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jvr4x"]
+radius = 16.0312
+
+[node name="Apple" instance=ExtResource("1_7jpym")]
+item = ExtResource("2_ub2p3")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_jvr4x")
+
+[node name="Sprite2D" parent="." index="1"]
+material = ExtResource("2_ntphs")
+texture = ExtResource("3_qmigk")
