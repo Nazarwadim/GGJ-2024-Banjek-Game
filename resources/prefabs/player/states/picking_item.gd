@@ -15,7 +15,6 @@ func on_enter() -> void:
 
 func _add_item_to_inventory() -> void:
 	var first_free_cell:int = inventory_container.inventory.find_first_free_cell()
-	print(item_interactor.entering_item)
 	inventory_container.inventory.items[first_free_cell] = item_interactor.entering_item.item
 	item_interactor.entering_item.pick_item()
 	player.item_picked.emit()
