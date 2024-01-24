@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://56jj7k2t6jkd"]
+
+[ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://resources/fonts/stanberry.ttf" id="1_v88bj"]
+[ext_resource type="Script" path="res://resources/menu/play_button.gd" id="2_x1u2m"]
+[ext_resource type="AudioStream" uid="uid://qjjbju2dh1r3" path="res://assets/menu/button_hover.wav" id="3_j0imb"]
+[ext_resource type="AudioStream" uid="uid://b38ifshm702ob" path="res://assets/menu/button_up.wav" id="4_yhpjn"]
+[ext_resource type="AudioStream" uid="uid://dktto6dej2jrl" path="res://assets/menu/button_down.wav" id="5_vc5tl"]
+
+[sub_resource type="Animation" id="Animation_wtrhw"]
+resource_name = "button_fall"
+
+[sub_resource type="Animation" id="Animation_7sfuu"]
+resource_name = "button_tilt"
+
+[sub_resource type="Animation" id="Animation_aquid"]
+resource_name = "player_enter"
+
+[sub_resource type="Animation" id="Animation_bchdy"]
+resource_name = "scene fall"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7pur5"]
+_data = {
+"button_fall": SubResource("Animation_wtrhw"),
+"button_tilt": SubResource("Animation_7sfuu"),
+"player_enter": SubResource("Animation_aquid"),
+"scene fall": SubResource("Animation_bchdy")
+}
+
+[node name="menu" type="Node2D"]
+
+[node name="play_button_anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7pur5")
+}
+
+[node name="play_button" type="Button" parent="." node_paths=PackedStringArray("button_hover_audio", "button_down_audio", "button_up_audio", "button_pressed_audio")]
+offset_left = 270.0
+offset_top = 220.0
+offset_right = 690.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("1_v88bj")
+theme_override_font_sizes/font_size = 66
+text = "PLAY"
+script = ExtResource("2_x1u2m")
+button_hover_audio = NodePath("../Audio/button_hover_sound")
+button_down_audio = NodePath("../Audio/button_down_sound")
+button_up_audio = NodePath("../Audio/button_up_sound")
+button_pressed_audio = NodePath("../Audio/button_pressed_sound")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(480, 270)
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="button_hover_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("3_j0imb")
+
+[node name="button_down_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_vc5tl")
+
+[node name="button_pressed_sound" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="button_up_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_yhpjn")
+
+[node name="button_hanging_sound" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="button_falling_sound" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="scene_falling_sound" type="AudioStreamPlayer" parent="Audio"]
+
+[connection signal="button_down" from="play_button" to="play_button" method="_on_button_down"]
+[connection signal="button_up" from="play_button" to="play_button" method="_on_button_up"]
+[connection signal="mouse_entered" from="play_button" to="play_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="play_button" to="play_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="play_button" to="play_button" method="_on_pressed"]
