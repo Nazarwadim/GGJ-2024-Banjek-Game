@@ -13,10 +13,12 @@ func get_overlapping_item_containers() ->Array:
 			array.push_back(area)
 	return array
 
+func _init():
+	monitorable = false
+
 func _ready():
 	collision_mask = collision_mask_overide
 	collision_layer = collision_layer_overide
-	monitorable = false
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
 
