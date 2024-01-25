@@ -20,6 +20,7 @@ func on_enter() -> void:
 	
 func on_physics_process(_delta: float) -> void:
 	_player_direction = player.get_input_vector_normalized()
+	player.velocity = _player_direction * player.speed
 	if not _try_switch_idle():
 		_set_animation_tree_blend_position()
 
@@ -36,7 +37,6 @@ func _set_animation_tree_blend_position() -> void:
 	player.animation_tree.set("parameters/Walk/blend_position", _player_direction)
 
 func _try_switch_idle() -> bool:
-	player.velocity = _player_direction * player.speed
 	if _player_direction == Vector2.ZERO:
 		change_state("Idle")
 		return true

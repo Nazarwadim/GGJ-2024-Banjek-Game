@@ -14,7 +14,6 @@ func on_enter() -> void:
 	_add_item_to_inventory(item)
 
 func _add_item_to_inventory(item) -> void:
-	
 	var first_free_cell:int = inventory_container.inventory.find_first_free_cell()
 	inventory_container.inventory.items[first_free_cell] = item.item
 	item.pick_item()
@@ -22,7 +21,6 @@ func _add_item_to_inventory(item) -> void:
 
 func _set_up_vector_to_item(item) -> void:
 	_vector_to_item = (item.position - player.position).normalized()
-	_vector_to_item.y = -_vector_to_item.y
 
 func _set_animation_parameters() -> void:
 	player.animation_tree.get("parameters/playback").travel("UsingItem")
