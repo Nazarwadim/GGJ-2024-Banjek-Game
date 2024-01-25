@@ -6,6 +6,15 @@ signal item_container_area_exited
 @export var collision_mask_overide = 2
 @export var collision_layer_overide = 2
 
+func get_first_overlapping_item_container() -> ItemContainer:
+	var areas := get_overlapping_areas()
+	if areas.size() == 0:
+		return null
+	for area in areas:
+		if area is ItemContainer:
+			return area
+	return null
+
 func get_overlapping_item_containers() ->Array:
 	var array := Array()
 	for area in get_overlapping_areas():
