@@ -10,6 +10,7 @@ signal inventory_opened(inventory:Inventory)
 signal inventory_closed
 signal item_picked
 signal item_droped
+signal item_start_using(item_time_ms:int)
 signal item_used
 
 func get_hot_bar_slot_index() -> int:
@@ -23,7 +24,7 @@ func _physics_process(_delta):
 
 func _on_finite_state_machine_state_changed(new_state):
 	if debug_print_states:
-		print(new_state.name)	
+		print("Time ", Time.get_ticks_msec() ,". State: ",new_state.name)	
 
 func _on_hot_bar_current_slot_changed(current_slot_index):
 	_hot_bar_slot_index = current_slot_index

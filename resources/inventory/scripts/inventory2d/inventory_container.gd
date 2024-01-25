@@ -6,5 +6,5 @@ signal inventory_closed
 
 @export var inventory:Inventory
 
-func _ready():
+func _init():
 	monitoring = false

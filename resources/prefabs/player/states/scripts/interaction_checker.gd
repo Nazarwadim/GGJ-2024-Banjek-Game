@@ -4,14 +4,14 @@ func _init(state:StateMachineState):
 	_state = state
 
 func can_switch_item_pick_up() -> bool:
-	if not _state.item_interactor.get_overlapping_item_containers().size() > 0 or not Input.is_action_just_pressed("pick_up_item"):
+	if not _state.item_interactor.get_first_overlapping_item_container() != null or not Input.is_action_just_pressed("pick_up_item"):
 		return false
 	if _state.inventory_container.inventory.find_first_free_cell() < 0:
 		return false
 	return true
 	
 func can_switch_inventory_interaction() -> bool:
-	if _state.inventory_interactor.entering_inventory != null && Input.is_action_just_pressed("interact"):
+	if _state.inventory_interactor.get_first_overlapping_inventory_container()  != null && Input.is_action_just_pressed("interact"):
 		return true
 	return false
 

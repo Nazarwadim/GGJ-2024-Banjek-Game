@@ -3,10 +3,11 @@ extends PlayerBaseState
 @export var inventory_container:InventoryContainer
 @export var item_interactor:ItemInteractor
 
-var _vector_to_item:Vector2
+var _vector_to_item:Vector2 = Vector2.ZERO
+
 func on_enter() -> void:
 	player.velocity = Vector2.ZERO
-	var item = item_interactor.get_overlapping_item_containers()[0]
+	var item = item_interactor.get_first_overlapping_item_container()
 	_set_up_vector_to_item(item)
 	_set_animation_parameters()
 	await  player.animation_tree.animation_finished
