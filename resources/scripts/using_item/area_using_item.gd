@@ -3,6 +3,7 @@ class_name AreaUsingItem
 
 @export var item_can_use:Item
 @export var time_to_use_ms:int = 600
+@export var happiness_increase:int
 
 signal used
 signal fixed
