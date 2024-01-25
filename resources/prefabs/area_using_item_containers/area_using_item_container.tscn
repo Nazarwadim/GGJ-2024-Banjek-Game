@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://vd5yb4smm72s"]
+
+[ext_resource type="Script" path="res://resources/scripts/using_item/area_using_item.gd" id="1_tmcuy"]
+
+[node name="AreaUsingItemContainer" type="Area2D" groups=["area_using_item_containers"]]
+script = ExtResource("1_tmcuy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

@@ -17,10 +17,10 @@ script = ExtResource("7_vs1u6")
 items = Array[Resource("res://resources/inventory/core/item.gd")]([null, null, ExtResource("3_q84d2"), ExtResource("4_ieqfl"), ExtResource("5_0k3ht"), null, null, null, null, null, ExtResource("6_gyuwq"), null])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xq7m"]
-size = Vector2(30, 25)
+size = Vector2(26, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7v7tl"]
-size = Vector2(28, 25)
+size = Vector2(28, 20)
 
 [node name="drawer" instance=ExtResource("1_uvm5e")]
 
@@ -34,11 +34,11 @@ hframes = 2
 script = ExtResource("4_bibrk")
 
 [node name="CollisionShape2D" parent="ChestContainer" index="1"]
-position = Vector2(0, -3.5)
+position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_1xq7m")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, -2.5)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_7v7tl")
 
 [node name="Open" type="AudioStreamPlayer" parent="Sounds" index="0"]

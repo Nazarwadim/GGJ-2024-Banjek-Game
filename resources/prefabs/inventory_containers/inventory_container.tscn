@@ -5,7 +5,7 @@
 [node name="InventoryContainer" type="StaticBody2D"]
 position = Vector2(240, 11)
 
-[node name="ChestContainer" type="Area2D" parent="."]
+[node name="ChestContainer" type="Area2D" parent="." groups=["chestcontainers"]]
 script = ExtResource("1_gl3w0")
 
 [node name="Sprite2D" type="Sprite2D" parent="ChestContainer"]

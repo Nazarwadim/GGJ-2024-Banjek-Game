@@ -14,7 +14,7 @@ script = ExtResource("5_jfo6e")
 items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("3_k4v04"), ExtResource("3_k4v04"), null, null, null, null, ExtResource("3_k4v04"), null, null, null, null, null, null, null, null, null, null, null, null, null])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqyk4"]
-size = Vector2(42, 43.9476)
+size = Vector2(30, 24.6723)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbi38"]
 size = Vector2(42, 44)
@@ -32,7 +32,7 @@ hframes = 2
 script = ExtResource("6_ar8os")
 
 [node name="CollisionShape2D" parent="ChestContainer" index="1"]
-position = Vector2(0, -1.92753)
+position = Vector2(-2, -11.5652)
 shape = SubResource("RectangleShape2D_dqyk4")
 
 [node name="CollisionShape2D" parent="." index="1"]
