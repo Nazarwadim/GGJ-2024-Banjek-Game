@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=15 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
+[ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
 [ext_resource type="Script" path="res://resources/inventory/scripts/inventory2d/inventory_container.gd" id="2_vcldu"]
 [ext_resource type="PackedScene" uid="uid://dk7b344a2x21x" path="res://resources/prefabs/player/player.tscn" id="2_vmcjx"]
 [ext_resource type="PackedScene" uid="uid://ovbs8p5ih66g" path="res://resources/gui/gui.tscn" id="3_q6pyy"]
+[ext_resource type="PackedScene" uid="uid://01gxr061t1fn" path="res://resources/prefabs/items/pen.tscn" id="3_sq132"]
 [ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="3_wtl5v"]
 [ext_resource type="Resource" uid="uid://b8bhkecems0nc" path="res://resources/inventory/items/apple.tres" id="4_b82ab"]
 [ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="4_wa1p7"]
@@ -26,11 +28,19 @@ y_sort_enabled = true
 [node name="SchoolTileMap" parent="." instance=ExtResource("1_sm8qs")]
 
 [node name="Items" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Apple" parent="Items" instance=ExtResource("2_25cru")]
+position = Vector2(156, 22)
+
+[node name="Pen" parent="Items" instance=ExtResource("3_sq132")]
+position = Vector2(183, 30)
 
 [node name="Chests" type="Node2D" parent="."]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(0, 5)
+metadata/_edit_lock_ = true
 
 [node name="Chest1" type="StaticBody2D" parent="Chests"]
 position = Vector2(260, 15)
@@ -54,7 +64,11 @@ position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_l1jdy")
 debug_color = Color(0, 0.6, 0.701961, 0.705882)
 
+[node name="UsingAreas" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
 [node name="Doors" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("items_spawn_node") instance=ExtResource("2_vmcjx")]
 z_index = 1
