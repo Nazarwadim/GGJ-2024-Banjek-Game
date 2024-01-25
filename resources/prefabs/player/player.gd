@@ -23,7 +23,7 @@ func _physics_process(_delta):
 
 func _on_finite_state_machine_state_changed(new_state):
 	if debug_print_states:
-		print(new_state.name)	
+		print("Time ", Time.get_ticks_msec() ,". State: ",new_state.name)	
 
 func _on_hot_bar_current_slot_changed(current_slot_index):
 	_hot_bar_slot_index = current_slot_index

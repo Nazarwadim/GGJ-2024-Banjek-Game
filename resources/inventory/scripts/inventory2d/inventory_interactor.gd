@@ -5,8 +5,10 @@ signal inventory_container_area_exited
 
 var entering_inventory:InventoryContainer = null
 
-func _ready():
+func _init():
 	monitorable = false
+
+func _ready():
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
 
