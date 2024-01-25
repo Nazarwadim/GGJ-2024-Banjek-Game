@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://chng2f8ogrb54" path="res://resources/prefabs/inventory_containers/inventory_container.tscn" id="1_l08st"]
 [ext_resource type="Texture2D" uid="uid://oc1kwrojfgov" path="res://assets/chestes/shelf.png" id="2_o6o3c"]
-[ext_resource type="Script" path="res://resources/prefabs/inventory_containers/ShelfChest.gd" id="2_x3jug"]
+[ext_resource type="Script" path="res://resources/prefabs/inventory_containers/shelf_chest.gd" id="2_x3jug"]
 [ext_resource type="Resource" uid="uid://bcm5y471iyl7d" path="res://resources/inventory/items/money.tres" id="3_k4v04"]
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="5_jfo6e"]
 [ext_resource type="Script" path="res://resources/prefabs/inventory_containers/shelf.gd" id="6_ar8os"]

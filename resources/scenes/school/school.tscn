@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=11 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://01gxr061t1fn" path="res://resources/prefabs/items/pen.tscn" id="3_sq132"]
 [ext_resource type="PackedScene" uid="uid://c5hyik7rvdob8" path="res://resources/prefabs/inventory_containers/shelf.tscn" id="4_4qlfo"]
 [ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="4_wa1p7"]
+[ext_resource type="PackedScene" uid="uid://u8uy0twkt6ji" path="res://resources/prefabs/area_using_item_containers/glue_black_chair.tscn" id="5_nwrxo"]
 [ext_resource type="PackedScene" uid="uid://b1hd4nkr7kiss" path="res://resources/prefabs/inventory_containers/drawer.tscn" id="9_wptoe"]
 [ext_resource type="PackedScene" uid="uid://dk2lyg0xr12oq" path="res://resources/prefabs/items/money.tscn" id="13_qp3pa"]
 
@@ -49,6 +50,9 @@ position = Vector2(294, 200)
 
 [node name="UsingAreas" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
+
+[node name="glue_black_chair" parent="UsingAreas" instance=ExtResource("5_nwrxo")]
+position = Vector2(38, 53)
 
 [node name="Doors" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

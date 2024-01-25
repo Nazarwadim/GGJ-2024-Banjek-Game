@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b1hd4nkr7kiss"]
 
 [ext_resource type="PackedScene" uid="uid://chng2f8ogrb54" path="res://resources/prefabs/inventory_containers/inventory_container.tscn" id="1_uvm5e"]
-[ext_resource type="Script" path="res://resources/prefabs/inventory_containers/DrawerChest.gd" id="2_qudj3"]
+[ext_resource type="Script" path="res://resources/prefabs/inventory_containers/drawer_chest.gd" id="2_qudj3"]
 [ext_resource type="Texture2D" uid="uid://duuoefl0c8wp8" path="res://assets/chestes/drawer.png" id="2_ua1la"]
 [ext_resource type="Resource" uid="uid://bcm5y471iyl7d" path="res://resources/inventory/items/money.tres" id="3_q84d2"]
 [ext_resource type="Script" path="res://resources/prefabs/inventory_containers/drawer.gd" id="4_bibrk"]
