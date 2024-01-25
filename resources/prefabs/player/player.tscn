@@ -367,6 +367,7 @@ height = 58.0
 collision_mask = 3
 script = ExtResource("1_qvpmr")
 speed = 120
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_5sanj")
