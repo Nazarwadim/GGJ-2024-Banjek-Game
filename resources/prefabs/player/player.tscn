@@ -1,10 +1,11 @@
-[gd_scene load_steps=55 format=3 uid="uid://dk7b344a2x21x"]
+[gd_scene load_steps=56 format=3 uid="uid://dk7b344a2x21x"]
 
 [ext_resource type="Script" path="res://resources/prefabs/player/player.gd" id="1_qvpmr"]
 [ext_resource type="Texture2D" uid="uid://bs06pg4k8oj7k" path="res://assets/player/walk.png" id="2_5sanj"]
 [ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="2_rsx5n"]
 [ext_resource type="Script" path="res://resources/inventory/scripts/inventory2d/inventory_container.gd" id="4_453se"]
 [ext_resource type="Script" path="res://resources/inventory/scripts/inventory2d/inventory_interactor.gd" id="4_g76hd"]
+[ext_resource type="Script" path="res://resources/scripts/using_item/area_using_item_detector.gd" id="6_3tjoa"]
 [ext_resource type="Script" path="res://resources/inventory/scripts/item2d/item_interactor.gd" id="6_32swi"]
 [ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="7_cud08"]
 [ext_resource type="Script" path="res://resources/prefabs/player/states/idle.gd" id="8_oju8f"]
@@ -18,7 +19,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0tbx"]
 radius = 7.0
-height = 24.0
+height = 26.0
 
 [sub_resource type="Animation" id="Animation_5hw53"]
 length = 0.001
@@ -372,7 +373,7 @@ hframes = 8
 vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 5)
+position = Vector2(0, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_u0tbx")
 
@@ -406,6 +407,13 @@ debug_color = Color(0.223529, 0.509804, 1, 0.721569)
 script = ExtResource("4_g76hd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryInteractor"]
+shape = SubResource("CircleShape2D_1255f")
+debug_color = Color(0.921569, 0.6, 0.701961, 0.0470588)
+
+[node name="AreaUsingItemDetector" type="Area2D" parent="."]
+script = ExtResource("6_3tjoa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaUsingItemDetector"]
 shape = SubResource("CircleShape2D_1255f")
 debug_color = Color(0.921569, 0.6, 0.701961, 0.0470588)
 
