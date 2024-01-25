@@ -82,7 +82,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest2/ChestContainer"]
 position = Vector2(0.5, -1.63443)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wck3q")
 
 [node name="Sprite2D" type="Sprite2D" parent="Chests/Chest2/ChestContainer"]
