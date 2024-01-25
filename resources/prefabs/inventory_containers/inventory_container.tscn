@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://resources/inventory/scripts/inventory2d/inventory_container.gd" id="1_gl3w0"]
 
-[node name="InventoryContainer" type="StaticBody2D"]
-position = Vector2(240, 11)
+[node name="InventoryBaseContainer" type="StaticBody2D"]
+metadata/_edit_group_ = true
 
 [node name="ChestContainer" type="Area2D" parent="." groups=["chest_containers"]]
 script = ExtResource("1_gl3w0")

@@ -38,7 +38,7 @@ metadata/_edit_lock_ = true
 position = Vector2(-76, -30)
 
 [node name="Shelf2" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
-position = Vector2(519, -30)
+position = Vector2(595, -23)
 
 [node name="Shelf3" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
 position = Vector2(-547, 200)
@@ -64,10 +64,11 @@ position = Vector2(976, 272)
 [node name="Doors" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." node_paths=PackedStringArray("items_spawn_node") instance=ExtResource("2_vmcjx")]
+[node name="Player" parent="." node_paths=PackedStringArray("items_spawn_node", "_hot_bar") instance=ExtResource("2_vmcjx")]
 z_index = 1
 position = Vector2(114, 12)
 items_spawn_node = NodePath("../Items")
+_hot_bar = NodePath("../CanvasLayer/HotBar")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
@@ -77,23 +78,25 @@ zoom = Vector2(3, 3)
 [node name="HotBar" parent="CanvasLayer" index="1"]
 inventory = ExtResource("4_wa1p7")
 
-[node name="money" parent="." instance=ExtResource("13_qp3pa")]
-position = Vector2(143, 55)
-
-[node name="drawer" parent="." instance=ExtResource("9_wptoe")]
-position = Vector2(529, 229)
-
-[node name="glue" parent="." instance=ExtResource("11_m5nma")]
-position = Vector2(97, 42)
-
-[node name="glue_black_chair" parent="." instance=ExtResource("5_nwrxo")]
+[node name="TempForDebug" type="Node2D" parent="."]
 position = Vector2(79, 42)
+
+[node name="glue" parent="TempForDebug" instance=ExtResource("11_m5nma")]
+position = Vector2(18, 0)
+
+[node name="glue_black_chair" parent="TempForDebug" instance=ExtResource("5_nwrxo")]
+
+[node name="money" parent="TempForDebug" instance=ExtResource("13_qp3pa")]
+position = Vector2(64, 13)
+
+[node name="drawer" parent="TempForDebug" instance=ExtResource("9_wptoe")]
+position = Vector2(137, 27)
 
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]
 [connection signal="item_droped" from="Player" to="CanvasLayer/HotBar" method="update_inventory"]
 [connection signal="item_picked" from="Player" to="CanvasLayer/HotBar" method="update_inventory"]
 [connection signal="item_used" from="Player" to="CanvasLayer/HotBar" method="update_inventory"]
-[connection signal="current_slot_changed" from="CanvasLayer/HotBar" to="Player" method="_on_hot_bar_current_slot_changed"]
 
 [editable path="CanvasLayer"]
+[editable path="TempForDebug/drawer"]

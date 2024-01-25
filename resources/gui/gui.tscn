@@ -14,9 +14,9 @@ anchor_top = 0.081
 anchor_right = 0.946
 anchor_bottom = 1.0
 offset_left = 260.92
-offset_top = 132.26
+offset_top = 108.26
 offset_right = -313.16
-offset_bottom = -364.0
+offset_bottom = -388.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -41,11 +41,11 @@ script = ExtResource("4_2ijyq")
 main_chest_inventory_ui = NodePath("../MainChestInventory")
 hot_bar = NodePath("../HotBar")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ItemSlotAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_7mbqj")
 pitch_scale = 2.01
 
-[connection signal="current_slot_changed" from="MainChestInventory" to="AudioStreamPlayer" method="play"]
+[connection signal="current_slot_changed" from="MainChestInventory" to="ItemSlotAudioPlayer" method="play"]
 [connection signal="select_double_clicked" from="MainChestInventory" to="ItemMover" method="_on_main_chest_inventory_select_double_clicked"]
-[connection signal="current_slot_changed" from="HotBar" to="AudioStreamPlayer" method="play"]
+[connection signal="current_slot_changed" from="HotBar" to="ItemSlotAudioPlayer" method="play"]
 [connection signal="select_double_clicked" from="HotBar" to="ItemMover" method="_on_hot_bar_select_double_clicked"]
