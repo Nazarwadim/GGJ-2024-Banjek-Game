@@ -36,7 +36,6 @@ position = Vector2(-2, -11.5652)
 shape = SubResource("RectangleShape2D_dqyk4")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_pbi38")
 
 [node name="Open" type="AudioStreamPlayer" parent="Sounds" index="0"]

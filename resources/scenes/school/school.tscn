@@ -87,7 +87,7 @@ position = Vector2(529, 229)
 position = Vector2(97, 42)
 
 [node name="glue_black_chair" parent="." instance=ExtResource("5_nwrxo")]
-position = Vector2(46, 38)
+position = Vector2(79, 42)
 
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]

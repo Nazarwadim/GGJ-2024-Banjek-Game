@@ -12,10 +12,13 @@ size = Vector2(27, 32)
 size = Vector2(21, 7.5)
 
 [node name="glue_black_chair" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 2
 
 [node name="AreaUsingItemContainer" parent="." instance=ExtResource("1_t16m5")]
 item_can_use = ExtResource("2_fr3ue")
-time_to_use_ms = 800
+time_to_use_ms = 5000
 
 [node name="CollisionShape2D" parent="AreaUsingItemContainer" index="0"]
 position = Vector2(-0.5, 0)
