@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://u8uy0twkt6ji"]
+
+[ext_resource type="PackedScene" uid="uid://vd5yb4smm72s" path="res://resources/prefabs/area_using_item_containers/area_using_item_container.tscn" id="1_t16m5"]
+[ext_resource type="Resource" uid="uid://2tqkhux857ep" path="res://resources/inventory/items/glue.tres" id="2_fr3ue"]
+[ext_resource type="Texture2D" uid="uid://buo6iiiawlpxy" path="res://assets/decorations/black_chair.png" id="3_6b2vo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri0bg"]
+size = Vector2(27, 32)
+
+[node name="glue_black_chair" instance=ExtResource("1_t16m5")]
+item_can_use = ExtResource("2_fr3ue")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_ri0bg")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_6b2vo")
+hframes = 2
