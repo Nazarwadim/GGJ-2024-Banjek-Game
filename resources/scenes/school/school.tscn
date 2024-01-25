@@ -1,31 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=9 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
-[ext_resource type="Script" path="res://resources/inventory/scripts/inventory2d/inventory_container.gd" id="2_vcldu"]
 [ext_resource type="PackedScene" uid="uid://dk7b344a2x21x" path="res://resources/prefabs/player/player.tscn" id="2_vmcjx"]
 [ext_resource type="PackedScene" uid="uid://ovbs8p5ih66g" path="res://resources/gui/gui.tscn" id="3_q6pyy"]
 [ext_resource type="PackedScene" uid="uid://01gxr061t1fn" path="res://resources/prefabs/items/pen.tscn" id="3_sq132"]
-[ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="3_wtl5v"]
-[ext_resource type="Resource" uid="uid://b8bhkecems0nc" path="res://resources/inventory/items/apple.tres" id="4_b82ab"]
+[ext_resource type="PackedScene" uid="uid://c5hyik7rvdob8" path="res://resources/prefabs/inventory_containers/shelf.tscn" id="4_4qlfo"]
 [ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="4_wa1p7"]
-[ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="5_vuybt"]
-[ext_resource type="Texture2D" uid="uid://cmdbs58pradck" path="res://icon.svg" id="6_avso2"]
-[ext_resource type="Resource" uid="uid://b2bx77ek5le0p" path="res://resources/inventory/items/pen.tres" id="9_58ky0"]
-
-[sub_resource type="Resource" id="Resource_nha46"]
-script = ExtResource("5_vuybt")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("3_wtl5v"), ExtResource("4_b82ab"), ExtResource("4_b82ab"), ExtResource("3_wtl5v"), ExtResource("4_b82ab"), ExtResource("3_wtl5v"), null, ExtResource("4_b82ab"), null, null, ExtResource("3_wtl5v"), ExtResource("3_wtl5v")])
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wck3q"]
-size = Vector2(125, 123.269)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1jdy"]
-size = Vector2(24, 17)
-
-[sub_resource type="Resource" id="Resource_gbqrt"]
-script = ExtResource("5_vuybt")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), ExtResource("9_58ky0"), null, null, null, null, null, null, null, null, null, null])
+[ext_resource type="PackedScene" uid="uid://dk2lyg0xr12oq" path="res://resources/prefabs/items/money.tscn" id="13_qp3pa"]
 
 [node name="School" type="Node2D"]
 y_sort_enabled = true
@@ -47,52 +29,22 @@ y_sort_enabled = true
 position = Vector2(0, 5)
 metadata/_edit_lock_ = true
 
-[node name="Chest1" type="StaticBody2D" parent="Chests"]
-position = Vector2(271, 11)
-metadata/_edit_group_ = true
+[node name="Shelfs" type="Node2D" parent="Chests"]
 
-[node name="ChestContainer" type="Area2D" parent="Chests/Chest1"]
-scale = Vector2(0.195343, 0.252889)
-script = ExtResource("2_vcldu")
-inventory = SubResource("Resource_nha46")
-metadata/_edit_group_ = true
+[node name="Shelf" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
+position = Vector2(-76, -30)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest1/ChestContainer"]
-position = Vector2(0.5, -2)
-shape = SubResource("RectangleShape2D_wck3q")
+[node name="Shelf2" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
+position = Vector2(519, -30)
 
-[node name="Sprite2D" type="Sprite2D" parent="Chests/Chest1/ChestContainer"]
-modulate = Color(1, 0, 1, 1)
-texture = ExtResource("6_avso2")
+[node name="Shelf3" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
+position = Vector2(-547, 200)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest1"]
-position = Vector2(0, 7.5)
-shape = SubResource("RectangleShape2D_l1jdy")
-debug_color = Color(0, 0.6, 0.701961, 0.705882)
+[node name="Shelf4" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
+position = Vector2(-250, 200)
 
-[node name="Chest2" type="StaticBody2D" parent="Chests"]
-position = Vector2(240, 11)
-metadata/_edit_group_ = true
-
-[node name="ChestContainer" type="Area2D" parent="Chests/Chest2"]
-scale = Vector2(0.195343, 0.252889)
-script = ExtResource("2_vcldu")
-inventory = SubResource("Resource_gbqrt")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest2/ChestContainer"]
-position = Vector2(0.5, -1.63443)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_wck3q")
-
-[node name="Sprite2D" type="Sprite2D" parent="Chests/Chest2/ChestContainer"]
-modulate = Color(1, 0, 1, 1)
-texture = ExtResource("6_avso2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest2"]
-position = Vector2(0, 7)
-shape = SubResource("RectangleShape2D_l1jdy")
-debug_color = Color(0, 0.6, 0.701961, 0.705882)
+[node name="Shelf5" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
+position = Vector2(294, 200)
 
 [node name="UsingAreas" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -112,6 +64,9 @@ zoom = Vector2(3, 3)
 
 [node name="HotBar" parent="CanvasLayer" index="1"]
 inventory = ExtResource("4_wa1p7")
+
+[node name="money" parent="." instance=ExtResource("13_qp3pa")]
+position = Vector2(143, 55)
 
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]

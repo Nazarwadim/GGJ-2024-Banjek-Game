@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpb5i1o41dyos"]
+
+[ext_resource type="PackedScene" uid="uid://c1ku1ohtr5nvt" path="res://resources/prefabs/items/base_item_container.tscn" id="1_n3n0c"]
+[ext_resource type="Resource" uid="uid://dxfkn5rv12ww7" path="res://resources/inventory/items/dirty_bucket.tres" id="2_3i4fa"]
+[ext_resource type="Material" uid="uid://ca4q61upesk86" path="res://resources/materials/item_shader_matedial.tres" id="3_gu0m8"]
+[ext_resource type="Texture2D" uid="uid://bcfqxwksjdlo8" path="res://assets/items/school/dirty_bucket.png" id="3_olx8y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hivay"]
+size = Vector2(18, 19.5)
+
+[node name="dirty_bucket" instance=ExtResource("1_n3n0c")]
+scale = Vector2(2, 2)
+item = ExtResource("2_3i4fa")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 0.25)
+shape = SubResource("RectangleShape2D_hivay")
+
+[node name="Sprite2D" parent="." index="1"]
+material = ExtResource("3_gu0m8")
+texture = ExtResource("3_olx8y")

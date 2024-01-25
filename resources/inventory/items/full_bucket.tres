@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dnqkm8ftdo4hy"]
+
+[ext_resource type="Script" path="res://resources/inventory/core/item.gd" id="1_xaxv3"]
+[ext_resource type="Texture2D" uid="uid://dnhqlgubl8dhm" path="res://assets/items/school/full_bucket.png" id="2_u4d3a"]
+
+[resource]
+script = ExtResource("1_xaxv3")
+name = "full_bucket"
+texture = ExtResource("2_u4d3a")
+properties = {}
