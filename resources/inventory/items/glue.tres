@@ -8,5 +8,5 @@ script = ExtResource("1_h2ksj")
 name = "glue"
 texture = ExtResource("2_m1dqk")
 properties = {
-"Desc": "null"
+"description": "notimplemetnded"
 }

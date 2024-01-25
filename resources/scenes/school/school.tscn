@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=10 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://01gxr061t1fn" path="res://resources/prefabs/items/pen.tscn" id="3_sq132"]
 [ext_resource type="PackedScene" uid="uid://c5hyik7rvdob8" path="res://resources/prefabs/inventory_containers/shelf.tscn" id="4_4qlfo"]
 [ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="4_wa1p7"]
+[ext_resource type="PackedScene" uid="uid://b1hd4nkr7kiss" path="res://resources/prefabs/inventory_containers/drawer.tscn" id="9_wptoe"]
 [ext_resource type="PackedScene" uid="uid://dk2lyg0xr12oq" path="res://resources/prefabs/items/money.tscn" id="13_qp3pa"]
 
 [node name="School" type="Node2D"]
@@ -67,6 +68,9 @@ inventory = ExtResource("4_wa1p7")
 
 [node name="money" parent="." instance=ExtResource("13_qp3pa")]
 position = Vector2(143, 55)
+
+[node name="drawer" parent="." instance=ExtResource("9_wptoe")]
+position = Vector2(529, 229)
 
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]

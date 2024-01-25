@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://oc1kwrojfgov" path="res://assets/chestes/shelf.png" id="2_o6o3c"]
 [ext_resource type="Script" path="res://resources/prefabs/inventory_containers/ShelfChest.gd" id="2_x3jug"]
 [ext_resource type="Resource" uid="uid://bcm5y471iyl7d" path="res://resources/inventory/items/money.tres" id="3_k4v04"]
-[ext_resource type="Script" path="res://resources/prefabs/inventory_containers/Shelf.gd" id="4_ebt06"]
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="5_jfo6e"]
+[ext_resource type="Script" path="res://resources/prefabs/inventory_containers/shelf.gd" id="6_ar8os"]
 [ext_resource type="AudioStream" uid="uid://bud6af6rinlg5" path="res://assets/kenney_rpgaudio/Audio/doorOpen_2.ogg" id="7_sym4y"]
 [ext_resource type="AudioStream" uid="uid://dpv27rh7ob5j8" path="res://assets/kenney_rpgaudio/Audio/doorClose_4.ogg" id="8_w67xc"]
 
@@ -29,7 +29,7 @@ inventory = SubResource("Resource_x1qn5")
 [node name="Sprite2D" parent="ChestContainer" index="0"]
 texture = ExtResource("2_o6o3c")
 hframes = 2
-script = ExtResource("4_ebt06")
+script = ExtResource("6_ar8os")
 
 [node name="CollisionShape2D" parent="ChestContainer" index="1"]
 position = Vector2(0, -1.92753)
