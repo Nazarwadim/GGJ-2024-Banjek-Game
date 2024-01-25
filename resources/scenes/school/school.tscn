@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=12 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://01gxr061t1fn" path="res://resources/prefabs/items/pen.tscn" id="3_sq132"]
 [ext_resource type="PackedScene" uid="uid://c5hyik7rvdob8" path="res://resources/prefabs/inventory_containers/shelf.tscn" id="4_4qlfo"]
 [ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="4_wa1p7"]
-[ext_resource type="PackedScene" uid="uid://u8uy0twkt6ji" path="res://resources/prefabs/area_using_item_containers/glue_black_chair.tscn" id="5_nwrxo"]
+[ext_resource type="PackedScene" uid="uid://dmxatu2p38w4w" path="res://resources/prefabs/area_using_item_containers/glue_black_chair.tscn" id="5_nwrxo"]
 [ext_resource type="PackedScene" uid="uid://b1hd4nkr7kiss" path="res://resources/prefabs/inventory_containers/drawer.tscn" id="9_wptoe"]
+[ext_resource type="PackedScene" uid="uid://bomul6chpk44g" path="res://resources/prefabs/items/glue.tscn" id="11_m5nma"]
 [ext_resource type="PackedScene" uid="uid://dk2lyg0xr12oq" path="res://resources/prefabs/items/money.tscn" id="13_qp3pa"]
 
 [node name="School" type="Node2D"]
@@ -52,7 +53,13 @@ position = Vector2(294, 200)
 metadata/_edit_lock_ = true
 
 [node name="glue_black_chair" parent="UsingAreas" instance=ExtResource("5_nwrxo")]
-position = Vector2(38, 53)
+position = Vector2(-112, 272)
+
+[node name="glue_black_chair2" parent="UsingAreas" instance=ExtResource("5_nwrxo")]
+position = Vector2(432, 272)
+
+[node name="glue_black_chair3" parent="UsingAreas" instance=ExtResource("5_nwrxo")]
+position = Vector2(976, 272)
 
 [node name="Doors" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -75,6 +82,12 @@ position = Vector2(143, 55)
 
 [node name="drawer" parent="." instance=ExtResource("9_wptoe")]
 position = Vector2(529, 229)
+
+[node name="glue" parent="." instance=ExtResource("11_m5nma")]
+position = Vector2(97, 42)
+
+[node name="glue_black_chair" parent="." instance=ExtResource("5_nwrxo")]
+position = Vector2(46, 38)
 
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]

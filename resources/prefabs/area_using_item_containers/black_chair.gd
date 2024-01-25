@@ -2,9 +2,9 @@ extends Sprite2D
 
 @onready var sprite : Sprite2D = $"."
 
-func _on_glue_black_chair_used():
-	sprite.frame = 1
-
-
-func _on_glue_black_chair_fixed():
+func _on_area_using_item_container_fixed():
 	sprite.frame = 0
+
+
+func _on_area_using_item_container_used():
+	sprite.frame = 1

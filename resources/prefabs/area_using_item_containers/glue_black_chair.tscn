@@ -1,24 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://u8uy0twkt6ji"]
+[gd_scene load_steps=7 format=3 uid="uid://dmxatu2p38w4w"]
 
 [ext_resource type="PackedScene" uid="uid://vd5yb4smm72s" path="res://resources/prefabs/area_using_item_containers/area_using_item_container.tscn" id="1_t16m5"]
 [ext_resource type="Resource" uid="uid://2tqkhux857ep" path="res://resources/inventory/items/glue.tres" id="2_fr3ue"]
 [ext_resource type="Texture2D" uid="uid://buo6iiiawlpxy" path="res://assets/decorations/black_chair.png" id="3_6b2vo"]
 [ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/black_chair.gd" id="4_2qk82"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri0bg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfbm3"]
 size = Vector2(27, 32)
 
-[node name="glue_black_chair" instance=ExtResource("1_t16m5")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20i7o"]
+size = Vector2(21, 7.5)
+
+[node name="glue_black_chair" type="StaticBody2D"]
+
+[node name="AreaUsingItemContainer" parent="." instance=ExtResource("1_t16m5")]
 item_can_use = ExtResource("2_fr3ue")
+time_to_use_ms = 800
 
-[node name="CollisionShape2D" parent="." index="0"]
+[node name="CollisionShape2D" parent="AreaUsingItemContainer" index="0"]
 position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_ri0bg")
+shape = SubResource("RectangleShape2D_rfbm3")
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="AreaUsingItemContainer" index="1"]
 texture = ExtResource("3_6b2vo")
 hframes = 2
 script = ExtResource("4_2qk82")
 
-[connection signal="fixed" from="." to="Sprite2D" method="_on_glue_black_chair_fixed"]
-[connection signal="used" from="." to="Sprite2D" method="_on_glue_black_chair_used"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 4.75)
+shape = SubResource("RectangleShape2D_20i7o")
+
+[connection signal="fixed" from="AreaUsingItemContainer" to="AreaUsingItemContainer/Sprite2D" method="_on_area_using_item_container_fixed"]
+[connection signal="used" from="AreaUsingItemContainer" to="AreaUsingItemContainer/Sprite2D" method="_on_area_using_item_container_used"]
+
+[editable path="AreaUsingItemContainer"]
