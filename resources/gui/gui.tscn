@@ -8,13 +8,29 @@
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="MainChestInventory" parent="." instance=ExtResource("1_vobyk")]
+anchors_preset = -1
+anchor_left = 0.348
+anchor_top = 0.081
+anchor_right = 0.946
+anchor_bottom = 1.0
+offset_left = 260.92
+offset_top = 132.26
+offset_right = -313.16
+offset_bottom = -364.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HotBar" parent="." instance=ExtResource("2_u2dv8")]
 modulate = Color(1, 1, 1, 0.921569)
-offset_left = 303.0
-offset_top = 418.0
-offset_right = -657.0
-offset_bottom = -122.0
+anchors_preset = -1
+anchor_left = 0.295
+anchor_top = 0.781
+anchor_right = 0.71
+anchor_bottom = 0.974
+offset_left = 11.8
+offset_top = 0.259979
+offset_right = -386.6
+offset_bottom = -103.96
 
 [node name="ItemMover" type="Control" parent="." node_paths=PackedStringArray("main_chest_inventory_ui", "hot_bar")]
 layout_mode = 3

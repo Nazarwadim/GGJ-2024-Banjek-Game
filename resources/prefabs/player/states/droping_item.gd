@@ -9,8 +9,7 @@ func on_enter() -> void:
 	player.velocity = Vector2.ZERO
 	
 func _set_up_animation_parameters() -> void:
-	var velocity = player.velocity.normalized()
-	velocity.y = - velocity.y
+	var velocity = player.animation_tree.get("parameters/Idle/blend_position")
 	player.animation_tree.set("parameters/UsingItem/blend_position", velocity)
 	player.animation_tree.get("parameters/playback").travel("UsingItem")
 

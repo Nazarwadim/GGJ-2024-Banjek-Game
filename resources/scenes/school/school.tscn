@@ -26,7 +26,6 @@ y_sort_enabled = true
 [node name="SchoolTileMap" parent="." instance=ExtResource("1_sm8qs")]
 
 [node name="Items" type="Node2D" parent="."]
-z_index = 1
 
 [node name="Chests" type="Node2D" parent="."]
 z_index = 1
