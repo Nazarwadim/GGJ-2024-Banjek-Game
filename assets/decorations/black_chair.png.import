@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhajkwo2gfghc"
-path="res://.godot/imported/shelf1.png-175fff211c6119709d42263f571fba04.ctex"
+uid="uid://buo6iiiawlpxy"
+path="res://.godot/imported/black_chair.png-e9b8932ef6034f30083000e251bc4d3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chestes/shelf1.png"
-dest_files=["res://.godot/imported/shelf1.png-175fff211c6119709d42263f571fba04.ctex"]
+source_file="res://assets/decorations/black_chair.png"
+dest_files=["res://.godot/imported/black_chair.png-e9b8932ef6034f30083000e251bc4d3b.ctex"]
 
 [params]
 

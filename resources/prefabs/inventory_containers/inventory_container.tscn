@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://chng2f8ogrb54"]
+
+[ext_resource type="Script" path="res://resources/inventory/scripts/inventory2d/inventory_container.gd" id="1_gl3w0"]
+
+[node name="InventoryContainer" type="StaticBody2D"]
+position = Vector2(240, 11)
+
+[node name="ChestContainer" type="Area2D" parent="." groups=["chest_containers"]]
+script = ExtResource("1_gl3w0")
+
+[node name="Sprite2D" type="Sprite2D" parent="ChestContainer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChestContainer"]
+position = Vector2(0.5, -1.63443)
+debug_color = Color(0, 0.658824, 0.14902, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+debug_color = Color(0, 0.6, 0.701961, 0.705882)
+
+[node name="Sounds" type="Node" parent="."]
