@@ -9,6 +9,7 @@
 radius = 16.0312
 
 [node name="Apple" instance=ExtResource("1_7jpym")]
+scale = Vector2(0.320001, 0.320001)
 item = ExtResource("2_ub2p3")
 
 [node name="CollisionShape2D" parent="." index="0"]

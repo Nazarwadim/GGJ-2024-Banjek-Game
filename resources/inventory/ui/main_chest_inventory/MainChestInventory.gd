@@ -50,7 +50,7 @@ func _set_outline_by_index(index:int) -> void:
 			var slot_before := grid_container.get_child(_current_slot_index)
 			slot_before.disable_outline()
 
-func _on_player_inventory_opened(inventory_):
+func _on_player_inventory_opened(inventory_:Inventory):
 	open_inventory(inventory_)
 
 func _on_player_inventory_closed():

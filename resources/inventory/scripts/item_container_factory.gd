@@ -14,7 +14,7 @@ func get_item(item_name:String) -> Node:
 			if _has_ItemContainer_node_in_scene(item_node):
 				return item_node
 			
-	push_error("Can`t create object on name:" + item_name + ". Сould you forget to add scene which item is " + item_name)	
+	push_error("Can`t create object on name \"" + item_name + "\". Сould you forget to add scene which item is " + item_name)	
 	return null
 
 func _has_ItemContainer_node_in_scene(item_node) -> bool:
@@ -22,7 +22,7 @@ func _has_ItemContainer_node_in_scene(item_node) -> bool:
 	if item == null:
 		return false
 	if item.item == null:
-		push_error("item container scene has not defined item")
+		push_error("in item_container scene has no defined item. Set it in scene")
 		return false	
 	return true
 	

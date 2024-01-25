@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ovbs8p5ih66g"]
+
+[ext_resource type="PackedScene" uid="uid://b8fovaesjaw4s" path="res://resources/inventory/ui/main_chest_inventory/main_chest_inventory.tscn" id="1_vobyk"]
+[ext_resource type="PackedScene" uid="uid://da63d4xi31igy" path="res://resources/inventory/ui/hotbar/hot_bar.tscn" id="2_u2dv8"]
+[ext_resource type="Script" path="res://resources/inventory/scripts/item_mover.gd" id="4_2ijyq"]
+[ext_resource type="AudioStream" uid="uid://bjmncgvusi3md" path="res://assets/kenney_rpgaudio/Audio/drawKnife1.ogg" id="5_7mbqj"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="MainChestInventory" parent="." instance=ExtResource("1_vobyk")]
+
+[node name="HotBar" parent="." instance=ExtResource("2_u2dv8")]
+modulate = Color(1, 1, 1, 0.921569)
+offset_left = 303.0
+offset_top = 418.0
+offset_right = -657.0
+offset_bottom = -122.0
+
+[node name="ItemMover" type="Control" parent="." node_paths=PackedStringArray("main_chest_inventory_ui", "hot_bar")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_2ijyq")
+main_chest_inventory_ui = NodePath("../MainChestInventory")
+hot_bar = NodePath("../HotBar")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7mbqj")
+pitch_scale = 2.01
+
+[connection signal="current_slot_changed" from="MainChestInventory" to="AudioStreamPlayer" method="play"]
+[connection signal="select_double_clicked" from="MainChestInventory" to="ItemMover" method="_on_main_chest_inventory_select_double_clicked"]
+[connection signal="current_slot_changed" from="HotBar" to="AudioStreamPlayer" method="play"]
+[connection signal="select_double_clicked" from="HotBar" to="ItemMover" method="_on_hot_bar_select_double_clicked"]

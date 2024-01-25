@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://c482u4huelhlb"]
+
+[ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
+[ext_resource type="Script" path="res://resources/inventory/scripts/inventory2d/inventory_container.gd" id="2_vcldu"]
+[ext_resource type="PackedScene" uid="uid://dk7b344a2x21x" path="res://resources/prefabs/player/player.tscn" id="2_vmcjx"]
+[ext_resource type="PackedScene" uid="uid://ovbs8p5ih66g" path="res://resources/gui/gui.tscn" id="3_q6pyy"]
+[ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="3_wtl5v"]
+[ext_resource type="Resource" uid="uid://b8bhkecems0nc" path="res://resources/inventory/items/apple.tres" id="4_b82ab"]
+[ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="4_wa1p7"]
+[ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="5_vuybt"]
+[ext_resource type="Texture2D" uid="uid://cmdbs58pradck" path="res://icon.svg" id="6_avso2"]
+
+[sub_resource type="Resource" id="Resource_nha46"]
+script = ExtResource("5_vuybt")
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("3_wtl5v"), ExtResource("4_b82ab"), ExtResource("4_b82ab"), ExtResource("3_wtl5v"), ExtResource("4_b82ab"), ExtResource("3_wtl5v"), null, ExtResource("4_b82ab"), null, null, ExtResource("3_wtl5v"), ExtResource("3_wtl5v")])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wck3q"]
+size = Vector2(125, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1jdy"]
+size = Vector2(24, 17)
+
+[node name="School" type="Node2D"]
+y_sort_enabled = true
+
+[node name="SchoolTileMap" parent="." instance=ExtResource("1_sm8qs")]
+
+[node name="Items" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Chests" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, 5)
+
+[node name="Chest1" type="StaticBody2D" parent="Chests"]
+position = Vector2(260, 15)
+
+[node name="ChestContainer" type="Area2D" parent="Chests/Chest1"]
+scale = Vector2(0.195343, 0.252889)
+script = ExtResource("2_vcldu")
+inventory = SubResource("Resource_nha46")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest1/ChestContainer"]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_wck3q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Chests/Chest1/ChestContainer"]
+modulate = Color(1, 0, 1, 1)
+texture = ExtResource("6_avso2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest1"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_l1jdy")
+debug_color = Color(0, 0.6, 0.701961, 0.705882)
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Player" parent="." node_paths=PackedStringArray("items_spawn_node") instance=ExtResource("2_vmcjx")]
+z_index = 1
+position = Vector2(114, 12)
+items_spawn_node = NodePath("../Items")
+debug_print_states = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_q6pyy")]
+
+[node name="HotBar" parent="CanvasLayer" index="1"]
+inventory = ExtResource("4_wa1p7")
+
+[connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
+[connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]
+[connection signal="item_droped" from="Player" to="CanvasLayer/HotBar" method="update_inventory"]
+[connection signal="item_picked" from="Player" to="CanvasLayer/HotBar" method="update_inventory"]
+[connection signal="item_used" from="Player" to="CanvasLayer/HotBar" method="update_inventory"]
+[connection signal="current_slot_changed" from="CanvasLayer/HotBar" to="Player" method="_on_hot_bar_current_slot_changed"]
+
+[editable path="CanvasLayer"]

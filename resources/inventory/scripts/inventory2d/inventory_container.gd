@@ -7,5 +7,4 @@ signal inventory_closed
 @export var inventory:Inventory
 
 func _ready():
-	
 	monitoring = false

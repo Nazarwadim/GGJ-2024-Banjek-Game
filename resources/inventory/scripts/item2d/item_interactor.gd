@@ -6,7 +6,12 @@ signal item_container_area_exited
 @export var collision_mask_overide = 2
 @export var collision_layer_overide = 2
 
-var entering_item:ItemContainer = null
+func get_overlapping_item_containers() ->Array:
+	var array := Array()
+	for area in get_overlapping_areas():
+		if area is ItemContainer:
+			array.push_back(area)
+	return array
 
 func _ready():
 	collision_mask = collision_mask_overide
@@ -18,9 +23,7 @@ func _ready():
 func _on_area_entered(area):
 	if area is ItemContainer:
 		item_container_area_entered.emit(area)
-		entering_item = area
 
 func _on_area_exited(area):
 	if area is ItemContainer:
 		item_container_area_exited.emit()
-		entering_item = null
