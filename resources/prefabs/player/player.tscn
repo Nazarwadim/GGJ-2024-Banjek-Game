@@ -14,8 +14,8 @@
 [ext_resource type="Script" path="res://resources/prefabs/player/states/picking_item.gd" id="11_ec5ov"]
 [ext_resource type="Script" path="res://resources/prefabs/player/states/droping_item.gd" id="12_rl3wk"]
 [ext_resource type="Script" path="res://resources/prefabs/player/states/interacting_inventory.gd" id="13_g6y38"]
-[ext_resource type="Resource" uid="uid://bcfrwrwlc6bdg" path="res://resources/prefabs/player/item_container_factory.tres" id="14_nnpli"]
 [ext_resource type="Script" path="res://resources/prefabs/player/states/start.gd" id="14_teymv"]
+[ext_resource type="Resource" uid="uid://bcfrwrwlc6bdg" path="res://resources/factories/item_container_factory.tres" id="15_6preg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0tbx"]
 radius = 7.0
@@ -359,8 +359,9 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="CircleShape2D" id="CircleShape2D_8da47"]
 radius = 4.12311
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1255f"]
-radius = 27.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yhefg"]
+radius = 20.0
+height = 58.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 3
@@ -389,7 +390,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_eotk4")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0.0180413, -0.633093)
-parameters/UsingItem/blend_position = Vector2(-0.0206186, 0.330935)
+parameters/UsingItem/blend_position = Vector2(-0.00127715, 0.273381)
 parameters/Walk/blend_position = Vector2(-0.0412371, -0.316547)
 
 [node name="InventoryContainer" type="Area2D" parent="."]
@@ -407,21 +408,24 @@ debug_color = Color(0.223529, 0.509804, 1, 0.721569)
 script = ExtResource("4_g76hd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryInteractor"]
-shape = SubResource("CircleShape2D_1255f")
-debug_color = Color(0.921569, 0.6, 0.701961, 0.0470588)
-
-[node name="AreaUsingItemDetector" type="Area2D" parent="."]
-script = ExtResource("6_3tjoa")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaUsingItemDetector"]
-shape = SubResource("CircleShape2D_1255f")
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_yhefg")
 debug_color = Color(0.921569, 0.6, 0.701961, 0.0470588)
 
 [node name="ItemInteractor" type="Area2D" parent="."]
 script = ExtResource("6_32swi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemInteractor"]
-shape = SubResource("CircleShape2D_1255f")
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_yhefg")
+debug_color = Color(0.921569, 0.6, 0.701961, 0.0470588)
+
+[node name="AreaUsingItemDetector" type="Area2D" parent="."]
+script = ExtResource("6_3tjoa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaUsingItemDetector"]
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_yhefg")
 debug_color = Color(0.921569, 0.6, 0.701961, 0.0470588)
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
@@ -431,11 +435,12 @@ current_state = NodePath("Start")
 [node name="Start" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("14_teymv")
 
-[node name="Idle" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_interactor", "item_interactor", "inventory_container", "player")]
+[node name="Idle" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_interactor", "item_interactor", "inventory_container", "area_using_item_detector", "player")]
 script = ExtResource("8_oju8f")
 inventory_interactor = NodePath("../../InventoryInteractor")
 item_interactor = NodePath("../../ItemInteractor")
 inventory_container = NodePath("../../InventoryContainer")
+area_using_item_detector = NodePath("../../AreaUsingItemDetector")
 player = NodePath("../..")
 
 [node name="Walk" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_interactor", "item_interactor", "inventory_container", "player")]
@@ -445,9 +450,14 @@ item_interactor = NodePath("../../ItemInteractor")
 inventory_container = NodePath("../../InventoryContainer")
 player = NodePath("../..")
 
-[node name="UsingItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+[node name="UsingItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("area_using_item_detector", "inventory_container", "player")]
 script = ExtResource("10_vtslu")
+area_using_item_detector = NodePath("../../AreaUsingItemDetector")
+inventory_container = NodePath("../../InventoryContainer")
 player = NodePath("../..")
+
+[node name="AnimationSwitchTimer" type="Timer" parent="FiniteStateMachine/UsingItem"]
+wait_time = 0.6
 
 [node name="PickingUpItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_container", "item_interactor", "player")]
 script = ExtResource("11_ec5ov")
@@ -457,7 +467,7 @@ player = NodePath("../..")
 
 [node name="DropingItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_container", "player")]
 script = ExtResource("12_rl3wk")
-item_container_factory = ExtResource("14_nnpli")
+item_container_factory = ExtResource("15_6preg")
 inventory_container = NodePath("../../InventoryContainer")
 player = NodePath("../..")
 

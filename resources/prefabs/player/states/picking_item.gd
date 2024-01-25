@@ -3,7 +3,8 @@ extends PlayerBaseState
 @export var inventory_container:InventoryContainer
 @export var item_interactor:ItemInteractor
 
-var _vector_to_item:Vector2
+var _vector_to_item:Vector2 = Vector2.ZERO
+
 func on_enter() -> void:
 	player.velocity = Vector2.ZERO
 	var item = item_interactor.get_first_overlapping_item_container()

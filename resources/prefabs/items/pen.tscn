@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://01gxr061t1fn"]
+
+[ext_resource type="PackedScene" uid="uid://c1ku1ohtr5nvt" path="res://resources/prefabs/items/base_item_container.tscn" id="1_fwer8"]
+[ext_resource type="Resource" uid="uid://b2bx77ek5le0p" path="res://resources/inventory/items/pen.tres" id="2_4gsis"]
+[ext_resource type="Material" uid="uid://ca4q61upesk86" path="res://resources/materials/item_shader_matedial.tres" id="3_hksqr"]
+[ext_resource type="Texture2D" uid="uid://bjmy5bodlx604" path="res://assets/items/school/pen.png" id="4_5mrbb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eiekl"]
+radius = 7.05711
+height = 42.3427
+
+[node name="Pen" instance=ExtResource("1_fwer8")]
+scale = Vector2(0.3, 0.3)
+item = ExtResource("2_4gsis")
+
+[node name="CollisionShape2D" parent="." index="0"]
+rotation = 0.84823
+shape = SubResource("CapsuleShape2D_eiekl")
+
+[node name="Sprite2D" parent="." index="1"]
+material = ExtResource("3_hksqr")
+texture = ExtResource("4_5mrbb")

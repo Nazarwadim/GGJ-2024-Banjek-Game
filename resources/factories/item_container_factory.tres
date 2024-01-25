@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemContainerFactory" load_steps=5 format=3 uid="uid://bcfrwrwlc6bdg"]
+
+[ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="1_7sxhp"]
+[ext_resource type="PackedScene" uid="uid://8tcvi55nfakb" path="res://resources/prefabs/items/bacon.tscn" id="2_5t36d"]
+[ext_resource type="PackedScene" uid="uid://01gxr061t1fn" path="res://resources/prefabs/items/pen.tscn" id="3_b4xa7"]
+[ext_resource type="Script" path="res://resources/inventory/scripts/item_container_factory.gd" id="3_tpy1r"]
+
+[resource]
+script = ExtResource("3_tpy1r")
+item_containers = Array[PackedScene]([ExtResource("1_7sxhp"), ExtResource("2_5t36d"), ExtResource("3_b4xa7")])

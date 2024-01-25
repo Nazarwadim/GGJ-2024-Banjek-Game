@@ -4,7 +4,7 @@ extends PlayerBaseState
 @export var item_interactor:ItemInteractor
 @export var inventory_container:InventoryContainer
 
-@onready var _interaction_state_checker = preload("res://resources/prefabs/player/states/scripts/interaction_checker.gd").new(self)
+var _interaction_state_checker = preload("res://resources/prefabs/player/states/scripts/interaction_checker.gd").new(self)
 var _player_direction:Vector2
 
 func _ready():
