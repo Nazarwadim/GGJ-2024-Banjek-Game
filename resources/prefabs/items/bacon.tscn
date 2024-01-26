@@ -6,8 +6,8 @@
 [ext_resource type="Material" uid="uid://ca4q61upesk86" path="res://resources/materials/item_shader_matedial.tres" id="3_cforr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oqvaa"]
-radius = 6.69732
-height = 57.507
+radius = 11.1622
+height = 66.9732
 
 [node name="Bacon" instance=ExtResource("1_jhwlx")]
 scale = Vector2(0.2, 0.2)

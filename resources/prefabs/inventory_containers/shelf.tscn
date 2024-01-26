@@ -8,10 +8,10 @@
 [ext_resource type="AudioStream" uid="uid://dpv27rh7ob5j8" path="res://assets/kenney_rpgaudio/Audio/doorClose_4.ogg" id="8_w67xc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqyk4"]
-size = Vector2(30, 24.6723)
+size = Vector2(40, 48.5736)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbi38"]
-size = Vector2(42, 44)
+size = Vector2(33, 50)
 
 [node name="Shelf" instance=ExtResource("1_l08st")]
 
@@ -25,10 +25,11 @@ hframes = 2
 script = ExtResource("6_ar8os")
 
 [node name="CollisionShape2D" parent="ChestContainer" index="1"]
-position = Vector2(-2, -11.5652)
+position = Vector2(0, -3.46954)
 shape = SubResource("RectangleShape2D_dqyk4")
 
 [node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_pbi38")
 
 [node name="Open" type="AudioStreamPlayer" parent="Sounds" index="0"]

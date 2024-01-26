@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bjmy5bodlx604" path="res://assets/items/school/pen.png" id="4_5mrbb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eiekl"]
-radius = 7.05711
-height = 42.3427
+radius = 9.40949
+height = 52.0482
 
 [node name="Pen" instance=ExtResource("1_fwer8")]
 scale = Vector2(0.3, 0.3)

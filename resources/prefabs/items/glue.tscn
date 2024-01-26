@@ -6,14 +6,15 @@
 [ext_resource type="Material" uid="uid://ca4q61upesk86" path="res://resources/materials/item_shader_matedial.tres" id="3_jmacb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iso8x"]
-size = Vector2(10, 19)
+size = Vector2(15, 25)
 
 [node name="glue" instance=ExtResource("1_28ja6")]
 scale = Vector2(0.4, 0.4)
 item = ExtResource("2_pkqeu")
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(0, 0.5)
+position = Vector2(8.19564e-07, 5.96046e-07)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_iso8x")
 
 [node name="Sprite2D" parent="." index="1"]
