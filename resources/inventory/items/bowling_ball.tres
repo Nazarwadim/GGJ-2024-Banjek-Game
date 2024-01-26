@@ -7,4 +7,6 @@
 script = ExtResource("1_dorkb")
 name = "bowling_ball"
 texture = ExtResource("2_ma4mg")
-properties = {}
+properties = {
+"description": "notimplemetnded"
+}

@@ -7,4 +7,6 @@
 script = ExtResource("1_x2g1i")
 name = "perry"
 texture = ExtResource("2_3aohw")
-properties = {}
+properties = {
+"description": "notimplemetnded"
+}
