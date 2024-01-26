@@ -6,10 +6,10 @@
 [ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/black_chair.gd" id="4_2qk82"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfbm3"]
-size = Vector2(27, 32)
+size = Vector2(36, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20i7o"]
-size = Vector2(21, 7.5)
+size = Vector2(27, 10)
 
 [node name="glue_black_chair" type="StaticBody2D"]
 z_index = 1
@@ -21,7 +21,7 @@ item_can_use = ExtResource("2_fr3ue")
 time_to_use_ms = 5000
 
 [node name="CollisionShape2D" parent="AreaUsingItemContainer" index="0"]
-position = Vector2(-0.5, 0)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_rfbm3")
 
 [node name="Sprite2D" parent="AreaUsingItemContainer" index="1"]
@@ -30,7 +30,7 @@ hframes = 2
 script = ExtResource("4_2qk82")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 4.75)
+position = Vector2(-0.5, 6)
 shape = SubResource("RectangleShape2D_20i7o")
 
 [connection signal="fixed" from="AreaUsingItemContainer" to="AreaUsingItemContainer/Sprite2D" method="_on_area_using_item_container_fixed"]
