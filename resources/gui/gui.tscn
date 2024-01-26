@@ -47,14 +47,12 @@ hot_bar = NodePath("../HotBar")
 stream = ExtResource("5_7mbqj")
 pitch_scale = 2.01
 
-[node name="MouseEnteredObjectObserver" parent="." node_paths=PackedStringArray("_hot_bar", "_player_mood_sprite") instance=ExtResource("5_rejgn")]
+[node name="MouseEnteredObjectObserver" parent="." instance=ExtResource("5_rejgn")]
 anchors_preset = 15
 offset_right = -960.0
 offset_bottom = -540.0
 grow_horizontal = 2
 grow_vertical = 2
-_hot_bar = NodePath("../HotBar")
-_player_mood_sprite = NodePath("../PlayerMood/PlayerMoodSprite")
 
 [node name="PlayerMood" type="Control" parent="."]
 layout_mode = 3
