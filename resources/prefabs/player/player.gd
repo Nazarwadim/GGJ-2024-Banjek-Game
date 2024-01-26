@@ -14,6 +14,11 @@ signal item_start_using(item_time_ms:int)
 signal item_using_interrupted
 signal item_used
 
+##NOT IMPLEMENTED!!!
+signal can_not_use_or
+##NOT IMPLEMENTED!!!
+signal can_not_interact
+
 func get_hot_bar_slot_index() -> int:
 	if _hot_bar == null:
 		push_error("set hot bar for player to get hot bar slot index")
