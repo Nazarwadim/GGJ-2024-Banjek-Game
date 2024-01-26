@@ -5,6 +5,7 @@ class_name Player
 @export var debug_print_states:bool
 @onready var animation_tree :AnimationTree= $AnimationTree
 @export var _hot_bar:Control
+@onready var gpu_particles_2d = $GPUParticles2D
 
 signal inventory_opened(inventory:Inventory)
 signal inventory_closed
