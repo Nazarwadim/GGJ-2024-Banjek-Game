@@ -37,7 +37,7 @@ func on_input(input:InputEvent):
 		if _can_switch_using_item_if_preased_interact(area_using_item):
 			change_state("UsingItem")
 		elif area_using_item != null:
-			var why := _get_player_error_can_not_use_if_area_using_item_null(area_using_item)
+			var why := _get_player_error_can_not_use_if_area_using_item_null()
 			player.can_not_use.emit(why) 
 	elif _can_switch_walk():
 		change_state("Walk")
@@ -55,7 +55,7 @@ func _can_switch_using_item_if_preased_interact(area_using_item) -> bool:
 		return false
 	return true
 	
-func _get_player_error_can_not_use_if_area_using_item_null(area_using_item) -> Player.ErrorCanNotUseItem:
+func _get_player_error_can_not_use_if_area_using_item_null() -> Player.ErrorCanNotUseItem:
 	var hot_bar_slot_index := player.get_hot_bar_slot_index()
 	if inventory_container.inventory.items[hot_bar_slot_index] == null:
 		return Player.ErrorCanNotUseItem.EmptyItemInHotBar
