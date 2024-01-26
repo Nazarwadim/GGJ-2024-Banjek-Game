@@ -463,6 +463,8 @@ player = NodePath("../..")
 [node name="AnimationSwitchTimer" type="Timer" parent="FiniteStateMachine/UsingItem"]
 wait_time = 0.6
 
+[node name="UsingItemTimer" type="Timer" parent="FiniteStateMachine/UsingItem"]
+
 [node name="PickingUpItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_container", "item_interactor", "player")]
 script = ExtResource("11_ec5ov")
 inventory_container = NodePath("../../InventoryContainer")

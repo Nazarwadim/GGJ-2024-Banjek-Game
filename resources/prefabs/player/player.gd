@@ -11,6 +11,7 @@ signal inventory_closed
 signal item_picked
 signal item_droped
 signal item_start_using(item_time_ms:int)
+signal item_using_interrupted
 signal item_used
 
 func get_hot_bar_slot_index() -> int:
