@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dk7b344a2x21x"]
+[gd_scene load_steps=58 format=3 uid="uid://dk7b344a2x21x"]
 
 [ext_resource type="Script" path="res://resources/prefabs/player/player.gd" id="1_qvpmr"]
 [ext_resource type="Texture2D" uid="uid://bs06pg4k8oj7k" path="res://assets/player/walk.png" id="2_5sanj"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" path="res://resources/prefabs/player/states/interacting_inventory.gd" id="13_g6y38"]
 [ext_resource type="Script" path="res://resources/prefabs/player/states/start.gd" id="14_teymv"]
 [ext_resource type="Resource" uid="uid://bcfrwrwlc6bdg" path="res://resources/factories/item_container_factory.tres" id="15_6preg"]
+[ext_resource type="Material" path="res://resources/materials/move_particles_materialtres.tres" id="17_8xqnd"]
+[ext_resource type="Texture2D" uid="uid://bijrpjcnnb4qe" path="res://assets/particles/particle.png" id="17_yrt5p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0tbx"]
 radius = 7.0
@@ -394,6 +396,15 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0.0180413, -0.633093)
 parameters/UsingItem/blend_position = Vector2(-0.00127715, 0.273381)
 parameters/Walk/blend_position = Vector2(-0.0412371, -0.316547)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(0, 9)
+emitting = false
+amount_ratio = 0.2
+process_material = ExtResource("17_8xqnd")
+texture = ExtResource("17_yrt5p")
+lifetime = 0.1
 
 [node name="InventoryContainer" type="Area2D" parent="."]
 collision_layer = 0

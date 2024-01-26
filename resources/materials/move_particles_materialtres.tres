@@ -1,0 +1,21 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://dru74ox1dg708"]
+
+[sub_resource type="Curve" id="Curve_uml6h"]
+_data = [Vector2(0, 0.501887), 0.0, 0.0, 0, 0, Vector2(0.502809, 0.501887), 0.0, 0.0, 0, 0, Vector2(0.514045, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_xowg4"]
+curve = SubResource("Curve_uml6h")
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 6.0
+angle_max = 360.0
+inherit_velocity_ratio = 0.34
+direction = Vector3(100, 0, 0)
+initial_velocity_min = 0.01
+initial_velocity_max = 6.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_xowg4")

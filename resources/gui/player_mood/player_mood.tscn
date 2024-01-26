@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8x075gacvsp8"]
+
+[ext_resource type="Script" path="res://resources/gui/player_mood/player_mood.gd" id="1_fpkhq"]
+[ext_resource type="Texture2D" uid="uid://dxomneantvxy3" path="res://assets/player/player_mood.png" id="2_o4k7s"]
+
+[node name="PlayerMood" type="Control"]
+layout_mode = 3
+anchor_left = 0.858
+anchor_right = 1.0
+anchor_bottom = 0.215
+offset_left = -823.68
+offset_right = -960.0
+offset_bottom = -116.1
+script = ExtResource("1_fpkhq")
+
+[node name="PlayerMoodSprite" type="Sprite2D" parent="."]
+position = Vector2(900, 56)
+scale = Vector2(3, 3)
+texture = ExtResource("2_o4k7s")
+hframes = 4
