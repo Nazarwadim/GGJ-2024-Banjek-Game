@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://56jj7k2t6jkd"]
+[gd_scene load_steps=19 format=3 uid="uid://56jj7k2t6jkd"]
 
 [ext_resource type="Script" path="res://resources/menu/menu.gd" id="1_vdpgn"]
 [ext_resource type="Texture2D" uid="uid://dl0adggaex81c" path="res://assets/menu/play_button.png" id="2_yyb8f"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://addons/simple-gui-transitions/transition.gd" id="7_fc2sl"]
 [ext_resource type="AudioStream" uid="uid://t078ukmvtun0" path="res://assets/menu/gear_rotate.mp3" id="7_fsaen"]
 [ext_resource type="AudioStream" uid="uid://nw1km1f0m1k0" path="res://assets/menu/gear_rotate_reverse.mp3" id="8_x71nm"]
+[ext_resource type="Texture2D" uid="uid://bs06pg4k8oj7k" path="res://assets/player/walk.png" id="10_mvhoq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x5evs"]
 bounce = 0.3
@@ -24,6 +25,55 @@ size = Vector2(37, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m827m"]
 size = Vector2(1020, 114)
+
+[sub_resource type="Animation" id="Animation_bat80"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_u64i4"]
+resource_name = "true_start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Walk:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-200, 247), Vector2(480, 237)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Walk:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 3, 5, 3, 4, 3, 5, 3, 4, 3, 5, 3, 4, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ogbb4"]
+_data = {
+"RESET": SubResource("Animation_bat80"),
+"true_start": SubResource("Animation_u64i4")
+}
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -152,6 +202,19 @@ delay = 0.1
 layout = NodePath("..")
 group = NodePath("..")
 
+[node name="true_start_animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ogbb4")
+}
+
+[node name="Walk" type="Sprite2D" parent="."]
+position = Vector2(-182, 225)
+scale = Vector2(3.02, 3.02)
+texture = ExtResource("10_mvhoq")
+hframes = 8
+vframes = 5
+frame = 4
+
 [connection signal="button_down" from="play_button_rigid_body/play_button" to="." method="_on_play_button_button_down"]
 [connection signal="button_up" from="play_button_rigid_body/play_button" to="." method="_on_play_button_button_up"]
 [connection signal="mouse_entered" from="play_button_rigid_body/play_button" to="." method="_on_play_button_mouse_entered"]
@@ -160,3 +223,4 @@ group = NodePath("..")
 [connection signal="mouse_entered" from="setting_button_rigid_body/setting_button" to="." method="_on_setting_button_mouse_entered"]
 [connection signal="mouse_exited" from="setting_button_rigid_body/setting_button" to="." method="_on_setting_button_mouse_exited"]
 [connection signal="pressed" from="setting_button_rigid_body/setting_button" to="." method="_on_setting_button_pressed"]
+[connection signal="animation_finished" from="true_start_animation" to="." method="_on_true_start_animation_animation_finished"]

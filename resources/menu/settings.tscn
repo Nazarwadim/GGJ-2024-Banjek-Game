@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://resources/menu/settings.gd" id="1_46u6e"]
 [ext_resource type="Script" path="res://addons/simple-gui-transitions/transition.gd" id="1_yrfbn"]
-[ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://assets/fonts/stanberry.ttf" id="3_b4th8"]
+[ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://resources/fonts/stanberry.ttf" id="3_b4th8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnv8j"]
 bg_color = Color(0.360784, 0.145098, 0.0196078, 0)

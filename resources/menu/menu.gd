@@ -17,6 +17,7 @@ enum DirrectionRotation
 var button_state : ButtonState
 var rotate_state : DirrectionRotation
 var rotate_sound_allow : bool
+@onready var true_start_animation = get_node("true_start_animation")
 
 @onready var play_button = $play_button_rigid_body
 @onready var setting_button = $setting_button_rigid_body
@@ -79,6 +80,9 @@ func _button_fall():
 func _scene_fall():
 	$border.freeze = false
 	setting_button.freeze = false
+	true_start_animation.set_current_animation("true_start")
+	
+
 
 func _on_setting_button_mouse_entered():
 	rotate_state = DirrectionRotation.RotateLeft
@@ -98,3 +102,9 @@ func print_function(message: String) -> void:
 func _on_setting_button_pressed():
 	var optional_callback := print_function.bind("Transition from Menu to Settings")
 	GuiTransitions.go_to("settings", optional_callback)
+
+
+func _on_true_start_animation_animation_finished(anim_name):
+	if(anim_name == "true_start"):
+		get_tree().change_scene_to_file("res://resources/scenes/school/school.tscn")
+		$Walk.position = Vector2(-182,225)
