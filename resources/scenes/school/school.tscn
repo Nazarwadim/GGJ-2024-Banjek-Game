@@ -83,7 +83,7 @@ position = Vector2(112, 41)
 position = Vector2(79, 42)
 
 [node name="Door" parent="." instance=ExtResource("12_hqphj")]
-position = Vector2(48, 196)
+position = Vector2(44, 195)
 
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]
