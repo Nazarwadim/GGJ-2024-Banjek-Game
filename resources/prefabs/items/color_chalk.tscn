@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://djbfkf0je41lc"]
+
+[ext_resource type="PackedScene" uid="uid://c1ku1ohtr5nvt" path="res://resources/prefabs/items/base_item_container.tscn" id="1_jsikk"]
+[ext_resource type="Resource" uid="uid://bogvm6g5j246" path="res://resources/inventory/items/color_chalk.tres" id="2_f0ygo"]
+[ext_resource type="Texture2D" uid="uid://b67d1uig11t" path="res://assets/items/school/Color Chalk.png" id="3_fu8ix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_manxm"]
+size = Vector2(37, 36)
+
+[node name="Color Chalk" instance=ExtResource("1_jsikk")]
+item = ExtResource("2_f0ygo")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_manxm")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_fu8ix")
