@@ -4,10 +4,14 @@ extends Control
 @export var hot_bar:Control
 
 # Mood priorities:
-# Can`t use -> highest priority
-# Can use
-# Tips
-# standart nothing
+# Can`t use -> highest priority = 0
+# Can use = 1
+# Tip = 2
+# standart nothing = 3
+
+var _area_using_item_containers:Array[CollisionObject2D] = []
+var _chest_containers:Array[CollisionObject2D] = []
+var _items:Array[CollisionObject2D] = []
 
 func _on_item_ui_mouse_entered() -> void:
 	pass
