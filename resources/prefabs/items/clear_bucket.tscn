@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dcwju7ywmbw2l" path="res://assets/items/school/clear_bucket.png" id="3_s2iv3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dphhq"]
-size = Vector2(18, 20)
+size = Vector2(23, 25)
 
 [node name="clear_bucket" instance=ExtResource("1_6y5f7")]
 scale = Vector2(2, 2)

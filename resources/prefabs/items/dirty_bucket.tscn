@@ -6,14 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://bcfqxwksjdlo8" path="res://assets/items/school/dirty_bucket.png" id="3_olx8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hivay"]
-size = Vector2(18, 19.5)
+size = Vector2(22, 25)
 
 [node name="dirty_bucket" instance=ExtResource("1_n3n0c")]
 scale = Vector2(2, 2)
 item = ExtResource("2_3i4fa")
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(0, 0.25)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_hivay")
 
 [node name="Sprite2D" parent="." index="1"]

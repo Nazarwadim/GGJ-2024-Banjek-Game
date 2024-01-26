@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=36 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
@@ -17,8 +17,15 @@
 [ext_resource type="PackedScene" uid="uid://b1hd4nkr7kiss" path="res://resources/prefabs/inventory_containers/drawer.tscn" id="9_wptoe"]
 [ext_resource type="Resource" uid="uid://c1o01kf6ayp6s" path="res://resources/inventory/items/clear_bucket.tres" id="11_df6qp"]
 [ext_resource type="PackedScene" uid="uid://bomul6chpk44g" path="res://resources/prefabs/items/glue.tscn" id="11_m5nma"]
+[ext_resource type="Resource" uid="uid://bogvm6g5j246" path="res://resources/inventory/items/color_chalk.tres" id="12_oiceu"]
 [ext_resource type="Resource" uid="uid://dnqkm8ftdo4hy" path="res://resources/inventory/items/full_bucket.tres" id="13_k5rh3"]
+[ext_resource type="Resource" uid="uid://cerjd215pbeae" path="res://resources/inventory/items/scissors.tres" id="13_lbpvh"]
 [ext_resource type="PackedScene" uid="uid://dk2lyg0xr12oq" path="res://resources/prefabs/items/money.tscn" id="13_qp3pa"]
+[ext_resource type="Resource" uid="uid://ybxk6ypoimub" path="res://resources/inventory/items/saw.tres" id="14_8a87r"]
+[ext_resource type="Resource" uid="uid://dxfkn5rv12ww7" path="res://resources/inventory/items/dirty_bucket.tres" id="15_qaeew"]
+[ext_resource type="Resource" uid="uid://ctwyhh44hkin" path="res://resources/inventory/items/perry.tres" id="18_nw4lu"]
+[ext_resource type="Texture2D" uid="uid://dsp6qf8k0b4mj" path="res://assets/items/school/sink.png" id="20_xifl2"]
+[ext_resource type="Texture2D" uid="uid://bchuxg1viym0d" path="res://assets/items/school/director_flower.png" id="21_eq2vd"]
 
 [sub_resource type="Resource" id="Resource_tef4i"]
 script = ExtResource("6_wjxho")
@@ -38,11 +45,11 @@ items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("
 
 [sub_resource type="Resource" id="Resource_idy6h"]
 script = ExtResource("6_wjxho")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([null, null, null, null, null, null, null, null, null, null])
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("12_oiceu"), ExtResource("13_lbpvh"), ExtResource("5_dfk1w"), ExtResource("5_dfk1w"), null, null, null, null, null, null])
 
 [sub_resource type="Resource" id="Resource_ntnan"]
 script = ExtResource("6_wjxho")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([null, null, null, null, null, null, null, null, null, null])
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("14_8a87r"), ExtResource("15_qaeew"), ExtResource("6_a2i64"), ExtResource("9_v6ayq"), null, null, null, null, null, null])
 
 [sub_resource type="Resource" id="Resource_6w68g"]
 script = ExtResource("6_wjxho")
@@ -54,12 +61,13 @@ items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("
 
 [sub_resource type="Resource" id="Resource_y3l1r"]
 script = ExtResource("6_wjxho")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_nvcen"), ExtResource("9_v6ayq"), ExtResource("9_v6ayq"), ExtResource("5_nvcen"), ExtResource("13_k5rh3"), null])
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_nvcen"), ExtResource("9_v6ayq"), ExtResource("5_nvcen"), ExtResource("13_k5rh3"), ExtResource("18_nw4lu"), null])
 
 [node name="School" type="Node2D"]
 y_sort_enabled = true
 
 [node name="SchoolTileMap" parent="." instance=ExtResource("1_sm8qs")]
+navigation_visibility_mode = 0
 
 [node name="Items" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -147,6 +155,22 @@ position = Vector2(432, 272)
 
 [node name="glue_black_chair3" parent="UsingAreas" instance=ExtResource("5_nwrxo")]
 position = Vector2(976, 272)
+
+[node name="Sink" type="Sprite2D" parent="UsingAreas"]
+position = Vector2(-719, -944)
+texture = ExtResource("20_xifl2")
+
+[node name="Sink2" type="Sprite2D" parent="UsingAreas"]
+position = Vector2(-657, -944)
+texture = ExtResource("20_xifl2")
+
+[node name="Sink3" type="Sprite2D" parent="UsingAreas"]
+position = Vector2(-688, -944)
+texture = ExtResource("20_xifl2")
+
+[node name="Director Flowers" type="Sprite2D" parent="UsingAreas"]
+position = Vector2(1798, -100)
+texture = ExtResource("21_eq2vd")
 
 [node name="Doors" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
