@@ -8,5 +8,5 @@ script = ExtResource("1_d5cxr")
 name = "color_chalk"
 texture = ExtResource("2_8vd6a")
 properties = {
-"discription": "null"
+"description": "notimplemetnded"
 }
