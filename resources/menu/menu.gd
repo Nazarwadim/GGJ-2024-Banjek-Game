@@ -22,6 +22,7 @@ var rotate_sound_allow : bool
 @onready var play_button = $play_button_rigid_body
 @onready var setting_button = $setting_button_rigid_body
 @export var target_rottation : float
+@export var start_scene : PackedScene
 
 func _ready():
 	button_state = ButtonState.ButtonStart
@@ -106,5 +107,7 @@ func _on_setting_button_pressed():
 
 func _on_true_start_animation_animation_finished(anim_name):
 	if(anim_name == "true_start"):
-		get_tree().change_scene_to_file("res://resources/scenes/school/school.tscn")
-		$Walk.position = Vector2(-182,225)
+		get_tree().change_scene_to_packed(start_scene)
+		$walk.position = Vector2(-182,225)
+		$rock.visible = false
+		$rock.scale = Vector2(1,1)
