@@ -447,11 +447,12 @@ inventory_container = NodePath("../../InventoryContainer")
 area_using_item_detector = NodePath("../../AreaUsingItemDetector")
 player = NodePath("../..")
 
-[node name="Walk" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_interactor", "item_interactor", "inventory_container", "player")]
+[node name="Walk" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_interactor", "item_interactor", "inventory_container", "area_using_item_detector", "player")]
 script = ExtResource("9_8lanl")
 inventory_interactor = NodePath("../../InventoryInteractor")
 item_interactor = NodePath("../../ItemInteractor")
 inventory_container = NodePath("../../InventoryContainer")
+area_using_item_detector = NodePath("../../AreaUsingItemDetector")
 player = NodePath("../..")
 
 [node name="UsingItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("area_using_item_detector", "inventory_container", "player")]

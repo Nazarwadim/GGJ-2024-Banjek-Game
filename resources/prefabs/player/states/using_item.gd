@@ -9,6 +9,7 @@ extends PlayerBaseState
 var _vector_to_using_area:Vector2 = Vector2.ZERO
 var _is_interupted:bool = false
 var _current_animation := "UsingItem"
+var _current_using_item:Item
 
 func _ready():
 	_animation_switch_timer.timeout.connect(_on_animation_switch_timer_timeout)
@@ -23,6 +24,7 @@ func on_enter() -> void:
 	_using_item_timer.timeout.connect(_on_area_using_timeout.bind(area_using_item, hot_bar_using_slot))
 	_using_item_timer.start(area_using_item.time_to_use_ms/1000.0)
 	player.item_start_using.emit(area_using_item.time_to_use_ms)
+	_current_using_item = area_using_item.item_can_use
 	
 	
 func on_input(_event: InputEvent) -> void:
@@ -53,7 +55,7 @@ func _on_area_using_timeout(area_using_item:AreaUsingItem, hot_bar_using_slot:in
 	
 func _interrupt() -> void:
 	if _is_interupted == false:
-		player.item_using_interrupted.emit()
+		player.item_using_interrupted.emit(_current_using_item)
 		change_state("Walk")
 		_is_interupted = true
 

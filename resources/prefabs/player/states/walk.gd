@@ -3,6 +3,7 @@ extends PlayerBaseState
 @export var inventory_interactor:InventoryInteractor
 @export var item_interactor:ItemInteractor
 @export var inventory_container:InventoryContainer
+@export var area_using_item_detector:AreaUsingItemDetector
 
 var _interaction_state_checker = preload("res://resources/prefabs/player/states/scripts/interaction_checker.gd").new(self)
 var _player_direction:Vector2
@@ -24,7 +25,16 @@ func on_physics_process(_delta: float) -> void:
 	if not _try_switch_idle():
 		_set_animation_tree_blend_position()
 
-func on_input(_input:InputEvent):
+func on_input(input:InputEvent):
+	if input.is_action_pressed("drop_item") and not _interaction_state_checker.can_switch_droping_item():
+		player.can_not_drop.emit()
+	elif input.is_action_pressed("pick_up_item") and not _interaction_state_checker.can_switch_item_pick_up():
+		player.can_not_pick_up.emit()
+	elif input.is_action_pressed("interact"):
+		var area_using_item := area_using_item_detector.get_first_overlapping_area_using_item()
+		if area_using_item != null:
+			player.can_not_use.emit(Player.ErrorCanNotUseItem.PlayerIsMoving)
+			
 	if _interaction_state_checker.can_switch_item_pick_up():
 		change_state("PickingUpItem")
 	elif _interaction_state_checker.can_switch_inventory_interaction():
