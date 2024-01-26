@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://56jj7k2t6jkd"]
+[gd_scene load_steps=15 format=3 uid="uid://56jj7k2t6jkd"]
 
 [ext_resource type="Script" path="res://resources/menu/menu.gd" id="1_vdpgn"]
 [ext_resource type="Texture2D" uid="uid://dl0adggaex81c" path="res://assets/menu/play_button.png" id="2_yyb8f"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://d7rvfgw8ye4p" path="res://assets/menu/settings_button.png" id="3_yejs3"]
 [ext_resource type="AudioStream" uid="uid://b38ifshm702ob" path="res://assets/menu/button_up.wav" id="4_yhpjn"]
 [ext_resource type="AudioStream" uid="uid://dktto6dej2jrl" path="res://assets/menu/button_down.wav" id="5_vc5tl"]
+[ext_resource type="Script" path="res://addons/simple-gui-transitions/transition.gd" id="7_fc2sl"]
+[ext_resource type="AudioStream" uid="uid://t078ukmvtun0" path="res://assets/menu/gear_rotate.mp3" id="7_fsaen"]
+[ext_resource type="AudioStream" uid="uid://nw1km1f0m1k0" path="res://assets/menu/gear_rotate_reverse.mp3" id="8_x71nm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x5evs"]
 bounce = 0.3
@@ -22,9 +25,19 @@ size = Vector2(37, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m827m"]
 size = Vector2(1020, 114)
 
-[node name="menu" type="Node2D"]
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_vdpgn")
-target_rottation = 90.0
+target_rottation = 180.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 970.0
+offset_bottom = 543.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
 
 [node name="pin_nail_button" type="PinJoint2D" parent="."]
 position = Vector2(602, 215)
@@ -53,7 +66,7 @@ shape = SubResource("RectangleShape2D_mfobg")
 
 [node name="setting_button_rigid_body" type="RigidBody2D" parent="."]
 position = Vector2(809, 102)
-rotation = 1.5708
+rotation = 3.14159
 freeze = true
 
 [node name="setting_button" type="TextureButton" parent="setting_button_rigid_body"]
@@ -98,21 +111,46 @@ position = Vector2(480, 270)
 
 [node name="button_hover_sound" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("3_j0imb")
-volume_db = 1.0
+bus = &"SFX"
 
 [node name="button_down_sound" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("5_vc5tl")
+bus = &"SFX"
 
 [node name="button_pressed_sound" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
 
 [node name="button_up_sound" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("4_yhpjn")
+bus = &"SFX"
 
 [node name="button_hanging_sound" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
 
 [node name="button_falling_sound" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
 
 [node name="scene_falling_sound" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
+
+[node name="gear_rotate_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("7_fsaen")
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="gear_rotate_reverse_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("8_x71nm")
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="GuiTransition" type="Node" parent="."]
+script = ExtResource("7_fc2sl")
+animation_enter = 3
+animation_leave = 2
+duration = 0.2
+delay = 0.1
+layout = NodePath("..")
+group = NodePath("..")
 
 [connection signal="button_down" from="play_button_rigid_body/play_button" to="." method="_on_play_button_button_down"]
 [connection signal="button_up" from="play_button_rigid_body/play_button" to="." method="_on_play_button_button_up"]

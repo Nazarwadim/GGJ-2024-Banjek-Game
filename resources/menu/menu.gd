@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 enum ButtonState
 {
@@ -16,6 +16,7 @@ enum DirrectionRotation
 
 var button_state : ButtonState
 var rotate_state : DirrectionRotation
+var rotate_sound_allow : bool
 
 @onready var play_button = $play_button_rigid_body
 @onready var setting_button = $setting_button_rigid_body
@@ -24,16 +25,21 @@ var rotate_state : DirrectionRotation
 func _ready():
 	button_state = ButtonState.ButtonStart
 	rotate_state = DirrectionRotation.NoRotate
+	rotate_sound_allow = true
 
 func _process(delta):
 	match(rotate_state):
 		DirrectionRotation.RotateLeft:
 			if setting_button.rotation_degrees >= 0:
-				setting_button.rotation -= delta*4
+				setting_button.rotation -= delta*6
+			else: 
+				rotate_sound_allow = true
 		
 		DirrectionRotation.RotateRight:
 			if setting_button.rotation_degrees <= target_rottation:
-				setting_button.rotation += delta*4
+				setting_button.rotation += delta*6
+			else: 
+				rotate_sound_allow = true
 
 func _on_play_button_mouse_entered():
 	$Audio/button_hover_sound.play()
@@ -76,13 +82,19 @@ func _scene_fall():
 
 func _on_setting_button_mouse_entered():
 	rotate_state = DirrectionRotation.RotateLeft
+	if rotate_sound_allow:
+		$Audio/gear_rotate_sound.play()
+		rotate_sound_allow = false
 
 func _on_setting_button_mouse_exited():
 	rotate_state = DirrectionRotation.RotateRight
+	if rotate_sound_allow:
+		$Audio/gear_rotate_reverse_sound.play()
+		rotate_sound_allow = false
 
 func print_function(message: String) -> void:
 	prints(message)
 
 func _on_setting_button_pressed():
-	var optional_callback := print_function.bind("Transition from Layout3 to Layout 1")
-	GuiTransitions.go_to("Layout1", optional_callback)
+	var optional_callback := print_function.bind("Transition from Menu to Settings")
+	GuiTransitions.go_to("settings", optional_callback)
