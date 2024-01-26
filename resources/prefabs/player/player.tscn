@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dk7b344a2x21x"]
+[gd_scene load_steps=58 format=3 uid="uid://dk7b344a2x21x"]
 
 [ext_resource type="Script" path="res://resources/prefabs/player/player.gd" id="1_qvpmr"]
 [ext_resource type="Texture2D" uid="uid://bs06pg4k8oj7k" path="res://assets/player/walk.png" id="2_5sanj"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" path="res://resources/prefabs/player/states/interacting_inventory.gd" id="13_g6y38"]
 [ext_resource type="Script" path="res://resources/prefabs/player/states/start.gd" id="14_teymv"]
 [ext_resource type="Resource" uid="uid://bcfrwrwlc6bdg" path="res://resources/factories/item_container_factory.tres" id="15_6preg"]
+[ext_resource type="Material" path="res://resources/materials/move_particles_materialtres.tres" id="17_8xqnd"]
+[ext_resource type="Texture2D" uid="uid://bijrpjcnnb4qe" path="res://assets/particles/particle.png" id="17_yrt5p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0tbx"]
 radius = 7.0
@@ -187,7 +189,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 8, 10]
+"values": [9, 8, 10, 8]
 }
 
 [sub_resource type="Animation" id="Animation_niwea"]
@@ -205,7 +207,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 0, 2]
+"values": [1, 0, 2, 0]
 }
 
 [sub_resource type="Animation" id="Animation_w7h1l"]
@@ -223,7 +225,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [3, 4, 3, 5]
+"values": [4, 3, 5, 3]
 }
 
 [sub_resource type="Animation" id="Animation_pgmhb"]
@@ -241,7 +243,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [11, 12, 13, 14]
+"values": [12, 13, 14, 11]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b7vuc"]
@@ -366,6 +368,8 @@ height = 58.0
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_qvpmr")
+speed = 120
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_5sanj")
@@ -393,9 +397,20 @@ parameters/Idle/blend_position = Vector2(0.0180413, -0.633093)
 parameters/UsingItem/blend_position = Vector2(-0.00127715, 0.273381)
 parameters/Walk/blend_position = Vector2(-0.0412371, -0.316547)
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(0, 9)
+emitting = false
+amount_ratio = 0.2
+process_material = ExtResource("17_8xqnd")
+texture = ExtResource("17_yrt5p")
+lifetime = 0.1
+
 [node name="InventoryContainer" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
 script = ExtResource("4_453se")
 inventory = ExtResource("2_rsx5n")
 
@@ -443,11 +458,12 @@ inventory_container = NodePath("../../InventoryContainer")
 area_using_item_detector = NodePath("../../AreaUsingItemDetector")
 player = NodePath("../..")
 
-[node name="Walk" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_interactor", "item_interactor", "inventory_container", "player")]
+[node name="Walk" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_interactor", "item_interactor", "inventory_container", "area_using_item_detector", "player")]
 script = ExtResource("9_8lanl")
 inventory_interactor = NodePath("../../InventoryInteractor")
 item_interactor = NodePath("../../ItemInteractor")
 inventory_container = NodePath("../../InventoryContainer")
+area_using_item_detector = NodePath("../../AreaUsingItemDetector")
 player = NodePath("../..")
 
 [node name="UsingItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("area_using_item_detector", "inventory_container", "player")]
@@ -458,6 +474,8 @@ player = NodePath("../..")
 
 [node name="AnimationSwitchTimer" type="Timer" parent="FiniteStateMachine/UsingItem"]
 wait_time = 0.6
+
+[node name="UsingItemTimer" type="Timer" parent="FiniteStateMachine/UsingItem"]
 
 [node name="PickingUpItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("inventory_container", "item_interactor", "player")]
 script = ExtResource("11_ec5ov")

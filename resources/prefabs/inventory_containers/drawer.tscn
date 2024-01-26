@@ -3,18 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://chng2f8ogrb54" path="res://resources/prefabs/inventory_containers/inventory_container.tscn" id="1_uvm5e"]
 [ext_resource type="Script" path="res://resources/prefabs/inventory_containers/drawer_chest.gd" id="2_qudj3"]
 [ext_resource type="Texture2D" uid="uid://duuoefl0c8wp8" path="res://assets/chestes/drawer.png" id="2_ua1la"]
-[ext_resource type="Resource" uid="uid://bcm5y471iyl7d" path="res://resources/inventory/items/money.tres" id="3_q84d2"]
 [ext_resource type="Script" path="res://resources/prefabs/inventory_containers/drawer.gd" id="4_bibrk"]
-[ext_resource type="Resource" uid="uid://2tqkhux857ep" path="res://resources/inventory/items/glue.tres" id="4_ieqfl"]
-[ext_resource type="Resource" uid="uid://b2bx77ek5le0p" path="res://resources/inventory/items/pen.tres" id="5_0k3ht"]
 [ext_resource type="AudioStream" uid="uid://bud6af6rinlg5" path="res://assets/kenney_rpgaudio/Audio/doorOpen_2.ogg" id="5_mcdvq"]
-[ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="6_gyuwq"]
 [ext_resource type="AudioStream" uid="uid://dpv27rh7ob5j8" path="res://assets/kenney_rpgaudio/Audio/doorClose_4.ogg" id="6_jbqcr"]
-[ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="7_vs1u6"]
-
-[sub_resource type="Resource" id="Resource_x4gyt"]
-script = ExtResource("7_vs1u6")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([null, null, ExtResource("3_q84d2"), ExtResource("4_ieqfl"), ExtResource("5_0k3ht"), null, null, null, null, null, ExtResource("6_gyuwq"), null])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xq7m"]
 size = Vector2(26, 13)
@@ -22,11 +13,10 @@ size = Vector2(26, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7v7tl"]
 size = Vector2(28, 20)
 
-[node name="drawer" instance=ExtResource("1_uvm5e")]
+[node name="Drawer" instance=ExtResource("1_uvm5e")]
 
 [node name="ChestContainer" parent="." index="0"]
 script = ExtResource("2_qudj3")
-inventory = SubResource("Resource_x4gyt")
 
 [node name="Sprite2D" parent="ChestContainer" index="0"]
 texture = ExtResource("2_ua1la")
