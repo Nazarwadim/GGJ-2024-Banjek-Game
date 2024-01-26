@@ -17,6 +17,7 @@ func _ready():
 		push_error("Set inventory container for state Walk")
 
 func on_enter() -> void:
+	player.gpu_particles_2d.emitting = true
 	player.animation_tree.get("parameters/playback").travel("Walk")
 	
 func on_physics_process(_delta: float) -> void:
@@ -41,6 +42,9 @@ func on_input(input:InputEvent):
 		change_state("InventoryInteraction")
 	elif _interaction_state_checker.can_switch_droping_item():
 		change_state("DropingItem")
+
+func on_exit() -> void:
+	player.gpu_particles_2d.emitting = false
 
 func _set_animation_tree_blend_position() -> void:
 	player.animation_tree.set("parameters/Idle/blend_position", _player_direction)
