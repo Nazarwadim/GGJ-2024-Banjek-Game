@@ -5,7 +5,6 @@
 [node name="TileMap" type="TileMap"]
 y_sort_enabled = true
 tile_set = ExtResource("1_hkgsi")
-navigation_visibility_mode = 1
 format = 2
 layer_0/name = "Ground"
 layer_0/modulate = Color(0.803922, 0.803922, 0.803922, 1)
