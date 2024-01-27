@@ -29,7 +29,7 @@ window/size/initial_position_type=0
 window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="canvas_items"
-window/stretch/aspect="ignore"
+window/stretch/aspect="keep_height"
 window/stretch/scale_mode="integer"
 
 [editor_plugins]
