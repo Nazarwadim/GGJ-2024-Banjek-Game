@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=37 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
@@ -14,18 +14,19 @@
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="6_wjxho"]
 [ext_resource type="Resource" uid="uid://b2bx77ek5le0p" path="res://resources/inventory/items/pen.tres" id="8_loop8"]
 [ext_resource type="Resource" uid="uid://b8bhkecems0nc" path="res://resources/inventory/items/apple.tres" id="9_v6ayq"]
-[ext_resource type="PackedScene" uid="uid://b1hd4nkr7kiss" path="res://resources/prefabs/inventory_containers/drawer.tscn" id="9_wptoe"]
+[ext_resource type="PackedScene" uid="uid://eiycvgaxdbrs" path="res://resources/prefabs/inventory_containers/drawer.tscn" id="9_wptoe"]
 [ext_resource type="Resource" uid="uid://c1o01kf6ayp6s" path="res://resources/inventory/items/clear_bucket.tres" id="11_df6qp"]
 [ext_resource type="PackedScene" uid="uid://bomul6chpk44g" path="res://resources/prefabs/items/glue.tscn" id="11_m5nma"]
-[ext_resource type="Resource" uid="uid://bogvm6g5j246" path="res://resources/inventory/items/color_chalk.tres" id="12_oiceu"]
+[ext_resource type="Resource" uid="uid://drinw0qqd0qdp" path="res://resources/inventory/items/color_chalk.tres" id="12_oiceu"]
 [ext_resource type="Resource" uid="uid://dnqkm8ftdo4hy" path="res://resources/inventory/items/full_bucket.tres" id="13_k5rh3"]
-[ext_resource type="Resource" uid="uid://cerjd215pbeae" path="res://resources/inventory/items/scissors.tres" id="13_lbpvh"]
+[ext_resource type="Resource" uid="uid://r50ufe23vxr0" path="res://resources/inventory/items/scissors.tres" id="13_lbpvh"]
 [ext_resource type="PackedScene" uid="uid://dk2lyg0xr12oq" path="res://resources/prefabs/items/money.tscn" id="13_qp3pa"]
-[ext_resource type="Resource" uid="uid://ybxk6ypoimub" path="res://resources/inventory/items/saw.tres" id="14_8a87r"]
+[ext_resource type="Resource" uid="uid://d14aciyk2eqpc" path="res://resources/inventory/items/saw.tres" id="14_8a87r"]
 [ext_resource type="Resource" uid="uid://dxfkn5rv12ww7" path="res://resources/inventory/items/dirty_bucket.tres" id="15_qaeew"]
-[ext_resource type="Resource" uid="uid://ctwyhh44hkin" path="res://resources/inventory/items/perry.tres" id="18_nw4lu"]
-[ext_resource type="Texture2D" uid="uid://dsp6qf8k0b4mj" path="res://assets/items/school/sink.png" id="20_xifl2"]
-[ext_resource type="Texture2D" uid="uid://bchuxg1viym0d" path="res://assets/items/school/director_flower.png" id="21_eq2vd"]
+[ext_resource type="Resource" uid="uid://dde6s644akm0g" path="res://resources/inventory/items/perry.tres" id="18_nw4lu"]
+[ext_resource type="Texture2D" path="res://assets/items/school/sink.png" id="20_xifl2"]
+[ext_resource type="Texture2D" path="res://assets/items/school/director_flower.png" id="21_eq2vd"]
+[ext_resource type="PackedScene" uid="uid://deude24v8oj73" path="res://resources/prefabs/test_navigation/enemy.tscn" id="27_bt5fn"]
 
 [sub_resource type="Resource" id="Resource_tef4i"]
 script = ExtResource("6_wjxho")
@@ -67,7 +68,7 @@ items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("
 y_sort_enabled = true
 
 [node name="SchoolTileMap" parent="." instance=ExtResource("1_sm8qs")]
-navigation_visibility_mode = 0
+navigation_visibility_mode = 1
 
 [node name="Items" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -85,10 +86,11 @@ position = Vector2(0, 5)
 metadata/_edit_lock_ = true
 
 [node name="Shelfs" type="Node2D" parent="Chests"]
+y_sort_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="Shelf" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
-position = Vector2(1955, -121)
+position = Vector2(1955, -113)
 
 [node name="ChestContainer" parent="Chests/Shelfs/Shelf" index="0"]
 inventory = SubResource("Resource_tef4i")
@@ -124,6 +126,7 @@ position = Vector2(519, -573)
 inventory = SubResource("Resource_ntnan")
 
 [node name="Drawers" type="Node2D" parent="Chests"]
+y_sort_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="Drawer" parent="Chests/Drawers" instance=ExtResource("9_wptoe")]
@@ -177,7 +180,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("items_spawn_node", "_hot_bar") instance=ExtResource("2_vmcjx")]
 z_index = 1
-position = Vector2(114, 12)
+position = Vector2(1880, -30)
 items_spawn_node = NodePath("../Items")
 _hot_bar = NodePath("../CanvasLayer/HotBar")
 
@@ -199,6 +202,12 @@ position = Vector2(18, 0)
 
 [node name="money" parent="TempForDebug" instance=ExtResource("13_qp3pa")]
 position = Vector2(64, 13)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" node_paths=PackedStringArray("target") instance=ExtResource("27_bt5fn")]
+position = Vector2(1564, 61)
+target = NodePath("../../Chests/Shelfs/Shelf")
 
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]

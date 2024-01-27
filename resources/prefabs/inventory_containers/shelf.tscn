@@ -20,7 +20,9 @@ scale = Vector2(1, 1.297)
 script = ExtResource("2_x3jug")
 
 [node name="Sprite2D" parent="ChestContainer" index="0"]
+position = Vector2(0, 20)
 texture = ExtResource("2_o6o3c")
+offset = Vector2(0, -20)
 hframes = 2
 script = ExtResource("6_ar8os")
 

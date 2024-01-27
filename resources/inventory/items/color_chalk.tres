@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bogvm6g5j246"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://drinw0qqd0qdp"]
 
 [ext_resource type="Script" path="res://resources/inventory/core/item.gd" id="1_d5cxr"]
-[ext_resource type="Texture2D" uid="uid://b67d1uig11t" path="res://assets/items/school/Color Chalk.png" id="2_8vd6a"]
+[ext_resource type="Texture2D" path="res://assets/items/school/Color Chalk.png" id="2_8vd6a"]
 
 [resource]
 script = ExtResource("1_d5cxr")
