@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=43 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="5_nvcen"]
 [ext_resource type="PackedScene" uid="uid://dmxatu2p38w4w" path="res://resources/prefabs/area_using_item_containers/glue_black_chair.tscn" id="5_nwrxo"]
 [ext_resource type="Resource" uid="uid://2tqkhux857ep" path="res://resources/inventory/items/glue.tres" id="6_a2i64"]
-[ext_resource type="PackedScene" uid="uid://dcyrd8y1dums8" path="res://resources/prefabs/area_using_item_containers/basketball.tscn" id="6_lpigu"]
+[ext_resource type="PackedScene" path="res://resources/prefabs/area_using_item_containers/basketball.tscn" id="6_lpigu"]
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="6_wjxho"]
 [ext_resource type="Resource" uid="uid://b2bx77ek5le0p" path="res://resources/inventory/items/pen.tres" id="8_loop8"]
 [ext_resource type="Resource" uid="uid://3kuoxtdtn6sr" path="res://resources/inventory/items/bowling_ball.tres" id="9_5sfwh"]
@@ -26,13 +26,13 @@
 [ext_resource type="PackedScene" uid="uid://dk2lyg0xr12oq" path="res://resources/prefabs/items/money.tscn" id="13_qp3pa"]
 [ext_resource type="Resource" uid="uid://ybxk6ypoimub" path="res://resources/inventory/items/saw.tres" id="14_8a87r"]
 [ext_resource type="Resource" uid="uid://dxfkn5rv12ww7" path="res://resources/inventory/items/dirty_bucket.tres" id="15_qaeew"]
-[ext_resource type="PackedScene" uid="uid://dcrvnl55xojlm" path="res://resources/prefabs/area_using_item_containers/plama.tscn" id="18_42gsm"]
+[ext_resource type="PackedScene" path="res://resources/prefabs/area_using_item_containers/plama.tscn" id="18_42gsm"]
 [ext_resource type="Resource" uid="uid://ctwyhh44hkin" path="res://resources/inventory/items/perry.tres" id="18_nw4lu"]
 [ext_resource type="Texture2D" uid="uid://cevets8i5xu8x" path="res://assets/decorations/director_chair.png" id="19_q3omo"]
 [ext_resource type="PackedScene" uid="uid://bje7pjg1x6emk" path="res://resources/prefabs/area_using_item_containers/director_flower.tscn" id="21_wtuyo"]
-[ext_resource type="PackedScene" uid="uid://i67ghqws6hdd" path="res://resources/prefabs/area_using_item_containers/sink.tscn" id="22_n6s7s"]
+[ext_resource type="PackedScene" path="res://resources/prefabs/area_using_item_containers/sink.tscn" id="22_n6s7s"]
 [ext_resource type="PackedScene" uid="uid://bi4cmb7hsrj88" path="res://resources/prefabs/area_using_item_containers/guitar.tscn" id="23_y83c6"]
-[ext_resource type="PackedScene" uid="uid://dwslrgxiwp7it" path="res://resources/prefabs/area_using_item_containers/desk.tscn" id="24_rumqv"]
+[ext_resource type="PackedScene" path="res://resources/prefabs/area_using_item_containers/desk.tscn" id="24_rumqv"]
 
 [sub_resource type="Resource" id="Resource_tef4i"]
 script = ExtResource("6_wjxho")
@@ -76,322 +76,282 @@ y_sort_enabled = true
 [node name="SchoolTileMap" parent="." instance=ExtResource("1_sm8qs")]
 
 [node name="Node2D" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 scale = Vector2(0.999656, 1)
 
-[node name="BookR" type="Node2D" parent="Node2D"]
+[node name="BookR" type="CanvasGroup" parent="Node2D"]
+y_sort_enabled = true
+position = Vector2(1.00034, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(-400.138, 363)
+position = Vector2(-399.514, 366.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 
 [node name="Sprite2D2" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(-272.094, 365)
+position = Vector2(-271.47, 368.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 
 [node name="Sprite2D3" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(-335.115, 460)
+position = Vector2(-334.491, 463.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 
 [node name="Sprite2D4" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(211.073, 654)
+position = Vector2(205.071, 655)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 
 [node name="Sprite2D5" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(-270.093, 652)
+position = Vector2(-269.469, 655.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 
 [node name="Sprite2D6" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(-334.115, 652)
+position = Vector2(-333.491, 655.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D7" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(-206.071, 365)
+position = Vector2(-205.447, 368.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D8" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(-398.137, 555)
+position = Vector2(-397.513, 558.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D9" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(-272.094, 555)
+position = Vector2(-271.47, 558.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D10" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(-268.092, 461)
+position = Vector2(-267.468, 464.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D11" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(275.095, 556)
+position = Vector2(275.719, 559.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 
 [node name="Sprite2D12" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(143.049, 558)
+position = Vector2(146.05, 558)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 
 [node name="Sprite2D13" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(146.05, 362)
+position = Vector2(141.049, 367)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 
 [node name="Sprite2D14" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(273.094, 460)
+position = Vector2(273.718, 463.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 
 [node name="Sprite2D15" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(786.27, 366)
+position = Vector2(786.894, 369.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D16" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(143.049, 461)
+position = Vector2(145.05, 462)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D17" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(274.094, 367)
+position = Vector2(274.718, 370.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D18" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(209.072, 364)
+position = Vector2(209.696, 367.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D19" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(145.05, 653)
+position = Vector2(145.674, 656.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D20" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(336.116, 555)
+position = Vector2(336.74, 558.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D21" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(337.116, 364)
+position = Vector2(337.74, 367.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D22" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(722.248, 560)
+position = Vector2(722.248, 558)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D23" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(846.291, 556)
+position = Vector2(846.915, 559.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D25" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(787.271, 654)
+position = Vector2(787.895, 657.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 
 [node name="Sprite2D24" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(719.247, 461)
+position = Vector2(719.871, 464.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D26" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(658.226, 364)
+position = Vector2(658.85, 367.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 
 [node name="Sprite2D27" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(660.227, 557)
+position = Vector2(660.851, 560.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 
 [node name="Sprite2D28" type="Sprite2D" parent="Node2D/BookR"]
-z_index = 2
-position = Vector2(654.225, 652)
+position = Vector2(654.849, 655.75)
 scale = Vector2(0.414119, 0.484375)
 texture = ExtResource("2_jh7a5")
 hframes = 2
 
-[node name="Bottles" type="Node2D" parent="Node2D"]
+[node name="Bottles" type="CanvasGroup" parent="Node2D"]
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(154.053, 360)
+position = Vector2(151.801, 366.5)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(-390.134, 363)
+position = Vector2(-390.385, 368.5)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(663.228, 645)
+position = Vector2(662.977, 650.5)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(-390.134, 456)
+position = Vector2(-390.134, 464)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(-145.05, 289)
+position = Vector2(-145.301, 294.5)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(-860.296, -347)
+position = Vector2(-860.547, -341.5)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D7" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(1402.48, 415)
+position = Vector2(1402.23, 420.5)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D8" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(1457.5, 284)
+position = Vector2(1457.25, 289.5)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D9" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(1387.48, 699)
+position = Vector2(1387.23, 704.5)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D10" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(731.251, 361)
+position = Vector2(731, 366.5)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D11" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(36.0124, -451)
+position = Vector2(35.761, -445.5)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D12" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
 position = Vector2(-195.067, 158)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D13" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(215.074, 458)
+position = Vector2(214.823, 463.5)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D14" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(401.138, 284)
+position = Vector2(395.136, 292)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D15" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(-203.07, 647)
+position = Vector2(-204.07, 655)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D16" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(856.294, 551)
+position = Vector2(856.043, 556.5)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
 [node name="Sprite2D17" type="Sprite2D" parent="Node2D/Bottles"]
-z_index = 2
-position = Vector2(547.188, -545)
+position = Vector2(546.937, -539.5)
 scale = Vector2(0.359412, 0.40625)
 texture = ExtResource("3_n5uqf")
 
@@ -531,7 +491,9 @@ z_index = 1
 y_sort_enabled = true
 metadata/_edit_lock_ = true
 
-[node name="Plama" parent="UsingAreas" instance=ExtResource("18_42gsm")]
+[node name="NonYsorted" type="Node2D" parent="UsingAreas"]
+
+[node name="Plama" parent="UsingAreas/NonYsorted" instance=ExtResource("18_42gsm")]
 modulate = Color(1, 1, 1, 0.560784)
 position = Vector2(429, 71)
 scale = Vector2(3.93, 3.93)
@@ -550,6 +512,7 @@ position = Vector2(432, 272)
 position = Vector2(976, 272)
 
 [node name="Director_flower" parent="UsingAreas" instance=ExtResource("21_wtuyo")]
+z_index = 1
 position = Vector2(1793, -98)
 
 [node name="Guitar" parent="UsingAreas" instance=ExtResource("23_y83c6")]
@@ -572,7 +535,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("items_spawn_node", "_hot_bar") instance=ExtResource("2_vmcjx")]
 z_index = 1
-position = Vector2(1824, 46)
+position = Vector2(108, 386)
 items_spawn_node = NodePath("../Items")
 _hot_bar = NodePath("../CanvasLayer/HotBar")
 

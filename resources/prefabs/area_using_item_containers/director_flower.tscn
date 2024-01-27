@@ -12,8 +12,10 @@ size = Vector2(28, 62)
 size = Vector2(20, 11)
 
 [node name="Director_flower" type="StaticBody2D"]
+y_sort_enabled = true
 
 [node name="AreaUsingItemContainer" parent="." instance=ExtResource("1_uppf1")]
+y_sort_enabled = true
 item_can_use = ExtResource("2_olxfa")
 
 [node name="CollisionShape2D" parent="AreaUsingItemContainer" index="0"]
@@ -21,7 +23,9 @@ position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_3s7nh")
 
 [node name="Sprite2D" parent="AreaUsingItemContainer" index="1"]
+position = Vector2(0, 30)
 texture = ExtResource("3_ufdu4")
+offset = Vector2(0, -30)
 hframes = 2
 script = ExtResource("4_wgu48")
 
