@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://yn4w5pddidyq"]
+[gd_scene load_steps=7 format=3 uid="uid://bje7pjg1x6emk"]
 
 [ext_resource type="PackedScene" uid="uid://vd5yb4smm72s" path="res://resources/prefabs/area_using_item_containers/area_using_item_container.tscn" id="1_uppf1"]
 [ext_resource type="Resource" uid="uid://ctwyhh44hkin" path="res://resources/inventory/items/perry.tres" id="2_olxfa"]
