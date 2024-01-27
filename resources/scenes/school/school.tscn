@@ -512,8 +512,7 @@ position = Vector2(432, 272)
 position = Vector2(976, 272)
 
 [node name="Director_flower" parent="UsingAreas" instance=ExtResource("21_wtuyo")]
-z_index = 1
-position = Vector2(1793, -98)
+position = Vector2(1793, -97)
 
 [node name="Guitar" parent="UsingAreas" instance=ExtResource("23_y83c6")]
 position = Vector2(303, -564)
@@ -535,7 +534,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("items_spawn_node", "_hot_bar") instance=ExtResource("2_vmcjx")]
 z_index = 1
-position = Vector2(108, 386)
+position = Vector2(1772, -63)
 items_spawn_node = NodePath("../Items")
 _hot_bar = NodePath("../CanvasLayer/HotBar")
 

@@ -36,5 +36,5 @@ func _on_update_timer_timeout() -> void:
 	elif current_time % 45 == 0:
 		current_time_state = TimeState.Break
 		SignalBus.break_started.emit()
-	elif current_time % 2 == 0:
+	elif current_time % 3 == 0:
 		school_mood -= 1
