@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/simple-gui-transitions/example/layout_1.gd" id="1"]
 [ext_resource type="Script" path="res://addons/simple-gui-transitions/transition.gd" id="2"]
-[ext_resource type="Theme" uid="uid://cxbdqv0cxcy1m" path="res://addons/simple-gui-transitions/example/theme.tres" id="3"]
+[ext_resource type="Theme" uid="uid://cxbdqv0cxcy1m" path="res://resources/themes/theme.tres" id="3"]
 
 [node name="Layout1" type="Control"]
 layout_mode = 3

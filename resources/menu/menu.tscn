@@ -1,0 +1,301 @@
+[gd_scene load_steps=24 format=3 uid="uid://56jj7k2t6jkd"]
+
+[ext_resource type="Script" path="res://resources/menu/menu.gd" id="1_vdpgn"]
+[ext_resource type="PackedScene" uid="uid://c482u4huelhlb" path="res://resources/scenes/school/school.tscn" id="2_g8mn4"]
+[ext_resource type="Texture2D" uid="uid://dl0adggaex81c" path="res://assets/menu/play_button.png" id="2_yyb8f"]
+[ext_resource type="AudioStream" uid="uid://qjjbju2dh1r3" path="res://assets/menu/button_hover.wav" id="3_j0imb"]
+[ext_resource type="Texture2D" uid="uid://d7rvfgw8ye4p" path="res://assets/menu/settings_button.png" id="3_yejs3"]
+[ext_resource type="AudioStream" uid="uid://b38ifshm702ob" path="res://assets/menu/button_up.wav" id="4_yhpjn"]
+[ext_resource type="AudioStream" uid="uid://dktto6dej2jrl" path="res://assets/menu/button_down.wav" id="5_vc5tl"]
+[ext_resource type="Script" path="res://addons/simple-gui-transitions/transition.gd" id="7_fc2sl"]
+[ext_resource type="AudioStream" uid="uid://t078ukmvtun0" path="res://assets/menu/gear_rotate.mp3" id="7_fsaen"]
+[ext_resource type="AudioStream" uid="uid://nw1km1f0m1k0" path="res://assets/menu/gear_rotate_reverse.mp3" id="8_x71nm"]
+[ext_resource type="Texture2D" uid="uid://b67vj7qcbynmh" path="res://assets/player/walk_with_slingshot.png" id="11_tonhr"]
+[ext_resource type="AudioStream" uid="uid://uqb0ka5fbxai" path="res://assets/menu/button_hanging.mp3" id="12_o60k5"]
+[ext_resource type="Texture2D" uid="uid://3jd0x1b1yywu" path="res://assets/items/rock.png" id="12_wrmkr"]
+[ext_resource type="Texture2D" uid="uid://dnaj3yr5c4gbk" path="res://assets/menu/windowbr.png" id="13_g30ug"]
+[ext_resource type="AudioStream" uid="uid://bdcxql7u1qtj" path="res://assets/menu/breaking_glass.mp3" id="15_imqqy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x5evs"]
+bounce = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfobg"]
+size = Vector2(331, 121)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vj5j4"]
+radius = 44.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avirw"]
+size = Vector2(37, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m827m"]
+size = Vector2(1020, 114)
+
+[sub_resource type="Animation" id="Animation_bat80"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_u64i4"]
+resource_name = "true_start"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("walk:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-200, 247), Vector2(480, 237)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("walk:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 3, 5, 3, 4, 3, 5, 3, 4, 3, 5, 3, 4, 3, 6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("rock:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 3.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("rock:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.5, 5.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(40, 40)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("rock:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.5, 5.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 5.58505]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Windowbr:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1, 5.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Audio/breaking_glass:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1, 5.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ogbb4"]
+_data = {
+"RESET": SubResource("Animation_bat80"),
+"true_start": SubResource("Animation_u64i4")
+}
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vdpgn")
+target_rottation = 180.0
+start_scene = ExtResource("2_g8mn4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 970.0
+offset_bottom = 543.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="pin_nail_button" type="PinJoint2D" parent="."]
+position = Vector2(602, 215)
+node_a = NodePath("../play_button_rigid_body")
+node_b = NodePath("../nail")
+
+[node name="play_button_rigid_body" type="RigidBody2D" parent="."]
+position = Vector2(457, 251)
+physics_material_override = SubResource("PhysicsMaterial_x5evs")
+inertia = 2.0
+freeze = true
+
+[node name="play_button" type="TextureButton" parent="play_button_rigid_body"]
+offset_left = -163.0
+offset_top = -57.0
+offset_right = 168.0
+offset_bottom = 64.0
+texture_normal = ExtResource("2_yyb8f")
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="play_button_collision" type="CollisionShape2D" parent="play_button_rigid_body"]
+visible = false
+position = Vector2(2.5, 3.5)
+shape = SubResource("RectangleShape2D_mfobg")
+
+[node name="setting_button_rigid_body" type="RigidBody2D" parent="."]
+position = Vector2(809, 102)
+rotation = 3.14159
+freeze = true
+
+[node name="setting_button" type="TextureButton" parent="setting_button_rigid_body"]
+offset_left = -42.5
+offset_top = -43.0
+offset_right = 42.5
+offset_bottom = 42.0
+texture_normal = ExtResource("3_yejs3")
+texture_hover = ExtResource("3_yejs3")
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="settint_button_collision" type="CollisionShape2D" parent="setting_button_rigid_body"]
+visible = false
+shape = SubResource("CircleShape2D_vj5j4")
+metadata/_edit_lock_ = true
+
+[node name="nail" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(605, 215)
+
+[node name="nail_collision" type="CollisionShape2D" parent="nail"]
+position = Vector2(-5, 2)
+shape = SubResource("RectangleShape2D_avirw")
+metadata/_edit_lock_ = true
+
+[node name="border" type="RigidBody2D" parent="."]
+visible = false
+position = Vector2(482, 771)
+sleeping = true
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border"]
+position = Vector2(-6, -168)
+shape = SubResource("RectangleShape2D_m827m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(480, 270)
+
+[node name="GuiTransition" type="Node" parent="."]
+script = ExtResource("7_fc2sl")
+animation_enter = 3
+animation_leave = 2
+duration = 0.2
+delay = 0.1
+layout = NodePath("..")
+group = NodePath("..")
+
+[node name="true_start_animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ogbb4")
+}
+
+[node name="walk" type="Sprite2D" parent="."]
+position = Vector2(-153.103, 246.31)
+scale = Vector2(3.02, 3.02)
+texture = ExtResource("11_tonhr")
+hframes = 6
+vframes = 2
+frame = 4
+
+[node name="rock" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(477, 237)
+texture = ExtResource("12_wrmkr")
+
+[node name="Windowbr" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(480, 270)
+scale = Vector2(24, 23.459)
+texture = ExtResource("13_g30ug")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="button_hover_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("3_j0imb")
+bus = &"SFX"
+
+[node name="button_down_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_vc5tl")
+bus = &"SFX"
+
+[node name="button_pressed_sound" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
+
+[node name="button_up_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_yhpjn")
+bus = &"SFX"
+
+[node name="button_hanging_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("12_o60k5")
+bus = &"SFX"
+
+[node name="gear_rotate_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("7_fsaen")
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="gear_rotate_reverse_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("8_x71nm")
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="breaking_glass" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("15_imqqy")
+
+[connection signal="button_down" from="play_button_rigid_body/play_button" to="." method="_on_play_button_button_down"]
+[connection signal="button_up" from="play_button_rigid_body/play_button" to="." method="_on_play_button_button_up"]
+[connection signal="mouse_entered" from="play_button_rigid_body/play_button" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="play_button_rigid_body/play_button" to="." method="_on_play_button_mouse_exited"]
+[connection signal="pressed" from="play_button_rigid_body/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="setting_button_rigid_body/setting_button" to="." method="_on_setting_button_mouse_entered"]
+[connection signal="mouse_exited" from="setting_button_rigid_body/setting_button" to="." method="_on_setting_button_mouse_exited"]
+[connection signal="pressed" from="setting_button_rigid_body/setting_button" to="." method="_on_setting_button_pressed"]
+[connection signal="animation_finished" from="true_start_animation" to="." method="_on_true_start_animation_animation_finished"]
