@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ovbs8p5ih66g"]
+[gd_scene load_steps=13 format=3 uid="uid://ovbs8p5ih66g"]
 
 [ext_resource type="PackedScene" uid="uid://b8fovaesjaw4s" path="res://resources/inventory/ui/main_chest_inventory/main_chest_inventory.tscn" id="1_vobyk"]
 [ext_resource type="PackedScene" uid="uid://da63d4xi31igy" path="res://resources/inventory/ui/hotbar/hot_bar.tscn" id="2_u2dv8"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://b8x075gacvsp8" path="res://resources/gui/player_mood/player_mood.tscn" id="6_h6erl"]
 [ext_resource type="PackedScene" uid="uid://2lvjg7ec0x2s" path="res://resources/gui/MsgBox/msg_box.tscn" id="7_l5867"]
 [ext_resource type="Script" path="res://resources/gui/MouseCursor.gd" id="8_gejmu"]
+[ext_resource type="Texture2D" uid="uid://b0upxyj1arynh" path="res://assets/progress_bar/under.png" id="9_7hulg"]
+[ext_resource type="Texture2D" uid="uid://bhbhkr5b4wgax" path="res://assets/progress_bar/over.png" id="10_gt476"]
+[ext_resource type="Texture2D" uid="uid://dwgs3ff50qckj" path="res://assets/progress_bar/progress.png" id="11_g7dvp"]
+[ext_resource type="Script" path="res://resources/gui/progress_bar.gd" id="12_qnop5"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -69,6 +73,19 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("8_gejmu")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 845.0
+offset_top = 106.0
+offset_right = 958.0
+offset_bottom = 307.0
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("9_7hulg")
+texture_over = ExtResource("10_gt476")
+texture_progress = ExtResource("11_g7dvp")
+script = ExtResource("12_qnop5")
 
 [connection signal="current_slot_changed" from="MainChestInventory" to="ItemSlotAudioPlayer" method="play"]
 [connection signal="select_double_clicked" from="MainChestInventory" to="ItemMover" method="_on_main_chest_inventory_select_double_clicked"]
