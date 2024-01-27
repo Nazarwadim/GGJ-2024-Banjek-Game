@@ -32,6 +32,7 @@ window/size/window_height_override=540
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 window/stretch/scale_mode="integer"
+mouse_cursor/custom_image="res://assets/cursor/cursor2.png"
 
 [editor_plugins]
 
