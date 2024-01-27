@@ -14,6 +14,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cy48m")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+layout_mode = 0
+offset_left = -882.0
+offset_top = -509.0
+offset_right = 1809.0
+offset_bottom = 988.0
+color = Color(0.0862745, 0.0941176, 0.0941176, 1)
+
 [node name="menu" parent="." instance=ExtResource("1_fkl47")]
 
 [node name="settings" parent="." instance=ExtResource("2_si2u6")]
