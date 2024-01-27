@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=39 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
@@ -24,8 +24,11 @@
 [ext_resource type="Resource" uid="uid://ybxk6ypoimub" path="res://resources/inventory/items/saw.tres" id="14_8a87r"]
 [ext_resource type="Resource" uid="uid://dxfkn5rv12ww7" path="res://resources/inventory/items/dirty_bucket.tres" id="15_qaeew"]
 [ext_resource type="Resource" uid="uid://ctwyhh44hkin" path="res://resources/inventory/items/perry.tres" id="18_nw4lu"]
+[ext_resource type="Texture2D" uid="uid://cevets8i5xu8x" path="res://assets/decorations/director_chair.png" id="19_q3omo"]
 [ext_resource type="Texture2D" uid="uid://dsp6qf8k0b4mj" path="res://assets/items/school/sink.png" id="20_xifl2"]
-[ext_resource type="Texture2D" uid="uid://bchuxg1viym0d" path="res://assets/items/school/director_flower.png" id="21_eq2vd"]
+[ext_resource type="PackedScene" uid="uid://bje7pjg1x6emk" path="res://resources/prefabs/area_using_item_containers/director_flower.tscn" id="21_wtuyo"]
+[ext_resource type="PackedScene" uid="uid://bi4cmb7hsrj88" path="res://resources/prefabs/area_using_item_containers/guitar.tscn" id="23_y83c6"]
+[ext_resource type="PackedScene" uid="uid://deude24v8oj73" path="res://resources/prefabs/test_navigation/enemy.tscn" id="27_bt5fn"]
 
 [sub_resource type="Resource" id="Resource_tef4i"]
 script = ExtResource("6_wjxho")
@@ -148,6 +151,10 @@ inventory = SubResource("Resource_y3l1r")
 [node name="UsingAreas" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
+[node name="DirectorChair" type="Sprite2D" parent="UsingAreas"]
+position = Vector2(1926, 50)
+texture = ExtResource("19_q3omo")
+
 [node name="glue_black_chair" parent="UsingAreas" instance=ExtResource("5_nwrxo")]
 position = Vector2(-112, 272)
 
@@ -162,16 +169,18 @@ position = Vector2(-719, -944)
 texture = ExtResource("20_xifl2")
 
 [node name="Sink2" type="Sprite2D" parent="UsingAreas"]
-position = Vector2(-657, -944)
+position = Vector2(-658, -944)
 texture = ExtResource("20_xifl2")
 
 [node name="Sink3" type="Sprite2D" parent="UsingAreas"]
 position = Vector2(-688, -944)
 texture = ExtResource("20_xifl2")
 
-[node name="Director Flowers" type="Sprite2D" parent="UsingAreas"]
-position = Vector2(1798, -100)
-texture = ExtResource("21_eq2vd")
+[node name="Director_flower" parent="UsingAreas" instance=ExtResource("21_wtuyo")]
+position = Vector2(1793, -98)
+
+[node name="Guitar" parent="UsingAreas" instance=ExtResource("23_y83c6")]
+position = Vector2(303, -564)
 
 [node name="Doors" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

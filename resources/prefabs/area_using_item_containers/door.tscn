@@ -1,8 +1,23 @@
 [gd_scene load_steps=10 format=3 uid="uid://bb1wth1l6wq2d"]
 
-[ext_resource type="Script" path="res://resources/scenes/school/Door_area.gd" id="1_bns64"]
+[ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/Door_area.gd" id="1_bns64"]
 [ext_resource type="Texture2D" uid="uid://cnjrrhiyk24fb" path="res://assets/decorations/Door.png" id="1_whjy2"]
-[ext_resource type="Script" path="res://resources/scenes/school/door.gd" id="3_q3rel"]
+[ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/door.gd" id="3_q3rel"]
+
+[sub_resource type="Animation" id="Animation_8kfst"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door_area/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_8rlve"]
 resource_name = "door_closed"
@@ -30,21 +45,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_8kfst"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Door_area/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_pnk0p"]

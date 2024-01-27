@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://eiycvgaxdbrs"]
+[gd_scene load_steps=9 format=3 uid="uid://eiycvgaxdbrs"]
 
 [ext_resource type="PackedScene" uid="uid://chng2f8ogrb54" path="res://resources/prefabs/inventory_containers/inventory_container.tscn" id="1_uvm5e"]
 [ext_resource type="Script" path="res://resources/prefabs/inventory_containers/drawer_chest.gd" id="2_qudj3"]
