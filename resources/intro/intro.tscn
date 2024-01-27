@@ -1,0 +1,284 @@
+[gd_scene load_steps=14 format=3 uid="uid://c510ea2yaoomm"]
+
+[ext_resource type="AudioStream" uid="uid://dbuq84s1d7ukh" path="res://assets/intro/metalPot1.ogg" id="1_uybvk"]
+[ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://resources/fonts/stanberry.ttf" id="3_0yw3b"]
+[ext_resource type="Script" path="res://resources/intro/intro.gd" id="3_t2qav"]
+[ext_resource type="ArrayMesh" uid="uid://dpgdh0dqmcj2a" path="res://assets/intro/openPot.obj" id="4_j4hpa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgyit"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_v7djk"]
+material = SubResource("StandardMaterial3D_vgyit")
+text = "Banjek"
+font = ExtResource("3_0yw3b")
+font_size = 127
+depth = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4m0v"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_dpj8x"]
+material = SubResource("StandardMaterial3D_n4m0v")
+text = "Studio"
+font = ExtResource("3_0yw3b")
+font_size = 127
+depth = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apcuf"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_am2m8"]
+material = SubResource("StandardMaterial3D_apcuf")
+text = "presents"
+font = ExtResource("3_0yw3b")
+font_size = 110
+depth = 0.1
+
+[sub_resource type="Animation" id="Animation_ej5l1"]
+resource_name = "intro"
+length = 5.0
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_uybvk")
+}],
+"times": PackedFloat32Array(2.35)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("label_banjek:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 1.1, 1.4, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-12, 0.3, 0), Vector3(-2, 0.345, 0), Vector3(-1, 0.345, 0), Vector3(-2, 0.345, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("label_banjek:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.349066, 0), Vector3(0, 0.349066, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("label_banjek:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 1.6, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.71, 1.215, 1), Vector3(1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.7, 3.3, 4.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0.823529), Color(0, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("label_studio:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.9, 1.4, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(12, 0.3, -0.2), Vector3(1.5, 0.3, -0.2), Vector3(1.8, 0.3, -0.2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("label_studio:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1, 1.6, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.71, 1.35, 1), Vector3(1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("label_studio:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.523599, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("lable_presents:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.4, 1.8, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(3, -4, 0), Vector3(2.5, -0.25, 0), Vector3(2.5, -0.5, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("lable_presents:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.1, 1.6, 1.9, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1.2, 0.495, 1), Vector3(1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("lable_presents:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.261799, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("label_banjek:mesh")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.1, 1.3, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [SubResource("TextMesh_v7djk"), SubResource("TextMesh_v7djk"), SubResource("TextMesh_v7djk")]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("label_studio:mesh")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("TextMesh_dpj8x")]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("lable_presents:mesh")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("TextMesh_am2m8")]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("OpenPot:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.1, 2.2, 2.45, 2.65, 2.85),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-4, 6, 0), Vector3(-4, 6, 0), Vector3(-4, 1.34, 0), Vector3(-4.3568, 1.45161, 0.0347593), Vector3(-4.42035, 0.957392, 0.140661)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("OpenPot:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.1, 2.4, 2.65),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.0698132, 3.14159), Vector3(0, 0.0698132, 3.14159), Vector3(0, 0.190241, 3.50113)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_spkiu"]
+_data = {
+"intro": SubResource("Animation_ej5l1")
+}
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4v0kb"]
+
+[node name="intro" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.474137, 4.64479)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_spkiu")
+}
+autoplay = "intro"
+script = ExtResource("3_t2qav")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="label_banjek" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, -12, 0.3, 0)
+mesh = SubResource("TextMesh_v7djk")
+
+[node name="label_studio" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 12, 0.3, -0.2)
+mesh = SubResource("TextMesh_dpj8x")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.27041)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 20.0
+texture = SubResource("CanvasTexture_4v0kb")
+
+[node name="lable_presents" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 3, -4, 0)
+mesh = SubResource("TextMesh_am2m8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.479)
+
+[node name="OpenPot" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0399026, -1.0116e-07, 0.00279026, 1.01407e-07, -0.04, 0, 0.00279026, 7.07382e-09, 0.0399025, -4, 6, 0)
+mesh = ExtResource("4_j4hpa")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
