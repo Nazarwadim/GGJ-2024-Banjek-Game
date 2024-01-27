@@ -10,3 +10,4 @@ metadata/_edit_group_ = true
 debug_color = Color(0, 0.603922, 0.462745, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true

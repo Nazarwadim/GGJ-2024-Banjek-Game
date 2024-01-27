@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bryu8o18yt2gw"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://3kuoxtdtn6sr"]
 
 [ext_resource type="Script" path="res://resources/inventory/core/item.gd" id="1_dorkb"]
-[ext_resource type="Texture2D" path="res://assets/items/school/bowling_ball.png" id="2_ma4mg"]
+[ext_resource type="Texture2D" uid="uid://c03huk3mv3qki" path="res://assets/items/school/bowling_ball.png" id="2_ma4mg"]
 
 [resource]
 script = ExtResource("1_dorkb")
