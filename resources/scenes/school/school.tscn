@@ -491,7 +491,9 @@ z_index = 1
 y_sort_enabled = true
 metadata/_edit_lock_ = true
 
-[node name="Plama" parent="UsingAreas" instance=ExtResource("18_42gsm")]
+[node name="NonYsorted" type="Node2D" parent="UsingAreas"]
+
+[node name="Plama" parent="UsingAreas/NonYsorted" instance=ExtResource("18_42gsm")]
 modulate = Color(1, 1, 1, 0.560784)
 position = Vector2(429, 71)
 scale = Vector2(3.93, 3.93)
