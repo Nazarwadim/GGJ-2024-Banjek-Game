@@ -1,8 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=42 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
+[ext_resource type="Texture2D" uid="uid://5hx6la71qxqm" path="res://assets/items/school/bookR.png" id="2_jh7a5"]
 [ext_resource type="PackedScene" uid="uid://dk7b344a2x21x" path="res://resources/prefabs/player/player.tscn" id="2_vmcjx"]
+[ext_resource type="Texture2D" uid="uid://ceqt0revw4ek4" path="res://assets/items/school/bottle.png" id="3_n5uqf"]
 [ext_resource type="PackedScene" uid="uid://ovbs8p5ih66g" path="res://resources/gui/gui.tscn" id="3_q6pyy"]
 [ext_resource type="PackedScene" uid="uid://01gxr061t1fn" path="res://resources/prefabs/items/pen.tscn" id="3_sq132"]
 [ext_resource type="PackedScene" uid="uid://c5hyik7rvdob8" path="res://resources/prefabs/inventory_containers/shelf.tscn" id="4_4qlfo"]
@@ -11,8 +13,10 @@
 [ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="5_nvcen"]
 [ext_resource type="PackedScene" uid="uid://dmxatu2p38w4w" path="res://resources/prefabs/area_using_item_containers/glue_black_chair.tscn" id="5_nwrxo"]
 [ext_resource type="Resource" uid="uid://2tqkhux857ep" path="res://resources/inventory/items/glue.tres" id="6_a2i64"]
+[ext_resource type="PackedScene" uid="uid://dcyrd8y1dums8" path="res://resources/prefabs/area_using_item_containers/basketball.tscn" id="6_lpigu"]
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="6_wjxho"]
 [ext_resource type="Resource" uid="uid://b2bx77ek5le0p" path="res://resources/inventory/items/pen.tres" id="8_loop8"]
+[ext_resource type="Resource" uid="uid://3kuoxtdtn6sr" path="res://resources/inventory/items/bowling_ball.tres" id="9_5sfwh"]
 [ext_resource type="Resource" uid="uid://b8bhkecems0nc" path="res://resources/inventory/items/apple.tres" id="9_v6ayq"]
 [ext_resource type="PackedScene" uid="uid://eiycvgaxdbrs" path="res://resources/prefabs/inventory_containers/drawer.tscn" id="9_wptoe"]
 [ext_resource type="Resource" uid="uid://c1o01kf6ayp6s" path="res://resources/inventory/items/clear_bucket.tres" id="11_df6qp"]
@@ -28,11 +32,10 @@
 [ext_resource type="Texture2D" uid="uid://dsp6qf8k0b4mj" path="res://assets/items/school/sink.png" id="20_xifl2"]
 [ext_resource type="PackedScene" uid="uid://bje7pjg1x6emk" path="res://resources/prefabs/area_using_item_containers/director_flower.tscn" id="21_wtuyo"]
 [ext_resource type="PackedScene" uid="uid://bi4cmb7hsrj88" path="res://resources/prefabs/area_using_item_containers/guitar.tscn" id="23_y83c6"]
-[ext_resource type="PackedScene" uid="uid://deude24v8oj73" path="res://resources/prefabs/test_navigation/enemy.tscn" id="27_bt5fn"]
 
 [sub_resource type="Resource" id="Resource_tef4i"]
 script = ExtResource("6_wjxho")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_nvcen"), ExtResource("6_a2i64"), null, null, null, null, null, null, null, null])
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_nvcen"), ExtResource("6_a2i64"), null, null, null, ExtResource("9_5sfwh"), null, null, null, null])
 
 [sub_resource type="Resource" id="Resource_vq4y7"]
 script = ExtResource("6_wjxho")
@@ -70,6 +73,326 @@ items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("
 y_sort_enabled = true
 
 [node name="SchoolTileMap" parent="." instance=ExtResource("1_sm8qs")]
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(0.999656, 1)
+
+[node name="BookR" type="Node2D" parent="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-400.138, 363)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-272.094, 365)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-335.115, 460)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(211.073, 654)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-270.093, 652)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D6" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-334.115, 652)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D7" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-206.071, 365)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D8" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-398.137, 555)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D9" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-272.094, 555)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D10" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-268.092, 461)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D11" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(275.095, 556)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D12" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(143.049, 558)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D13" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(146.05, 362)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D14" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(273.094, 460)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D15" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(786.27, 366)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D16" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(143.049, 461)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D17" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(274.094, 367)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D18" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(209.072, 364)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D19" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(145.05, 653)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D20" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(336.116, 555)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D21" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(337.116, 364)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D22" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(722.248, 560)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D23" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(846.291, 556)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D25" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(787.271, 654)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D24" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(719.247, 461)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D26" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(658.226, 364)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D27" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(660.227, 557)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D28" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(654.225, 652)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Bottles" type="Node2D" parent="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(154.053, 360)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(-390.134, 363)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(663.228, 645)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(-390.134, 456)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(-145.05, 289)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(-860.296, -347)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(1402.48, 415)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(1457.5, 284)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(1387.48, 699)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(731.251, 361)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(36.0124, -451)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(-195.067, 158)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(215.074, 458)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(401.138, 284)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(-203.07, 647)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(856.294, 551)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(547.188, -545)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
 
 [node name="Items" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -210,6 +533,11 @@ position = Vector2(18, 0)
 [node name="money" parent="TempForDebug" instance=ExtResource("13_qp3pa")]
 position = Vector2(64, 13)
 
+[node name="RigidBody2D" parent="." instance=ExtResource("6_lpigu")]
+z_index = 3
+position = Vector2(-192, -310)
+metadata/_edit_group_ = true
+
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]
 [connection signal="item_droped" from="Player" to="CanvasLayer/HotBar" method="update_inventory"]
@@ -226,3 +554,5 @@ position = Vector2(64, 13)
 [editable path="Chests/Drawers/Drawer2"]
 [editable path="Chests/Drawers/Drawer3"]
 [editable path="CanvasLayer"]
+[editable path="RigidBody2D"]
+[editable path="RigidBody2D/AreaUsingItemContainer"]
