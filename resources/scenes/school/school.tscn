@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=39 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
@@ -96,11 +96,23 @@ position = Vector2(1955, -113)
 [node name="ChestContainer" parent="Chests/Shelfs/Shelf" index="0"]
 inventory = SubResource("Resource_tef4i")
 
+[node name="Open" parent="Chests/Shelfs/Shelf/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Shelfs/Shelf/Sounds" index="1"]
+bus = &"Master"
+
 [node name="Shelf2" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
 position = Vector2(595, -23)
 
 [node name="ChestContainer" parent="Chests/Shelfs/Shelf2" index="0"]
 inventory = SubResource("Resource_vq4y7")
+
+[node name="Open" parent="Chests/Shelfs/Shelf2/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Shelfs/Shelf2/Sounds" index="1"]
+bus = &"Master"
 
 [node name="Shelf3" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
 position = Vector2(893, 195)
@@ -108,11 +120,23 @@ position = Vector2(893, 195)
 [node name="ChestContainer" parent="Chests/Shelfs/Shelf3" index="0"]
 inventory = SubResource("Resource_u1qj8")
 
+[node name="Open" parent="Chests/Shelfs/Shelf3/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Shelfs/Shelf3/Sounds" index="1"]
+bus = &"Master"
+
 [node name="Shelf4" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
 position = Vector2(-180, 192)
 
 [node name="ChestContainer" parent="Chests/Shelfs/Shelf4" index="0"]
 inventory = SubResource("Resource_wjale")
+
+[node name="Open" parent="Chests/Shelfs/Shelf4/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Shelfs/Shelf4/Sounds" index="1"]
+bus = &"Master"
 
 [node name="Shelf5" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
 position = Vector2(355, 197)
@@ -120,11 +144,23 @@ position = Vector2(355, 197)
 [node name="ChestContainer" parent="Chests/Shelfs/Shelf5" index="0"]
 inventory = SubResource("Resource_idy6h")
 
+[node name="Open" parent="Chests/Shelfs/Shelf5/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Shelfs/Shelf5/Sounds" index="1"]
+bus = &"Master"
+
 [node name="Shelf6" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
 position = Vector2(519, -573)
 
 [node name="ChestContainer" parent="Chests/Shelfs/Shelf6" index="0"]
 inventory = SubResource("Resource_ntnan")
+
+[node name="Open" parent="Chests/Shelfs/Shelf6/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Shelfs/Shelf6/Sounds" index="1"]
+bus = &"Master"
 
 [node name="Drawers" type="Node2D" parent="Chests"]
 y_sort_enabled = true
@@ -136,11 +172,23 @@ position = Vector2(1358, 216)
 [node name="ChestContainer" parent="Chests/Drawers/Drawer" index="0"]
 inventory = SubResource("Resource_6w68g")
 
+[node name="Open" parent="Chests/Drawers/Drawer/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Drawers/Drawer/Sounds" index="1"]
+bus = &"Master"
+
 [node name="Drawer2" parent="Chests/Drawers" instance=ExtResource("9_wptoe")]
 position = Vector2(109, 211)
 
 [node name="ChestContainer" parent="Chests/Drawers/Drawer2" index="0"]
 inventory = SubResource("Resource_nmvmq")
+
+[node name="Open" parent="Chests/Drawers/Drawer2/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Drawers/Drawer2/Sounds" index="1"]
+bus = &"Master"
 
 [node name="Drawer3" parent="Chests/Drawers" instance=ExtResource("9_wptoe")]
 position = Vector2(-593, -937)
@@ -148,7 +196,15 @@ position = Vector2(-593, -937)
 [node name="ChestContainer" parent="Chests/Drawers/Drawer3" index="0"]
 inventory = SubResource("Resource_y3l1r")
 
+[node name="Open" parent="Chests/Drawers/Drawer3/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Drawers/Drawer3/Sounds" index="1"]
+bus = &"Master"
+
 [node name="UsingAreas" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="Plama" parent="UsingAreas" instance=ExtResource("18_42gsm")]
