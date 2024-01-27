@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://i67ghqws6hdd"]
+
+[ext_resource type="PackedScene" uid="uid://vd5yb4smm72s" path="res://resources/prefabs/area_using_item_containers/area_using_item_container.tscn" id="1_ot74q"]
+[ext_resource type="Resource" uid="uid://c1o01kf6ayp6s" path="res://resources/inventory/items/clear_bucket.tres" id="2_2qjyx"]
+[ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/sink.gd" id="2_fn606"]
+[ext_resource type="Resource" uid="uid://bcfrwrwlc6bdg" path="res://resources/factories/item_container_factory.tres" id="3_d6tdp"]
+[ext_resource type="Texture2D" uid="uid://dsp6qf8k0b4mj" path="res://assets/items/school/sink.png" id="3_gbb81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvx5x"]
+size = Vector2(30, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khwr0"]
+size = Vector2(23, 9)
+
+[node name="sink" type="StaticBody2D"]
+
+[node name="AreaUsingItemContainer" parent="." instance=ExtResource("1_ot74q")]
+script = ExtResource("2_fn606")
+item_factory = ExtResource("3_d6tdp")
+item_can_use = ExtResource("2_2qjyx")
+
+[node name="CollisionShape2D" parent="AreaUsingItemContainer" index="0"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_qvx5x")
+
+[node name="Sprite2D" parent="AreaUsingItemContainer" index="1"]
+texture = ExtResource("3_gbb81")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_khwr0")
+
+[connection signal="fixed" from="AreaUsingItemContainer" to="AreaUsingItemContainer" method="_on_fixed"]
+[connection signal="used" from="AreaUsingItemContainer" to="AreaUsingItemContainer" method="_on_used"]
+
+[editable path="AreaUsingItemContainer"]

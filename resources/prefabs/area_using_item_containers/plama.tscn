@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcrvnl55xojlm"]
+
+[ext_resource type="PackedScene" uid="uid://vd5yb4smm72s" path="res://resources/prefabs/area_using_item_containers/area_using_item_container.tscn" id="1_ux8v3"]
+[ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/plama_area.gd" id="2_0kmri"]
+[ext_resource type="Texture2D" uid="uid://bgb03foe3nabi" path="res://assets/decorations/plama.png" id="2_4wjw7"]
+[ext_resource type="Resource" uid="uid://dnqkm8ftdo4hy" path="res://resources/inventory/items/full_bucket.tres" id="2_pp5tj"]
+[ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/plama.gd" id="3_vby3g"]
+[ext_resource type="Resource" uid="uid://bcfrwrwlc6bdg" path="res://resources/factories/item_container_factory.tres" id="5_hgqdu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nnit3"]
+radius = 17.0294
+
+[node name="Plama" type="Node2D"]
+
+[node name="AreaUsingItemContainer" parent="." instance=ExtResource("1_ux8v3")]
+position = Vector2(-1, -1)
+script = ExtResource("2_0kmri")
+item_factory = ExtResource("5_hgqdu")
+item_can_use = ExtResource("2_pp5tj")
+
+[node name="CollisionShape2D" parent="AreaUsingItemContainer" index="0"]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_nnit3")
+
+[node name="Sprite2D" parent="AreaUsingItemContainer" index="1"]
+texture = ExtResource("2_4wjw7")
+script = ExtResource("3_vby3g")
+
+[connection signal="fixed" from="AreaUsingItemContainer" to="AreaUsingItemContainer/Sprite2D" method="_on_area_using_item_container_fixed"]
+[connection signal="used" from="AreaUsingItemContainer" to="AreaUsingItemContainer/Sprite2D" method="_on_area_using_item_container_used"]
+
+[editable path="AreaUsingItemContainer"]
