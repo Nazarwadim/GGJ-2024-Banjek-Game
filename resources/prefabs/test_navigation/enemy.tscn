@@ -9,7 +9,7 @@ height = 130.0
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.2, 0.2)
-collision_layer = 4
+collision_layer = 2
 collision_mask = 7
 motion_mode = 1
 wall_min_slide_angle = 0.0
@@ -26,11 +26,15 @@ shape = SubResource("CapsuleShape2D_7t4xc")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 navigation_layers = 3
-path_postprocessing = 1
+avoidance_enabled = true
+radius = 15.0
+neighbor_distance = 1000.0
+max_speed = 150.0
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
 
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
