@@ -9,6 +9,21 @@
 [ext_resource type="Script" path="res://resources/prefabs/npc/walking_student/states/idle.gd" id="6_v71m0"]
 [ext_resource type="Script" path="res://resources/prefabs/npc/walking_student/states/walk.gd" id="7_njkwa"]
 
+[sub_resource type="Animation" id="Animation_nxnj3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_km2mg"]
 resource_name = "walk_left"
 length = 0.6
@@ -24,21 +39,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_nxnj3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_qcw2m"]
