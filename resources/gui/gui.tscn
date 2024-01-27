@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ovbs8p5ih66g"]
+[gd_scene load_steps=9 format=3 uid="uid://ovbs8p5ih66g"]
 
 [ext_resource type="PackedScene" uid="uid://b8fovaesjaw4s" path="res://resources/inventory/ui/main_chest_inventory/main_chest_inventory.tscn" id="1_vobyk"]
 [ext_resource type="PackedScene" uid="uid://da63d4xi31igy" path="res://resources/inventory/ui/hotbar/hot_bar.tscn" id="2_u2dv8"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cyih2geyh37t1" path="res://resources/gui/mouse_entered_object_observer/mouse_entered_object_observer.tscn" id="5_rejgn"]
 [ext_resource type="PackedScene" uid="uid://b8x075gacvsp8" path="res://resources/gui/player_mood/player_mood.tscn" id="6_h6erl"]
 [ext_resource type="PackedScene" uid="uid://2lvjg7ec0x2s" path="res://resources/gui/MsgBox/msg_box.tscn" id="7_l5867"]
+[ext_resource type="Script" path="res://resources/gui/MouseCursor.gd" id="8_gejmu"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -47,6 +48,7 @@ hot_bar = NodePath("../HotBar")
 [node name="ItemSlotAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_7mbqj")
 pitch_scale = 2.01
+bus = &"SFX"
 
 [node name="MouseObjectObserver" parent="." instance=ExtResource("5_rejgn")]
 offset_right = -960.0
@@ -61,17 +63,32 @@ offset_top = 49.0
 offset_right = 36.0
 offset_bottom = 49.0
 
+[node name="MouseCursor" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_gejmu")
+
 [connection signal="current_slot_changed" from="MainChestInventory" to="ItemSlotAudioPlayer" method="play"]
 [connection signal="select_double_clicked" from="MainChestInventory" to="ItemMover" method="_on_main_chest_inventory_select_double_clicked"]
 [connection signal="current_slot_changed" from="HotBar" to="ItemSlotAudioPlayer" method="play"]
 [connection signal="select_double_clicked" from="HotBar" to="ItemMover" method="_on_hot_bar_select_double_clicked"]
 [connection signal="area_using_item_mouse_entered" from="MouseObjectObserver" to="PlayerMood" method="_on_area_using_item_mouse_entered"]
+[connection signal="area_using_item_mouse_entered" from="MouseObjectObserver" to="MouseCursor" method="_on_mouse_object_observer_area_using_item_mouse_entered"]
 [connection signal="area_using_item_mouse_exited" from="MouseObjectObserver" to="PlayerMood" method="_on_area_using_item_mouse_exited"]
+[connection signal="area_using_item_mouse_exited" from="MouseObjectObserver" to="MouseCursor" method="_on_mouse_object_observer_area_using_item_mouse_exited"]
 [connection signal="inventory_container_mouse_entered" from="MouseObjectObserver" to="PlayerMood" method="_on_inventory_container_mouse_entered"]
+[connection signal="inventory_container_mouse_entered" from="MouseObjectObserver" to="MouseCursor" method="_on_mouse_object_observer_inventory_container_mouse_entered"]
 [connection signal="inventory_container_mouse_exited" from="MouseObjectObserver" to="PlayerMood" method="_on_inventory_container_mouse_exited"]
+[connection signal="inventory_container_mouse_exited" from="MouseObjectObserver" to="MouseCursor" method="_on_mouse_object_observer_inventory_container_mouse_exited"]
 [connection signal="item_container_mouse_entered" from="MouseObjectObserver" to="PlayerMood" method="_on_item_container_mouse_entered"]
+[connection signal="item_container_mouse_entered" from="MouseObjectObserver" to="MouseCursor" method="_on_mouse_object_observer_item_container_mouse_entered"]
 [connection signal="item_container_mouse_exited" from="MouseObjectObserver" to="PlayerMood" method="_on_item_container_mouse_exited"]
+[connection signal="item_container_mouse_exited" from="MouseObjectObserver" to="MouseCursor" method="_on_mouse_object_observer_item_container_mouse_exited"]
 [connection signal="slot_mouse_entered" from="MouseObjectObserver" to="PlayerMood" method="_on_slot_mouse_entered"]
 [connection signal="slot_mouse_entered" from="MouseObjectObserver" to="MsgBox" method="_on_mouse_object_observer_slot_mouse_entered"]
+[connection signal="slot_mouse_entered" from="MouseObjectObserver" to="MouseCursor" method="_on_mouse_object_observer_slot_mouse_entered"]
 [connection signal="slot_mouse_exited" from="MouseObjectObserver" to="PlayerMood" method="_on_slot_mouse_exited"]
 [connection signal="slot_mouse_exited" from="MouseObjectObserver" to="MsgBox" method="_on_mouse_object_observer_slot_mouse_exited"]
+[connection signal="slot_mouse_exited" from="MouseObjectObserver" to="MouseCursor" method="_on_mouse_object_observer_slot_mouse_exited"]

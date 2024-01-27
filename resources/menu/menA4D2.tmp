@@ -1,0 +1,147 @@
+[gd_scene load_steps=17 format=3 uid="uid://56jj7k2t6jkd"]
+
+[ext_resource type="Script" path="res://resources/menu/menu.gd" id="1_vdpgn"]
+[ext_resource type="Texture2D" uid="uid://dl0adggaex81c" path="res://assets/menu/play_button.png" id="2_yyb8f"]
+[ext_resource type="AudioStream" uid="uid://qjjbju2dh1r3" path="res://assets/menu/button_hover.wav" id="3_j0imb"]
+[ext_resource type="Texture2D" uid="uid://d7rvfgw8ye4p" path="res://assets/menu/settings_button.png" id="3_yejs3"]
+[ext_resource type="AudioStream" uid="uid://b38ifshm702ob" path="res://assets/menu/button_up.wav" id="4_yhpjn"]
+[ext_resource type="AudioStream" uid="uid://dktto6dej2jrl" path="res://assets/menu/button_down.wav" id="5_vc5tl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x5evs"]
+bounce = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfobg"]
+size = Vector2(331, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avirw"]
+size = Vector2(37, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m827m"]
+size = Vector2(1020, 114)
+
+[sub_resource type="Animation" id="Animation_wtrhw"]
+resource_name = "button_fall"
+
+[sub_resource type="Animation" id="Animation_7sfuu"]
+resource_name = "button_tilt"
+
+[sub_resource type="Animation" id="Animation_aquid"]
+resource_name = "player_enter"
+
+[sub_resource type="Animation" id="Animation_bchdy"]
+resource_name = "scene fall"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7pur5"]
+_data = {
+"button_fall": SubResource("Animation_wtrhw"),
+"button_tilt": SubResource("Animation_7sfuu"),
+"player_enter": SubResource("Animation_aquid"),
+"scene fall": SubResource("Animation_bchdy")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vj5j4"]
+radius = 44.0
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_vdpgn")
+target_rottation = 90.0
+
+[node name="pin_nail_button" type="PinJoint2D" parent="."]
+position = Vector2(602, 215)
+node_a = NodePath("../play_button_rigid_body")
+node_b = NodePath("../nail")
+
+[node name="play_button_rigid_body" type="RigidBody2D" parent="."]
+position = Vector2(457, 251)
+physics_material_override = SubResource("PhysicsMaterial_x5evs")
+inertia = 2.0
+freeze = true
+
+[node name="play_button" type="TextureButton" parent="play_button_rigid_body"]
+offset_left = -163.0
+offset_top = -57.0
+offset_right = 168.0
+offset_bottom = 64.0
+texture_normal = ExtResource("2_yyb8f")
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="play_button_collision" type="CollisionShape2D" parent="play_button_rigid_body"]
+visible = false
+position = Vector2(2.5, 3.5)
+shape = SubResource("RectangleShape2D_mfobg")
+
+[node name="nail" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(605, 215)
+
+[node name="nail_collision" type="CollisionShape2D" parent="nail"]
+position = Vector2(-5, 2)
+shape = SubResource("RectangleShape2D_avirw")
+metadata/_edit_lock_ = true
+
+[node name="border" type="RigidBody2D" parent="."]
+visible = false
+position = Vector2(482, 771)
+sleeping = true
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border"]
+position = Vector2(-6, -168)
+shape = SubResource("RectangleShape2D_m827m")
+
+[node name="play_button_anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7pur5")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(480, 270)
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="button_hover_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("3_j0imb")
+volume_db = 1.0
+
+[node name="button_down_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_vc5tl")
+
+[node name="button_pressed_sound" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="button_up_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_yhpjn")
+
+[node name="button_hanging_sound" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="button_falling_sound" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="scene_falling_sound" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="setting_button_rigid_body" type="RigidBody2D" parent="."]
+position = Vector2(809, 102)
+freeze = true
+
+[node name="setting_button" type="TextureButton" parent="setting_button_rigid_body"]
+offset_left = -42.5
+offset_top = -43.0
+offset_right = 42.5
+offset_bottom = 42.0
+texture_normal = ExtResource("3_yejs3")
+texture_hover = ExtResource("3_yejs3")
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="settint_button_collision" type="CollisionShape2D" parent="setting_button_rigid_body"]
+visible = false
+shape = SubResource("CircleShape2D_vj5j4")
+metadata/_edit_lock_ = true
+
+[connection signal="button_down" from="play_button_rigid_body/play_button" to="." method="_on_play_button_button_down"]
+[connection signal="button_up" from="play_button_rigid_body/play_button" to="." method="_on_play_button_button_up"]
+[connection signal="mouse_entered" from="play_button_rigid_body/play_button" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="play_button_rigid_body/play_button" to="." method="_on_play_button_mouse_exited"]
+[connection signal="pressed" from="play_button_rigid_body/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="setting_button_rigid_body/setting_button" to="." method="_on_setting_button_mouse_entered"]
+[connection signal="mouse_exited" from="setting_button_rigid_body/setting_button" to="." method="_on_setting_button_mouse_exited"]
