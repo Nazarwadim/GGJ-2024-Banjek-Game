@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbsvwigy53xir"]
+[gd_scene load_steps=15 format=3 uid="uid://bbsvwigy53xir"]
 
 [ext_resource type="Script" path="res://resources/menu/settings.gd" id="1_46u6e"]
 [ext_resource type="Script" path="res://addons/simple-gui-transitions/transition.gd" id="1_yrfbn"]
 [ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://resources/fonts/stanberry.ttf" id="3_b4th8"]
+[ext_resource type="AudioStream" uid="uid://qjjbju2dh1r3" path="res://assets/menu/button_hover.wav" id="4_2daof"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnv8j"]
 bg_color = Color(0.360784, 0.145098, 0.0196078, 0)
@@ -188,7 +189,20 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
+[node name="Audio" type="Node" parent="."]
+
+[node name="button_hover_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_2daof")
+bus = &"SFX"
+
+[node name="button_pressed_sound" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
+
 [connection signal="item_selected" from="main_container/full_option_container/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="mouse_entered" from="main_container/full_option_container/OptionButton" to="." method="_on_option_button_mouse_entered"]
+[connection signal="mouse_exited" from="main_container/full_option_container/OptionButton" to="." method="_on_option_button_mouse_exited"]
 [connection signal="value_changed" from="main_container/full_option_container/level_of_sound_music" to="." method="_on_level_of_sound_music_value_changed"]
 [connection signal="value_changed" from="main_container/full_option_container/level_of_sound_effects" to="." method="_on_level_of_sound_effects_value_changed"]
+[connection signal="mouse_entered" from="main_container/full_option_container/return_menu" to="." method="_on_return_menu_mouse_entered"]
+[connection signal="mouse_exited" from="main_container/full_option_container/return_menu" to="." method="_on_return_menu_mouse_exited"]
 [connection signal="pressed" from="main_container/full_option_container/return_menu" to="." method="_on_button_pressed"]

@@ -41,3 +41,19 @@ func _on_level_of_sound_effects_value_changed(value):
 	else:
 		AudioServer.set_bus_mute(1,false)
 		AudioServer.set_bus_volume_db(1,sound)
+
+
+func _on_option_button_mouse_entered():
+	$Audio/button_hover_sound.play()
+
+
+func _on_option_button_mouse_exited():
+	$Audio/button_hover_sound.play()
+
+
+func _on_return_menu_mouse_entered():
+	$Audio/button_hover_sound.play()
+
+
+func _on_return_menu_mouse_exited():
+	$Audio/button_hover_sound.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://56jj7k2t6jkd"]
+[gd_scene load_steps=24 format=3 uid="uid://56jj7k2t6jkd"]
 
 [ext_resource type="Script" path="res://resources/menu/menu.gd" id="1_vdpgn"]
 [ext_resource type="PackedScene" uid="uid://c482u4huelhlb" path="res://resources/scenes/school/school.tscn" id="2_g8mn4"]
@@ -11,7 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://t078ukmvtun0" path="res://assets/menu/gear_rotate.mp3" id="7_fsaen"]
 [ext_resource type="AudioStream" uid="uid://nw1km1f0m1k0" path="res://assets/menu/gear_rotate_reverse.mp3" id="8_x71nm"]
 [ext_resource type="Texture2D" uid="uid://b67vj7qcbynmh" path="res://assets/player/walk_with_slingshot.png" id="11_tonhr"]
+[ext_resource type="AudioStream" uid="uid://uqb0ka5fbxai" path="res://assets/menu/button_hanging.mp3" id="12_o60k5"]
 [ext_resource type="Texture2D" uid="uid://3jd0x1b1yywu" path="res://assets/items/rock.png" id="12_wrmkr"]
+[ext_resource type="Texture2D" uid="uid://dnaj3yr5c4gbk" path="res://assets/menu/windowbr.png" id="13_g30ug"]
+[ext_resource type="AudioStream" uid="uid://bdcxql7u1qtj" path="res://assets/menu/breaking_glass.mp3" id="15_imqqy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x5evs"]
 bounce = 0.3
@@ -106,6 +109,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.0, 0.0, 5.58505]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Windowbr:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1, 5.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Audio/breaking_glass:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1, 5.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ogbb4"]
 _data = {
@@ -196,6 +223,39 @@ shape = SubResource("RectangleShape2D_m827m")
 visible = false
 position = Vector2(480, 270)
 
+[node name="GuiTransition" type="Node" parent="."]
+script = ExtResource("7_fc2sl")
+animation_enter = 3
+animation_leave = 2
+duration = 0.2
+delay = 0.1
+layout = NodePath("..")
+group = NodePath("..")
+
+[node name="true_start_animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ogbb4")
+}
+
+[node name="walk" type="Sprite2D" parent="."]
+position = Vector2(-153.103, 246.31)
+scale = Vector2(3.02, 3.02)
+texture = ExtResource("11_tonhr")
+hframes = 6
+vframes = 2
+frame = 4
+
+[node name="rock" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(477, 237)
+texture = ExtResource("12_wrmkr")
+
+[node name="Windowbr" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(480, 270)
+scale = Vector2(24, 23.459)
+texture = ExtResource("13_g30ug")
+
 [node name="Audio" type="Node" parent="."]
 
 [node name="button_hover_sound" type="AudioStreamPlayer" parent="Audio"]
@@ -214,12 +274,7 @@ stream = ExtResource("4_yhpjn")
 bus = &"SFX"
 
 [node name="button_hanging_sound" type="AudioStreamPlayer" parent="Audio"]
-bus = &"SFX"
-
-[node name="button_falling_sound" type="AudioStreamPlayer" parent="Audio"]
-bus = &"SFX"
-
-[node name="scene_falling_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("12_o60k5")
 bus = &"SFX"
 
 [node name="gear_rotate_sound" type="AudioStreamPlayer" parent="Audio"]
@@ -232,32 +287,8 @@ stream = ExtResource("8_x71nm")
 volume_db = -6.0
 bus = &"SFX"
 
-[node name="GuiTransition" type="Node" parent="."]
-script = ExtResource("7_fc2sl")
-animation_enter = 3
-animation_leave = 2
-duration = 0.2
-delay = 0.1
-layout = NodePath("..")
-group = NodePath("..")
-
-[node name="true_start_animation" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ogbb4")
-}
-
-[node name="walk" type="Sprite2D" parent="."]
-position = Vector2(-200, 247)
-scale = Vector2(3.02, 3.02)
-texture = ExtResource("11_tonhr")
-hframes = 6
-vframes = 2
-frame = 4
-
-[node name="rock" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(477, 237)
-texture = ExtResource("12_wrmkr")
+[node name="breaking_glass" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("15_imqqy")
 
 [connection signal="button_down" from="play_button_rigid_body/play_button" to="." method="_on_play_button_button_down"]
 [connection signal="button_up" from="play_button_rigid_body/play_button" to="." method="_on_play_button_button_up"]
