@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @onready var navigation_agent := $NavigationAgent2D as NavigationAgent2D
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_and_slide.call_deferred()
 	if navigation_agent.is_navigation_finished():
 		return	

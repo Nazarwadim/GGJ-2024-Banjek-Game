@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c510ea2yaoomm"]
+[gd_scene load_steps=15 format=3 uid="uid://c510ea2yaoomm"]
 
 [ext_resource type="AudioStream" uid="uid://dbuq84s1d7ukh" path="res://assets/intro/metalPot1.ogg" id="1_uybvk"]
 [ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://resources/fonts/stanberry.ttf" id="3_0yw3b"]
 [ext_resource type="Script" path="res://resources/intro/intro.gd" id="3_t2qav"]
 [ext_resource type="ArrayMesh" uid="uid://dpgdh0dqmcj2a" path="res://assets/intro/openPot.obj" id="4_j4hpa"]
+[ext_resource type="PackedScene" uid="uid://cydf2i43u3q27" path="res://resources/menu/menu_transition.tscn" id="4_oe7w1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgyit"]
 albedo_color = Color(0, 0, 0, 1)
@@ -253,6 +254,7 @@ libraries = {
 }
 autoplay = "intro"
 script = ExtResource("3_t2qav")
+menu_scene = ExtResource("4_oe7w1")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
