@@ -21,6 +21,7 @@ config/icon="res://icon.png"
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
 GuiTransitions="*res://addons/simple-gui-transitions/singleton.gd"
 SignalBus="*res://resources/global_scripts/signal_bus.gd"
+Globals="*res://resources/global_scripts/globals.gd"
 
 [display]
 
@@ -29,7 +30,7 @@ window/size/viewport_height=540
 window/size/initial_position_type=0
 window/size/window_width_override=960
 window/size/window_height_override=540
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
 window/stretch/scale_mode="integer"
 
