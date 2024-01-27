@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cevets8i5xu8x" path="res://assets/decorations/director_chair.png" id="19_q3omo"]
 [ext_resource type="Texture2D" uid="uid://dsp6qf8k0b4mj" path="res://assets/items/school/sink.png" id="20_xifl2"]
 [ext_resource type="PackedScene" uid="uid://bje7pjg1x6emk" path="res://resources/prefabs/area_using_item_containers/director_flower.tscn" id="21_wtuyo"]
-[ext_resource type="PackedScene" uid="uid://bi4cmb7hsrj88" path="res://resources/scenes/school/guitar.tscn" id="23_y83c6"]
+[ext_resource type="PackedScene" uid="uid://bi4cmb7hsrj88" path="res://resources/prefabs/area_using_item_containers/guitar.tscn" id="23_y83c6"]
 [ext_resource type="PackedScene" uid="uid://deude24v8oj73" path="res://resources/prefabs/test_navigation/enemy.tscn" id="27_bt5fn"]
 
 [sub_resource type="Resource" id="Resource_tef4i"]
@@ -169,7 +169,7 @@ position = Vector2(-719, -944)
 texture = ExtResource("20_xifl2")
 
 [node name="Sink2" type="Sprite2D" parent="UsingAreas"]
-position = Vector2(-665, -916)
+position = Vector2(-658, -944)
 texture = ExtResource("20_xifl2")
 
 [node name="Sink3" type="Sprite2D" parent="UsingAreas"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bb1wth1l6wq2d"]
 
-[ext_resource type="Script" path="res://resources/scenes/school/Door_area.gd" id="1_bns64"]
+[ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/Door_area.gd" id="1_bns64"]
 [ext_resource type="Texture2D" uid="uid://cnjrrhiyk24fb" path="res://assets/decorations/Door.png" id="1_whjy2"]
-[ext_resource type="Script" path="res://resources/scenes/school/door.gd" id="3_q3rel"]
+[ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/door.gd" id="3_q3rel"]
 
 [sub_resource type="Animation" id="Animation_8kfst"]
 length = 0.001

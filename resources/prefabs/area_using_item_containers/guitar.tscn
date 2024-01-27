@@ -3,12 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://vd5yb4smm72s" path="res://resources/prefabs/area_using_item_containers/area_using_item_container.tscn" id="1_gxqol"]
 [ext_resource type="Resource" uid="uid://cerjd215pbeae" path="res://resources/inventory/items/scissors.tres" id="2_bq0bl"]
 [ext_resource type="Texture2D" uid="uid://b2ck0k05fquq8" path="res://assets/decorations/GUITAR.png" id="2_ks7a4"]
-[ext_resource type="Script" path="res://resources/scenes/school/guitar.gd" id="3_buuga"]
+[ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/guitar.gd" id="3_buuga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cl3k3"]
 size = Vector2(21, 60)
 
 [node name="Guitar" type="Node2D"]
+z_index = -1
 
 [node name="AreaUsingItemContainer" parent="." instance=ExtResource("1_gxqol")]
 item_can_use = ExtResource("2_bq0bl")
@@ -22,8 +23,6 @@ z_index = 1
 texture = ExtResource("2_ks7a4")
 hframes = 2
 script = ExtResource("3_buuga")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [connection signal="fixed" from="AreaUsingItemContainer" to="AreaUsingItemContainer/Sprite2D" method="_on_area_using_item_container_fixed"]
 [connection signal="used" from="AreaUsingItemContainer" to="AreaUsingItemContainer/Sprite2D" method="_on_area_using_item_container_used"]
