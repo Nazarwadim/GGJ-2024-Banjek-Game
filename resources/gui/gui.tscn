@@ -48,6 +48,7 @@ hot_bar = NodePath("../HotBar")
 [node name="ItemSlotAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_7mbqj")
 pitch_scale = 2.01
+bus = &"SFX"
 
 [node name="MouseObjectObserver" parent="." instance=ExtResource("5_rejgn")]
 offset_right = -960.0

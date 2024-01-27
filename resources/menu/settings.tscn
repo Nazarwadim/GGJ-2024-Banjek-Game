@@ -1,0 +1,208 @@
+[gd_scene load_steps=15 format=3 uid="uid://bbsvwigy53xir"]
+
+[ext_resource type="Script" path="res://resources/menu/settings.gd" id="1_46u6e"]
+[ext_resource type="Script" path="res://addons/simple-gui-transitions/transition.gd" id="1_yrfbn"]
+[ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://resources/fonts/stanberry.ttf" id="3_b4th8"]
+[ext_resource type="AudioStream" uid="uid://qjjbju2dh1r3" path="res://assets/menu/button_hover.wav" id="4_2daof"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnv8j"]
+bg_color = Color(0.360784, 0.145098, 0.0196078, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2t6sq"]
+font = ExtResource("3_b4th8")
+font_size = 24
+font_color = Color(0.654902, 0.384314, 0.0235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtph4"]
+bg_color = Color(0.686275, 0.392157, 0, 1)
+border_color = Color(0.647059, 0.219608, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3lx1"]
+bg_color = Color(0.517647, 0.290196, 0, 1)
+border_color = Color(0.647059, 0.219608, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqnlb"]
+bg_color = Color(0.686275, 0.392157, 0, 1)
+border_color = Color(0.462745, 0.258824, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfmta"]
+bg_color = Color(0.517647, 0.290196, 0, 1)
+border_color = Color(0.686275, 0.392157, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6re4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alilb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vf2or"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtgk0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_46u6e")
+sound_volume = 10
+music_volume = 10
+
+[node name="GuiTransition" type="Node" parent="."]
+script = ExtResource("1_yrfbn")
+animation_enter = 3
+animation_leave = 2
+duration = 0.5
+delay = 0.2
+layout = NodePath("..")
+group = NodePath("../main_container/full_option_container")
+
+[node name="main_container" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="left_void" type="Control" parent="main_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="full_option_container" type="VBoxContainer" parent="main_container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="top_void" type="Control" parent="main_container/full_option_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="OptionButton" type="OptionButton" parent="main_container/full_option_container"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+theme_override_colors/font_color = Color(0.686275, 0.392157, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.52549, 0.294118, 0, 1)
+theme_override_colors/font_hover_color = Color(0.576471, 0.32549, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.686275, 0.392157, 0, 1)
+theme_override_colors/font_focus_color = Color(0.686275, 0.392157, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.686275, 0.392157, 0, 1)
+theme_override_colors/font_outline_color = Color(0.290196, 0.152941, 0, 1)
+theme_override_constants/arrow_margin = 15
+theme_override_fonts/font = ExtResource("3_b4th8")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxFlat_tnv8j")
+flat = true
+alignment = 1
+item_count = 3
+selected = 0
+allow_reselect = true
+popup/item_0/text = "Choose resolution"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Windowed"
+popup/item_2/id = 2
+
+[node name="musik" type="Label" parent="main_container/full_option_container"]
+layout_mode = 2
+text = "Music Sound"
+label_settings = SubResource("LabelSettings_2t6sq")
+horizontal_alignment = 1
+
+[node name="level_of_sound_music" type="HSlider" parent="main_container/full_option_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vtph4")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_p3lx1")
+min_value = -100.0
+rounded = true
+
+[node name="music_sfx_void" type="Control" parent="main_container/full_option_container"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.02
+
+[node name="sfx" type="Label" parent="main_container/full_option_container"]
+layout_mode = 2
+text = "Sound Effects"
+label_settings = SubResource("LabelSettings_2t6sq")
+horizontal_alignment = 1
+
+[node name="level_of_sound_effects" type="HSlider" parent="main_container/full_option_container"]
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_nqnlb")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vfmta")
+min_value = -100.0
+rounded = true
+
+[node name="setting_back_void" type="Control" parent="main_container/full_option_container"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="return_menu" type="Button" parent="main_container/full_option_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+mouse_force_pass_scroll_events = false
+theme_override_colors/font_color = Color(0.686275, 0.392157, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.411765, 0.227451, 0, 1)
+theme_override_colors/font_hover_color = Color(0.494118, 0.337255, 0, 1)
+theme_override_colors/font_focus_color = Color(0.686275, 0.392157, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.686275, 0.392157, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.686275, 0.392157, 0, 1)
+theme_override_colors/font_outline_color = Color(0.686275, 0.392157, 0, 1)
+theme_override_fonts/font = ExtResource("3_b4th8")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b6re4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_alilb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vf2or")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mtgk0")
+text = "Back"
+flat = true
+
+[node name="bottom_void" type="Control" parent="main_container/full_option_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="right_void" type="Control" parent="main_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="button_hover_sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_2daof")
+bus = &"SFX"
+
+[node name="button_pressed_sound" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
+
+[connection signal="item_selected" from="main_container/full_option_container/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="mouse_entered" from="main_container/full_option_container/OptionButton" to="." method="_on_option_button_mouse_entered"]
+[connection signal="mouse_exited" from="main_container/full_option_container/OptionButton" to="." method="_on_option_button_mouse_exited"]
+[connection signal="value_changed" from="main_container/full_option_container/level_of_sound_music" to="." method="_on_level_of_sound_music_value_changed"]
+[connection signal="value_changed" from="main_container/full_option_container/level_of_sound_effects" to="." method="_on_level_of_sound_effects_value_changed"]
+[connection signal="mouse_entered" from="main_container/full_option_container/return_menu" to="." method="_on_return_menu_mouse_entered"]
+[connection signal="mouse_exited" from="main_container/full_option_container/return_menu" to="." method="_on_return_menu_mouse_exited"]
+[connection signal="pressed" from="main_container/full_option_container/return_menu" to="." method="_on_button_pressed"]

@@ -367,6 +367,8 @@ height = 58.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 3
+slide_on_ceiling = false
+platform_on_leave = 2
 script = ExtResource("1_qvpmr")
 speed = 120
 metadata/_edit_group_ = true
