@@ -39,7 +39,6 @@ func get_hot_bar_slot_index() -> int:
 func get_input_vector_normalized() -> Vector2:
 	return Input.get_vector("move_left", "move_right","move_up", "move_down" ).normalized()
 
-
 func _physics_process(_delta):
 	move_and_slide()
 

@@ -13,7 +13,7 @@ var current_time:int = 43
 
 var _update_timer:Timer
 
-var school_mood:int = 0:
+var school_mood:int = 10:
 	set(value):
 		school_mood = value
 		SignalBus.global_mood_changed.emit(value)
@@ -36,3 +36,5 @@ func _on_update_timer_timeout() -> void:
 	elif current_time % 45 == 0:
 		current_time_state = TimeState.Break
 		SignalBus.break_started.emit()
+	elif current_time % 2 == 0:
+		school_mood -= 1
