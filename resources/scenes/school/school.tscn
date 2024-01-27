@@ -187,7 +187,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("items_spawn_node", "_hot_bar") instance=ExtResource("2_vmcjx")]
 z_index = 1
-position = Vector2(1880, -30)
+position = Vector2(1824, 46)
 items_spawn_node = NodePath("../Items")
 _hot_bar = NodePath("../CanvasLayer/HotBar")
 
@@ -209,12 +209,6 @@ position = Vector2(18, 0)
 
 [node name="money" parent="TempForDebug" instance=ExtResource("13_qp3pa")]
 position = Vector2(64, 13)
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Enemy" parent="Enemies" node_paths=PackedStringArray("target") instance=ExtResource("27_bt5fn")]
-position = Vector2(1564, 61)
-target = NodePath("../../Chests/Shelfs/Shelf")
 
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]

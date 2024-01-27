@@ -40,8 +40,11 @@ enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res:/
 [file_customization]
 
 folder_colors={
+"res://addons/": "red",
 "res://assets/": "green",
-"res://resources/": "yellow"
+"res://resources/": "yellow",
+"res://resources/prefabs/": "blue",
+"res://resources/scenes/": "purple"
 }
 
 [filesystem]
