@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxr6304aryx1y"]
+
+[ext_resource type="PackedScene" uid="uid://c1ku1ohtr5nvt" path="res://resources/prefabs/items/base_item_container.tscn" id="1_7kf6y"]
+[ext_resource type="Resource" uid="uid://ctwyhh44hkin" path="res://resources/inventory/items/perry.tres" id="2_upi8b"]
+[ext_resource type="Texture2D" uid="uid://62aau54yh6g2" path="res://assets/items/school/perry.png" id="3_f83g2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rjsl"]
+size = Vector2(22, 39)
+
+[node name="Perry" instance=ExtResource("1_7kf6y")]
+item = ExtResource("2_upi8b")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_3rjsl")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_f83g2")

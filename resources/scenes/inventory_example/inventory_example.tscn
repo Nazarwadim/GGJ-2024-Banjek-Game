@@ -1,15 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://5o00n7k3w2xb"]
+[gd_scene load_steps=16 format=3 uid="uid://5o00n7k3w2xb"]
 
-[ext_resource type="PackedScene" uid="uid://bxoakt32optig" path="res://resources/prefabs/player/player.tscn" id="1_hl405"]
+[ext_resource type="PackedScene" uid="uid://bxoakt32optig" path="res://resources/prefabs/player_temp/player.tscn" id="1_hl405"]
 [ext_resource type="PackedScene" uid="uid://da63d4xi31igy" path="res://resources/inventory/ui/hotbar/hot_bar.tscn" id="2_75pr4"]
 [ext_resource type="PackedScene" uid="uid://b8fovaesjaw4s" path="res://resources/inventory/ui/main_chest_inventory/main_chest_inventory.tscn" id="2_n5sux"]
 [ext_resource type="Resource" uid="uid://b8bhkecems0nc" path="res://resources/inventory/items/apple.tres" id="3_krubn"]
 [ext_resource type="Resource" uid="uid://r7tnra80pigx" path="res://resources/prefabs/player/inventory.tres" id="3_w2ujp"]
 [ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="4_ml26q"]
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="5_4bts0"]
+[ext_resource type="AudioStream" uid="uid://bjmncgvusi3md" path="res://assets/kenney_rpgaudio/Audio/drawKnife1.ogg" id="5_412gg"]
 [ext_resource type="Script" path="res://resources/inventory/scripts/item_mover.gd" id="5_rnmof"]
-[ext_resource type="Script" path="res://resources/inventory/scripts/inventory_container_object.gd" id="6_ijmes"]
+[ext_resource type="Script" path="res://resources/inventory/scripts/inventory2d/inventory_container.gd" id="6_ijmes"]
 [ext_resource type="Texture2D" uid="uid://cmdbs58pradck" path="res://icon.svg" id="10_1ne12"]
+[ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="12_53e67"]
 
 [sub_resource type="Resource" id="Resource_prh2x"]
 script = ExtResource("5_4bts0")
@@ -45,6 +47,10 @@ script = ExtResource("5_rnmof")
 main_chest_inventory_ui = NodePath("../MainChestInventory")
 hot_bar = NodePath("../HotBar")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("5_412gg")
+pitch_scale = 2.01
+
 [node name="Chest1" type="Area2D" parent="."]
 position = Vector2(568, 166)
 script = ExtResource("6_ijmes")
@@ -73,8 +79,14 @@ texture = ExtResource("10_1ne12")
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_hl405")]
 position = Vector2(404, 179)
 
+[node name="Apple" parent="." instance=ExtResource("12_53e67")]
+position = Vector2(217, 391)
+
+[connection signal="current_slot_changed" from="CanvasLayer/MainChestInventory" to="CanvasLayer/AudioStreamPlayer" method="play"]
 [connection signal="select_double_clicked" from="CanvasLayer/MainChestInventory" to="CanvasLayer/ItemMover" method="_on_main_chest_inventory_select_double_clicked"]
+[connection signal="current_slot_changed" from="CanvasLayer/HotBar" to="CanvasLayer/AudioStreamPlayer" method="play"]
 [connection signal="current_slot_changed" from="CanvasLayer/HotBar" to="CharacterBody2D" method="_on_hot_bar_current_slot_changed"]
 [connection signal="select_double_clicked" from="CanvasLayer/HotBar" to="CanvasLayer/ItemMover" method="_on_hot_bar_select_double_clicked"]
-[connection signal="inventory_container_area_entered" from="CharacterBody2D" to="CanvasLayer/MainChestInventory" method="_on_character_body_2d_inventory_container_area_entered"]
-[connection signal="inventory_container_area_exited" from="CharacterBody2D" to="CanvasLayer/MainChestInventory" method="_on_character_body_2d_inventory_container_area_exited"]
+[connection signal="inventory_closed" from="CharacterBody2D" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
+[connection signal="inventory_opened" from="CharacterBody2D" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]
+[connection signal="item_picked" from="CharacterBody2D" to="CanvasLayer/HotBar" method="update_inventory"]

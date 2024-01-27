@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://bomul6chpk44g"]
+
+[ext_resource type="PackedScene" uid="uid://c1ku1ohtr5nvt" path="res://resources/prefabs/items/base_item_container.tscn" id="1_28ja6"]
+[ext_resource type="Resource" uid="uid://2tqkhux857ep" path="res://resources/inventory/items/glue.tres" id="2_pkqeu"]
+[ext_resource type="Texture2D" uid="uid://cc51mu0geud5p" path="res://assets/items/school/glue.png" id="3_31ujs"]
+[ext_resource type="Material" uid="uid://ca4q61upesk86" path="res://resources/materials/item_shader_matedial.tres" id="3_jmacb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iso8x"]
+size = Vector2(15, 25)
+
+[node name="glue" instance=ExtResource("1_28ja6")]
+scale = Vector2(0.4, 0.4)
+item = ExtResource("2_pkqeu")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(8.19564e-07, 5.96046e-07)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_iso8x")
+
+[node name="Sprite2D" parent="." index="1"]
+material = ExtResource("3_jmacb")
+texture = ExtResource("3_31ujs")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt1t884jsq2u2"]
+
+[ext_resource type="PackedScene" uid="uid://c1ku1ohtr5nvt" path="res://resources/prefabs/items/base_item_container.tscn" id="1_spflm"]
+[ext_resource type="Resource" uid="uid://dnqkm8ftdo4hy" path="res://resources/inventory/items/full_bucket.tres" id="2_2jhmg"]
+[ext_resource type="Material" uid="uid://ca4q61upesk86" path="res://resources/materials/item_shader_matedial.tres" id="3_ejsia"]
+[ext_resource type="Texture2D" uid="uid://dnhqlgubl8dhm" path="res://assets/items/school/full_bucket.png" id="3_eygo1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vr7m"]
+size = Vector2(22.5, 24.5)
+
+[node name="full_bucket" instance=ExtResource("1_spflm")]
+scale = Vector2(2, 2)
+item = ExtResource("2_2jhmg")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_7vr7m")
+
+[node name="Sprite2D" parent="." index="1"]
+material = ExtResource("3_ejsia")
+texture = ExtResource("3_eygo1")

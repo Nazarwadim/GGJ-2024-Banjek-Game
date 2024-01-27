@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg5xv6qa6cwvm"]
+
+[ext_resource type="PackedScene" uid="uid://c1ku1ohtr5nvt" path="res://resources/prefabs/items/base_item_container.tscn" id="1_f361v"]
+[ext_resource type="Resource" uid="uid://cerjd215pbeae" path="res://resources/inventory/items/scissors.tres" id="2_tbon7"]
+[ext_resource type="Texture2D" uid="uid://dkxg7nnlxf5kr" path="res://assets/items/school/scissors.png" id="3_2hb3f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0q52"]
+size = Vector2(33, 32)
+
+[node name="Scissors" instance=ExtResource("1_f361v")]
+item = ExtResource("2_tbon7")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_j0q52")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_2hb3f")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://db7o00yku2bsj"]
+
+[ext_resource type="PackedScene" uid="uid://c1ku1ohtr5nvt" path="res://resources/prefabs/items/base_item_container.tscn" id="1_7c24k"]
+[ext_resource type="Resource" uid="uid://3kuoxtdtn6sr" path="res://resources/inventory/items/bowling_ball.tres" id="2_8wwph"]
+[ext_resource type="Texture2D" uid="uid://c03huk3mv3qki" path="res://assets/items/school/bowling_ball.png" id="3_u8oe7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xj8xv"]
+radius = 18.0278
+
+[node name="Bowling Ball" instance=ExtResource("1_7c24k")]
+item = ExtResource("2_8wwph")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_xj8xv")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_u8oe7")

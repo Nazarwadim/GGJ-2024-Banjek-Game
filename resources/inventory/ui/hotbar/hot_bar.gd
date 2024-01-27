@@ -7,7 +7,7 @@ extends Control
 @onready var current_item_texture = $CurrentItemTexture
 
 signal current_slot_changed(index:int)
-
+signal hot_bar_updated
 ## emite only once, when item changed to another and double selected
 signal select_double_clicked(index:int)
 
@@ -26,6 +26,7 @@ func get_current_slot_index() -> float:
 func update_inventory() -> void:
 	_inventory_ui.update()
 	set_current_item(_current_slot_index)
+	hot_bar_updated.emit()
 
 func set_current_item(index:float) -> void:
 	_set_outline_by_index(index)

@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://bje7pjg1x6emk"]
+
+[ext_resource type="PackedScene" uid="uid://vd5yb4smm72s" path="res://resources/prefabs/area_using_item_containers/area_using_item_container.tscn" id="1_uppf1"]
+[ext_resource type="Resource" uid="uid://ctwyhh44hkin" path="res://resources/inventory/items/perry.tres" id="2_olxfa"]
+[ext_resource type="Texture2D" uid="uid://bchuxg1viym0d" path="res://assets/items/school/director_flower.png" id="3_ufdu4"]
+[ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/Sprite2D.gd" id="4_wgu48"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3s7nh"]
+size = Vector2(28, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfd5g"]
+size = Vector2(20, 11)
+
+[node name="Director_flower" type="StaticBody2D"]
+
+[node name="AreaUsingItemContainer" parent="." instance=ExtResource("1_uppf1")]
+item_can_use = ExtResource("2_olxfa")
+
+[node name="CollisionShape2D" parent="AreaUsingItemContainer" index="0"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_3s7nh")
+
+[node name="Sprite2D" parent="AreaUsingItemContainer" index="1"]
+texture = ExtResource("3_ufdu4")
+hframes = 2
+script = ExtResource("4_wgu48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 23)
+shape = SubResource("RectangleShape2D_lfd5g")
+
+[connection signal="fixed" from="AreaUsingItemContainer" to="AreaUsingItemContainer/Sprite2D" method="_on_area_using_item_container_fixed"]
+[connection signal="used" from="AreaUsingItemContainer" to="AreaUsingItemContainer/Sprite2D" method="_on_area_using_item_container_used"]
+
+[editable path="AreaUsingItemContainer"]
