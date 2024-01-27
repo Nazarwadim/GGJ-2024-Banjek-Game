@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=36 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
@@ -26,7 +26,6 @@
 [ext_resource type="Resource" uid="uid://ctwyhh44hkin" path="res://resources/inventory/items/perry.tres" id="18_nw4lu"]
 [ext_resource type="Texture2D" uid="uid://dsp6qf8k0b4mj" path="res://assets/items/school/sink.png" id="20_xifl2"]
 [ext_resource type="Texture2D" uid="uid://bchuxg1viym0d" path="res://assets/items/school/director_flower.png" id="21_eq2vd"]
-[ext_resource type="PackedScene" uid="uid://deude24v8oj73" path="res://resources/prefabs/test_navigation/enemy.tscn" id="27_bt5fn"]
 
 [sub_resource type="Resource" id="Resource_tef4i"]
 script = ExtResource("6_wjxho")
@@ -68,7 +67,6 @@ items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("
 y_sort_enabled = true
 
 [node name="SchoolTileMap" parent="." instance=ExtResource("1_sm8qs")]
-navigation_visibility_mode = 1
 
 [node name="Items" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -180,7 +178,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("items_spawn_node", "_hot_bar") instance=ExtResource("2_vmcjx")]
 z_index = 1
-position = Vector2(1880, -30)
+position = Vector2(-468, -868)
 items_spawn_node = NodePath("../Items")
 _hot_bar = NodePath("../CanvasLayer/HotBar")
 
@@ -202,12 +200,6 @@ position = Vector2(18, 0)
 
 [node name="money" parent="TempForDebug" instance=ExtResource("13_qp3pa")]
 position = Vector2(64, 13)
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Enemy" parent="Enemies" node_paths=PackedStringArray("target") instance=ExtResource("27_bt5fn")]
-position = Vector2(1564, 61)
-target = NodePath("../../Chests/Shelfs/Shelf")
 
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]
