@@ -1,8 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=42 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
+[ext_resource type="Texture2D" uid="uid://5hx6la71qxqm" path="res://assets/items/school/bookR.png" id="2_jh7a5"]
 [ext_resource type="PackedScene" uid="uid://dk7b344a2x21x" path="res://resources/prefabs/player/player.tscn" id="2_vmcjx"]
+[ext_resource type="Texture2D" uid="uid://ceqt0revw4ek4" path="res://assets/items/school/bottle.png" id="3_n5uqf"]
 [ext_resource type="PackedScene" uid="uid://ovbs8p5ih66g" path="res://resources/gui/gui.tscn" id="3_q6pyy"]
 [ext_resource type="PackedScene" uid="uid://01gxr061t1fn" path="res://resources/prefabs/items/pen.tscn" id="3_sq132"]
 [ext_resource type="PackedScene" uid="uid://c5hyik7rvdob8" path="res://resources/prefabs/inventory_containers/shelf.tscn" id="4_4qlfo"]
@@ -11,27 +13,30 @@
 [ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="5_nvcen"]
 [ext_resource type="PackedScene" uid="uid://dmxatu2p38w4w" path="res://resources/prefabs/area_using_item_containers/glue_black_chair.tscn" id="5_nwrxo"]
 [ext_resource type="Resource" uid="uid://2tqkhux857ep" path="res://resources/inventory/items/glue.tres" id="6_a2i64"]
+[ext_resource type="PackedScene" uid="uid://dcyrd8y1dums8" path="res://resources/prefabs/area_using_item_containers/basketball.tscn" id="6_lpigu"]
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="6_wjxho"]
 [ext_resource type="Resource" uid="uid://b2bx77ek5le0p" path="res://resources/inventory/items/pen.tres" id="8_loop8"]
+[ext_resource type="Resource" uid="uid://3kuoxtdtn6sr" path="res://resources/inventory/items/bowling_ball.tres" id="9_5sfwh"]
 [ext_resource type="Resource" uid="uid://b8bhkecems0nc" path="res://resources/inventory/items/apple.tres" id="9_v6ayq"]
 [ext_resource type="PackedScene" uid="uid://eiycvgaxdbrs" path="res://resources/prefabs/inventory_containers/drawer.tscn" id="9_wptoe"]
 [ext_resource type="Resource" uid="uid://c1o01kf6ayp6s" path="res://resources/inventory/items/clear_bucket.tres" id="11_df6qp"]
 [ext_resource type="PackedScene" uid="uid://bomul6chpk44g" path="res://resources/prefabs/items/glue.tscn" id="11_m5nma"]
 [ext_resource type="Resource" uid="uid://bogvm6g5j246" path="res://resources/inventory/items/color_chalk.tres" id="12_oiceu"]
-[ext_resource type="Resource" uid="uid://dnqkm8ftdo4hy" path="res://resources/inventory/items/full_bucket.tres" id="13_k5rh3"]
 [ext_resource type="Resource" uid="uid://cerjd215pbeae" path="res://resources/inventory/items/scissors.tres" id="13_lbpvh"]
 [ext_resource type="PackedScene" uid="uid://dk2lyg0xr12oq" path="res://resources/prefabs/items/money.tscn" id="13_qp3pa"]
 [ext_resource type="Resource" uid="uid://ybxk6ypoimub" path="res://resources/inventory/items/saw.tres" id="14_8a87r"]
 [ext_resource type="Resource" uid="uid://dxfkn5rv12ww7" path="res://resources/inventory/items/dirty_bucket.tres" id="15_qaeew"]
+[ext_resource type="PackedScene" uid="uid://dcrvnl55xojlm" path="res://resources/prefabs/area_using_item_containers/plama.tscn" id="18_42gsm"]
 [ext_resource type="Resource" uid="uid://ctwyhh44hkin" path="res://resources/inventory/items/perry.tres" id="18_nw4lu"]
 [ext_resource type="Texture2D" uid="uid://cevets8i5xu8x" path="res://assets/decorations/director_chair.png" id="19_q3omo"]
-[ext_resource type="Texture2D" uid="uid://dsp6qf8k0b4mj" path="res://assets/items/school/sink.png" id="20_xifl2"]
 [ext_resource type="PackedScene" uid="uid://bje7pjg1x6emk" path="res://resources/prefabs/area_using_item_containers/director_flower.tscn" id="21_wtuyo"]
+[ext_resource type="PackedScene" uid="uid://i67ghqws6hdd" path="res://resources/prefabs/area_using_item_containers/sink.tscn" id="22_n6s7s"]
 [ext_resource type="PackedScene" uid="uid://bi4cmb7hsrj88" path="res://resources/prefabs/area_using_item_containers/guitar.tscn" id="23_y83c6"]
+[ext_resource type="PackedScene" uid="uid://dwslrgxiwp7it" path="res://resources/prefabs/area_using_item_containers/desk.tscn" id="24_rumqv"]
 
 [sub_resource type="Resource" id="Resource_tef4i"]
 script = ExtResource("6_wjxho")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_nvcen"), ExtResource("6_a2i64"), null, null, null, null, null, null, null, null])
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_nvcen"), ExtResource("6_a2i64"), null, null, null, ExtResource("9_5sfwh"), null, null, null, null])
 
 [sub_resource type="Resource" id="Resource_vq4y7"]
 script = ExtResource("6_wjxho")
@@ -63,12 +68,332 @@ items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("
 
 [sub_resource type="Resource" id="Resource_y3l1r"]
 script = ExtResource("6_wjxho")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_nvcen"), ExtResource("9_v6ayq"), ExtResource("5_nvcen"), ExtResource("13_k5rh3"), ExtResource("18_nw4lu"), null])
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_nvcen"), ExtResource("9_v6ayq"), ExtResource("5_nvcen"), ExtResource("11_df6qp"), ExtResource("18_nw4lu"), null])
 
 [node name="School" type="Node2D"]
 y_sort_enabled = true
 
 [node name="SchoolTileMap" parent="." instance=ExtResource("1_sm8qs")]
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(0.999656, 1)
+
+[node name="BookR" type="Node2D" parent="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-400.138, 363)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-272.094, 365)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-335.115, 460)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(211.073, 654)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-270.093, 652)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D6" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-334.115, 652)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D7" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-206.071, 365)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D8" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-398.137, 555)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D9" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-272.094, 555)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D10" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(-268.092, 461)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D11" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(275.095, 556)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D12" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(143.049, 558)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D13" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(146.05, 362)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D14" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(273.094, 460)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D15" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(786.27, 366)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D16" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(143.049, 461)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D17" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(274.094, 367)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D18" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(209.072, 364)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D19" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(145.05, 653)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D20" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(336.116, 555)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D21" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(337.116, 364)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D22" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(722.248, 560)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D23" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(846.291, 556)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D25" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(787.271, 654)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D24" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(719.247, 461)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D26" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(658.226, 364)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D27" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(660.227, 557)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Sprite2D28" type="Sprite2D" parent="Node2D/BookR"]
+z_index = 2
+position = Vector2(654.225, 652)
+scale = Vector2(0.414119, 0.484375)
+texture = ExtResource("2_jh7a5")
+hframes = 2
+
+[node name="Bottles" type="Node2D" parent="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(154.053, 360)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(-390.134, 363)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(663.228, 645)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(-390.134, 456)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(-145.05, 289)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(-860.296, -347)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(1402.48, 415)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(1457.5, 284)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(1387.48, 699)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(731.251, 361)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(36.0124, -451)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(-195.067, 158)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(215.074, 458)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(401.138, 284)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(-203.07, 647)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(856.294, 551)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Node2D/Bottles"]
+z_index = 2
+position = Vector2(547.188, -545)
+scale = Vector2(0.359412, 0.40625)
+texture = ExtResource("3_n5uqf")
 
 [node name="Items" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -95,11 +420,23 @@ position = Vector2(1955, -113)
 [node name="ChestContainer" parent="Chests/Shelfs/Shelf" index="0"]
 inventory = SubResource("Resource_tef4i")
 
+[node name="Open" parent="Chests/Shelfs/Shelf/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Shelfs/Shelf/Sounds" index="1"]
+bus = &"Master"
+
 [node name="Shelf2" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
 position = Vector2(595, -23)
 
 [node name="ChestContainer" parent="Chests/Shelfs/Shelf2" index="0"]
 inventory = SubResource("Resource_vq4y7")
+
+[node name="Open" parent="Chests/Shelfs/Shelf2/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Shelfs/Shelf2/Sounds" index="1"]
+bus = &"Master"
 
 [node name="Shelf3" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
 position = Vector2(893, 195)
@@ -107,11 +444,23 @@ position = Vector2(893, 195)
 [node name="ChestContainer" parent="Chests/Shelfs/Shelf3" index="0"]
 inventory = SubResource("Resource_u1qj8")
 
+[node name="Open" parent="Chests/Shelfs/Shelf3/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Shelfs/Shelf3/Sounds" index="1"]
+bus = &"Master"
+
 [node name="Shelf4" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
 position = Vector2(-180, 192)
 
 [node name="ChestContainer" parent="Chests/Shelfs/Shelf4" index="0"]
 inventory = SubResource("Resource_wjale")
+
+[node name="Open" parent="Chests/Shelfs/Shelf4/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Shelfs/Shelf4/Sounds" index="1"]
+bus = &"Master"
 
 [node name="Shelf5" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
 position = Vector2(355, 197)
@@ -119,11 +468,23 @@ position = Vector2(355, 197)
 [node name="ChestContainer" parent="Chests/Shelfs/Shelf5" index="0"]
 inventory = SubResource("Resource_idy6h")
 
+[node name="Open" parent="Chests/Shelfs/Shelf5/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Shelfs/Shelf5/Sounds" index="1"]
+bus = &"Master"
+
 [node name="Shelf6" parent="Chests/Shelfs" instance=ExtResource("4_4qlfo")]
 position = Vector2(519, -573)
 
 [node name="ChestContainer" parent="Chests/Shelfs/Shelf6" index="0"]
 inventory = SubResource("Resource_ntnan")
+
+[node name="Open" parent="Chests/Shelfs/Shelf6/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Shelfs/Shelf6/Sounds" index="1"]
+bus = &"Master"
 
 [node name="Drawers" type="Node2D" parent="Chests"]
 y_sort_enabled = true
@@ -135,11 +496,23 @@ position = Vector2(1358, 216)
 [node name="ChestContainer" parent="Chests/Drawers/Drawer" index="0"]
 inventory = SubResource("Resource_6w68g")
 
+[node name="Open" parent="Chests/Drawers/Drawer/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Drawers/Drawer/Sounds" index="1"]
+bus = &"Master"
+
 [node name="Drawer2" parent="Chests/Drawers" instance=ExtResource("9_wptoe")]
 position = Vector2(109, 211)
 
 [node name="ChestContainer" parent="Chests/Drawers/Drawer2" index="0"]
 inventory = SubResource("Resource_nmvmq")
+
+[node name="Open" parent="Chests/Drawers/Drawer2/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Drawers/Drawer2/Sounds" index="1"]
+bus = &"Master"
 
 [node name="Drawer3" parent="Chests/Drawers" instance=ExtResource("9_wptoe")]
 position = Vector2(-593, -937)
@@ -147,8 +520,21 @@ position = Vector2(-593, -937)
 [node name="ChestContainer" parent="Chests/Drawers/Drawer3" index="0"]
 inventory = SubResource("Resource_y3l1r")
 
+[node name="Open" parent="Chests/Drawers/Drawer3/Sounds" index="0"]
+bus = &"Master"
+
+[node name="Close" parent="Chests/Drawers/Drawer3/Sounds" index="1"]
+bus = &"Master"
+
 [node name="UsingAreas" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 metadata/_edit_lock_ = true
+
+[node name="Plama" parent="UsingAreas" instance=ExtResource("18_42gsm")]
+modulate = Color(1, 1, 1, 0.560784)
+position = Vector2(429, 71)
+scale = Vector2(3.93, 3.93)
 
 [node name="DirectorChair" type="Sprite2D" parent="UsingAreas"]
 position = Vector2(1926, 50)
@@ -163,23 +549,23 @@ position = Vector2(432, 272)
 [node name="glue_black_chair3" parent="UsingAreas" instance=ExtResource("5_nwrxo")]
 position = Vector2(976, 272)
 
-[node name="Sink" type="Sprite2D" parent="UsingAreas"]
-position = Vector2(-719, -944)
-texture = ExtResource("20_xifl2")
-
-[node name="Sink2" type="Sprite2D" parent="UsingAreas"]
-position = Vector2(-658, -944)
-texture = ExtResource("20_xifl2")
-
-[node name="Sink3" type="Sprite2D" parent="UsingAreas"]
-position = Vector2(-688, -944)
-texture = ExtResource("20_xifl2")
-
 [node name="Director_flower" parent="UsingAreas" instance=ExtResource("21_wtuyo")]
 position = Vector2(1793, -98)
 
 [node name="Guitar" parent="UsingAreas" instance=ExtResource("23_y83c6")]
 position = Vector2(303, -564)
+
+[node name="sink" parent="UsingAreas" instance=ExtResource("22_n6s7s")]
+position = Vector2(-657, -942)
+
+[node name="sink2" parent="UsingAreas" instance=ExtResource("22_n6s7s")]
+position = Vector2(-689, -942)
+
+[node name="sink3" parent="UsingAreas" instance=ExtResource("22_n6s7s")]
+position = Vector2(-721, -942)
+
+[node name="desk" parent="UsingAreas" instance=ExtResource("24_rumqv")]
+position = Vector2(-294, 183)
 
 [node name="Doors" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -209,6 +595,11 @@ position = Vector2(18, 0)
 [node name="money" parent="TempForDebug" instance=ExtResource("13_qp3pa")]
 position = Vector2(64, 13)
 
+[node name="RigidBody2D" parent="." instance=ExtResource("6_lpigu")]
+z_index = 3
+position = Vector2(-192, -310)
+metadata/_edit_group_ = true
+
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]
 [connection signal="item_droped" from="Player" to="CanvasLayer/HotBar" method="update_inventory"]
@@ -225,3 +616,5 @@ position = Vector2(64, 13)
 [editable path="Chests/Drawers/Drawer2"]
 [editable path="Chests/Drawers/Drawer3"]
 [editable path="CanvasLayer"]
+[editable path="RigidBody2D"]
+[editable path="RigidBody2D/AreaUsingItemContainer"]

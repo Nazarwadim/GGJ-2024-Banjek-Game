@@ -9,7 +9,6 @@
 size = Vector2(22, 25)
 
 [node name="dirty_bucket" instance=ExtResource("1_n3n0c")]
-scale = Vector2(2, 2)
 item = ExtResource("2_3i4fa")
 
 [node name="CollisionShape2D" parent="." index="0"]
