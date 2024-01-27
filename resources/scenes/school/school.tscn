@@ -529,6 +529,11 @@ position = Vector2(-721, -942)
 [node name="desk" parent="UsingAreas" instance=ExtResource("24_rumqv")]
 position = Vector2(-294, 183)
 
+[node name="Ball" parent="UsingAreas" instance=ExtResource("6_lpigu")]
+z_index = 3
+position = Vector2(-192, -310)
+metadata/_edit_group_ = true
+
 [node name="Doors" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -557,11 +562,6 @@ position = Vector2(18, 0)
 [node name="money" parent="TempForDebug" instance=ExtResource("13_qp3pa")]
 position = Vector2(64, 13)
 
-[node name="RigidBody2D" parent="." instance=ExtResource("6_lpigu")]
-z_index = 3
-position = Vector2(-192, -310)
-metadata/_edit_group_ = true
-
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]
 [connection signal="item_droped" from="Player" to="CanvasLayer/HotBar" method="update_inventory"]
@@ -577,6 +577,6 @@ metadata/_edit_group_ = true
 [editable path="Chests/Drawers/Drawer"]
 [editable path="Chests/Drawers/Drawer2"]
 [editable path="Chests/Drawers/Drawer3"]
+[editable path="UsingAreas/Ball"]
+[editable path="UsingAreas/Ball/AreaUsingItemContainer"]
 [editable path="CanvasLayer"]
-[editable path="RigidBody2D"]
-[editable path="RigidBody2D/AreaUsingItemContainer"]
