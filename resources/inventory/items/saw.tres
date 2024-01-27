@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://d14aciyk2eqpc"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ybxk6ypoimub"]
 
 [ext_resource type="Script" path="res://resources/inventory/core/item.gd" id="1_c1qd1"]
 [ext_resource type="Texture2D" uid="uid://dtcg4mgqms7ae" path="res://assets/items/school/saw.png" id="2_tmh52"]

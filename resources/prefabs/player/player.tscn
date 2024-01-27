@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://resources/prefabs/player/states/interacting_inventory.gd" id="13_g6y38"]
 [ext_resource type="Script" path="res://resources/prefabs/player/states/start.gd" id="14_teymv"]
 [ext_resource type="Resource" uid="uid://bcfrwrwlc6bdg" path="res://resources/factories/item_container_factory.tres" id="15_6preg"]
-[ext_resource type="Material" path="res://resources/materials/move_particles_materialtres.tres" id="17_8xqnd"]
+[ext_resource type="Material" uid="uid://dru74ox1dg708" path="res://resources/materials/move_particles_materialtres.tres" id="17_8xqnd"]
 [ext_resource type="Texture2D" uid="uid://bijrpjcnnb4qe" path="res://assets/particles/particle.png" id="17_yrt5p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0tbx"]
