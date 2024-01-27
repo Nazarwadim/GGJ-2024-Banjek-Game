@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dpgdh0dqmcj2a"
+path="res://.godot/imported/openPot.obj-1f596456d2fa66d1aaa61c8a303beffa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/openPot.obj-1f596456d2fa66d1aaa61c8a303beffa.mesh"]
+
+source_file="res://assets/intro/openPot.obj"
+dest_files=["res://.godot/imported/openPot.obj-1f596456d2fa66d1aaa61c8a303beffa.mesh", "res://.godot/imported/openPot.obj-1f596456d2fa66d1aaa61c8a303beffa.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

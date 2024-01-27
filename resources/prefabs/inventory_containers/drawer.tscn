@@ -34,10 +34,12 @@ shape = SubResource("RectangleShape2D_7v7tl")
 [node name="Open" type="AudioStreamPlayer" parent="Sounds" index="0"]
 stream = ExtResource("5_mcdvq")
 volume_db = -20.0
+bus = &"SFX"
 
 [node name="Close" type="AudioStreamPlayer" parent="Sounds" index="1"]
 stream = ExtResource("6_jbqcr")
 volume_db = -20.0
+bus = &"SFX"
 
 [connection signal="inventory_closed" from="ChestContainer" to="ChestContainer/Sprite2D" method="_on_chest_container_inventory_closed"]
 [connection signal="inventory_opened" from="ChestContainer" to="ChestContainer/Sprite2D" method="_on_chest_container_inventory_opened"]
