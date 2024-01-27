@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="ItemContainerFactory" load_steps=5 format=3 uid="uid://bcfrwrwlc6bdg"]
+[gd_resource type="Resource" script_class="ItemContainerFactory" load_steps=15 format=3 uid="uid://bcfrwrwlc6bdg"]
 
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="1_7sxhp"]
 [ext_resource type="PackedScene" uid="uid://8tcvi55nfakb" path="res://resources/prefabs/items/bacon.tscn" id="2_5t36d"]
 [ext_resource type="PackedScene" uid="uid://01gxr061t1fn" path="res://resources/prefabs/items/pen.tscn" id="3_b4xa7"]
 [ext_resource type="Script" path="res://resources/inventory/scripts/item_container_factory.gd" id="3_tpy1r"]
+[ext_resource type="PackedScene" uid="uid://dfwswakgd83mv" path="res://resources/prefabs/items/clear_bucket.tscn" id="4_qvgqy"]
+[ext_resource type="PackedScene" uid="uid://dpb5i1o41dyos" path="res://resources/prefabs/items/dirty_bucket.tscn" id="5_02psn"]
+[ext_resource type="PackedScene" uid="uid://dt1t884jsq2u2" path="res://resources/prefabs/items/full_bucket.tscn" id="6_ngm01"]
+[ext_resource type="PackedScene" uid="uid://bomul6chpk44g" path="res://resources/prefabs/items/glue.tscn" id="7_rma3t"]
+[ext_resource type="PackedScene" uid="uid://dk2lyg0xr12oq" path="res://resources/prefabs/items/money.tscn" id="8_dip23"]
+[ext_resource type="PackedScene" uid="uid://chhbt5suo26vo" path="res://resources/prefabs/items/saw.tscn" id="9_ttfm4"]
+[ext_resource type="PackedScene" uid="uid://djbfkf0je41lc" path="res://resources/prefabs/items/color_chalk.tscn" id="10_dypfn"]
+[ext_resource type="PackedScene" uid="uid://cg5xv6qa6cwvm" path="res://resources/prefabs/items/scissors.tscn" id="11_e8mkd"]
+[ext_resource type="PackedScene" uid="uid://db7o00yku2bsj" path="res://resources/prefabs/items/bowling_ball.tscn" id="12_vre3j"]
+[ext_resource type="PackedScene" uid="uid://dxr6304aryx1y" path="res://resources/prefabs/items/perry.tscn" id="13_b84kn"]
 
 [resource]
 script = ExtResource("3_tpy1r")
-item_containers = Array[PackedScene]([ExtResource("1_7sxhp"), ExtResource("2_5t36d"), ExtResource("3_b4xa7")])
+item_containers = Array[PackedScene]([ExtResource("1_7sxhp"), ExtResource("2_5t36d"), ExtResource("3_b4xa7"), ExtResource("4_qvgqy"), ExtResource("5_02psn"), ExtResource("6_ngm01"), ExtResource("7_rma3t"), ExtResource("8_dip23"), ExtResource("9_ttfm4"), ExtResource("10_dypfn"), ExtResource("11_e8mkd"), ExtResource("12_vre3j"), ExtResource("13_b84kn")])

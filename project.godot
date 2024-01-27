@@ -20,6 +20,7 @@ config/icon="res://icon.png"
 
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
 GuiTransitions="*res://addons/simple-gui-transitions/singleton.gd"
+SignalBus="*res://resources/global_scripts/signal_bus.gd"
 
 [display]
 
@@ -35,6 +36,20 @@ window/stretch/scale_mode="integer"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/finite_state_machine/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/simple-gui-transitions/plugin.cfg", "res://addons/utility_ai/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "red",
+"res://assets/": "green",
+"res://resources/": "yellow",
+"res://resources/prefabs/": "blue",
+"res://resources/scenes/": "purple"
+}
+
+[filesystem]
+
+import/fbx/enabled=false
 
 [gui_transitions]
 

@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://2lvjg7ec0x2s"]
+
+[ext_resource type="Script" path="res://resources/gui/MsgBox/msg_box.gd" id="1_31700"]
+[ext_resource type="Texture2D" uid="uid://d2ht26gbyc71n" path="res://assets/ui/msg_box.png" id="1_hsy83"]
+[ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://resources/fonts/stanberry.ttf" id="2_eg812"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tb4fk"]
+font = ExtResource("2_eg812")
+font_size = 10
+
+[sub_resource type="Animation" id="Animation_ao8kb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.941176)]
+}
+
+[sub_resource type="Animation" id="Animation_p5o4d"]
+resource_name = "hide"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2.37842, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.941176), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tl0p6"]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.535887, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.941176)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgpxk"]
+_data = {
+"RESET": SubResource("Animation_ao8kb"),
+"hide": SubResource("Animation_p5o4d"),
+"show": SubResource("Animation_tl0p6")
+}
+
+[node name="MsgBox" type="Control"]
+modulate = Color(1, 1, 1, 0.941176)
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(2, 2)
+script = ExtResource("1_31700")
+
+[node name="BoxBackGround" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_hsy83")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 16.0
+offset_right = 90.0
+offset_bottom = 82.0
+text = "I should make some ...."
+label_settings = SubResource("LabelSettings_tb4fk")
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cgpxk")
+}
+autoplay = "hide"

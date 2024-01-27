@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://664qgnt2fqt"
-path="res://.godot/imported/shelf2.png-2174613dddad7053673bbf45dc3a60fe.ctex"
+uid="uid://d2ht26gbyc71n"
+path="res://.godot/imported/msg_box.png-3381e12c8c9066b0e263a032097a06a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chestes/shelf2.png"
-dest_files=["res://.godot/imported/shelf2.png-2174613dddad7053673bbf45dc3a60fe.ctex"]
+source_file="res://assets/ui/msg_box.png"
+dest_files=["res://.godot/imported/msg_box.png-3381e12c8c9066b0e263a032097a06a3.ctex"]
 
 [params]
 

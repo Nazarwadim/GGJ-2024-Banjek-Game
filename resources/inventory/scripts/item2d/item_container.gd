@@ -13,7 +13,7 @@ func _init():
 func _ready():
 	collision_mask = collision_mask_overide
 	collision_layer = collision_layer_overide
-	
+	SignalBus.item_container_tree_entered.emit(self)
 
 func pick_item() -> void:
 	queue_free()

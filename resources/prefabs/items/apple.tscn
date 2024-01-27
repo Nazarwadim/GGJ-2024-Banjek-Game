@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dq1y1i64485nj" path="res://assets/items/food/apple.png" id="3_qmigk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jvr4x"]
-radius = 16.0312
+radius = 25.1945
 
 [node name="Apple" instance=ExtResource("1_7jpym")]
 scale = Vector2(0.320001, 0.320001)

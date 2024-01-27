@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5hyik7rvdob8"]
+
+[ext_resource type="PackedScene" uid="uid://chng2f8ogrb54" path="res://resources/prefabs/inventory_containers/inventory_container.tscn" id="1_l08st"]
+[ext_resource type="Texture2D" uid="uid://oc1kwrojfgov" path="res://assets/chestes/shelf.png" id="2_o6o3c"]
+[ext_resource type="Script" path="res://resources/prefabs/inventory_containers/shelf_chest.gd" id="2_x3jug"]
+[ext_resource type="Script" path="res://resources/prefabs/inventory_containers/shelf.gd" id="6_ar8os"]
+[ext_resource type="AudioStream" uid="uid://bud6af6rinlg5" path="res://assets/kenney_rpgaudio/Audio/doorOpen_2.ogg" id="7_sym4y"]
+[ext_resource type="AudioStream" uid="uid://dpv27rh7ob5j8" path="res://assets/kenney_rpgaudio/Audio/doorClose_4.ogg" id="8_w67xc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqyk4"]
+size = Vector2(40, 48.5736)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbi38"]
+size = Vector2(33, 50)
+
+[node name="Shelf" instance=ExtResource("1_l08st")]
+
+[node name="ChestContainer" parent="." index="0"]
+scale = Vector2(1, 1.297)
+script = ExtResource("2_x3jug")
+
+[node name="Sprite2D" parent="ChestContainer" index="0"]
+position = Vector2(0, 20)
+texture = ExtResource("2_o6o3c")
+offset = Vector2(0, -20)
+hframes = 2
+script = ExtResource("6_ar8os")
+
+[node name="CollisionShape2D" parent="ChestContainer" index="1"]
+position = Vector2(0, -3.46954)
+shape = SubResource("RectangleShape2D_dqyk4")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0.5, -4)
+shape = SubResource("RectangleShape2D_pbi38")
+
+[node name="Open" type="AudioStreamPlayer" parent="Sounds" index="0"]
+stream = ExtResource("7_sym4y")
+volume_db = -9.0
+
+[node name="Close" type="AudioStreamPlayer" parent="Sounds" index="1"]
+stream = ExtResource("8_w67xc")
+volume_db = -9.0
+
+[connection signal="inventory_closed" from="ChestContainer" to="ChestContainer/Sprite2D" method="_on_chest_container_inventory_closed"]
+[connection signal="inventory_opened" from="ChestContainer" to="ChestContainer/Sprite2D" method="_on_chest_container_inventory_opened"]

@@ -30,9 +30,6 @@ func _add_slots(grid_items:Array) -> void:
 func _update_slots_texture(grid_items:Array) -> void:
 	var i:int = 0
 	for slot in grid_items:
-		if _inventory_ui.inventory.items[i] != null:
-			slot.item_texture.texture = _inventory_ui.inventory.items[i].texture
-		else:
-			slot.item_texture.texture = null
+		slot.item = _inventory_ui.inventory.items[i]
 		i+=1
 

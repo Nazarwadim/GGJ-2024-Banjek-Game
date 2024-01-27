@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhajkwo2gfghc"
-path="res://.godot/imported/shelf1.png-175fff211c6119709d42263f571fba04.ctex"
+uid="uid://62aau54yh6g2"
+path="res://.godot/imported/perry.png-252022b822c2e3dea969ba3c6c6a0951.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chestes/shelf1.png"
-dest_files=["res://.godot/imported/shelf1.png-175fff211c6119709d42263f571fba04.ctex"]
+source_file="res://assets/items/school/perry.png"
+dest_files=["res://.godot/imported/perry.png-252022b822c2e3dea969ba3c6c6a0951.ctex"]
 
 [params]
 
