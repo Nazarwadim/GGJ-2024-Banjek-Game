@@ -1,11 +1,17 @@
 extends CharacterBody2D
+class_name Principal
 
+@export var speed:int
+@onready var navigation_agent = $NavigationAgent2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+func _ready():
+	Globals.principal = self
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+func _exit_tree():
+	Globals.principal = null
 
 func _physics_process(_delta):
-	print($PlayerNotifier.is_collide())
+	move_and_slide()
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity):
+	velocity = safe_velocity

@@ -1,7 +1,5 @@
 extends Node
 
-signal ray_cast_detect_player(player)
-
 @export var ray_cast:RayCast2D
 @export var player_detector_area:PlayerDetectorArea
 
