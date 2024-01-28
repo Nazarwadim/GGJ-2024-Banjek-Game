@@ -20,6 +20,7 @@ func _ready():
 func use():
 	is_used = true
 	used.emit()
+	Globals.school_mood = Globals.school_mood + happiness_increase
 
 func fix():
 	is_used = false

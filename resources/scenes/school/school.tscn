@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=47 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="5_nvcen"]
 [ext_resource type="PackedScene" uid="uid://dmxatu2p38w4w" path="res://resources/prefabs/area_using_item_containers/glue_black_chair.tscn" id="5_nwrxo"]
 [ext_resource type="Resource" uid="uid://2tqkhux857ep" path="res://resources/inventory/items/glue.tres" id="6_a2i64"]
-[ext_resource type="PackedScene" uid="uid://dcyrd8y1dums8" path="res://resources/prefabs/area_using_item_containers/basketball.tscn" id="6_lpigu"]
+[ext_resource type="PackedScene" uid="uid://c4wdbrcj061pq" path="res://resources/prefabs/area_using_item_containers/basketball.tscn" id="6_lpigu"]
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="6_wjxho"]
 [ext_resource type="Resource" uid="uid://b2bx77ek5le0p" path="res://resources/inventory/items/pen.tres" id="8_loop8"]
 [ext_resource type="Resource" uid="uid://3kuoxtdtn6sr" path="res://resources/inventory/items/bowling_ball.tres" id="9_5sfwh"]
@@ -32,7 +32,6 @@
 [ext_resource type="PackedScene" uid="uid://bi4cmb7hsrj88" path="res://resources/prefabs/area_using_item_containers/guitar.tscn" id="23_y83c6"]
 [ext_resource type="PackedScene" uid="uid://dwslrgxiwp7it" path="res://resources/prefabs/area_using_item_containers/desk.tscn" id="24_rumqv"]
 [ext_resource type="Texture2D" uid="uid://dwv14xjscv85t" path="res://assets/npc/Student on chair.png" id="29_o5t7x"]
-[ext_resource type="Script" path="res://resources/scenes/school/GameOver.gd" id="32_6iowo"]
 [ext_resource type="PackedScene" uid="uid://b3w83y226hk2k" path="res://assets/npc/rocker_static.tscn" id="33_ijy2p"]
 [ext_resource type="PackedScene" uid="uid://b831w3ywon2jp" path="res://resources/prefabs/npc/principal/principal.tscn" id="34_b2gys"]
 [ext_resource type="PackedScene" uid="uid://davul73rk33sk" path="res://resources/prefabs/npc/walking_student/walking_student.tscn" id="34_enclf"]
@@ -61,6 +60,10 @@ items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("
 [sub_resource type="Resource" id="Resource_ntnan"]
 script = ExtResource("6_wjxho")
 items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("14_8a87r"), ExtResource("15_qaeew"), ExtResource("6_a2i64"), ExtResource("9_v6ayq"), null, null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_rqk3m"]
+script = ExtResource("6_wjxho")
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("9_v6ayq"), ExtResource("9_v6ayq"), ExtResource("9_v6ayq"), ExtResource("9_v6ayq"), ExtResource("9_v6ayq"), ExtResource("5_nvcen")])
 
 [sub_resource type="Resource" id="Resource_6w68g"]
 script = ExtResource("6_wjxho")
@@ -458,6 +461,12 @@ bus = &"Master"
 y_sort_enabled = true
 metadata/_edit_lock_ = true
 
+[node name="Drawer4" parent="Chests/Drawers" instance=ExtResource("9_wptoe")]
+position = Vector2(-721, -502)
+
+[node name="ChestContainer" parent="Chests/Drawers/Drawer4" index="0"]
+inventory = SubResource("Resource_rqk3m")
+
 [node name="Drawer" parent="Chests/Drawers" instance=ExtResource("9_wptoe")]
 position = Vector2(1358, 216)
 
@@ -749,7 +758,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("items_spawn_node", "_hot_bar") instance=ExtResource("2_vmcjx")]
 z_index = 1
-position = Vector2(-230, 240)
+position = Vector2(1962, 59)
 items_spawn_node = NodePath("../Items")
 _hot_bar = NodePath("../CanvasLayer/HotBar")
 
@@ -1156,6 +1165,64 @@ position = Vector2(117, -406)
 script = ExtResource("35_ceb1n")
 time_stay_on_ms = 2000
 
+[node name="WalkingStudent11" parent="npc" instance=ExtResource("34_enclf")]
+position = Vector2(-33, 34)
+
+[node name="WalkerPoint" parent="npc/WalkingStudent11/Walker" index="0"]
+position = Vector2(1260, 312)
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent11/Walker" index="1"]
+position = Vector2(1023, 85)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint3" type="Marker2D" parent="npc/WalkingStudent11/Walker" index="2"]
+position = Vector2(741, 343)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint4" type="Marker2D" parent="npc/WalkingStudent11/Walker" index="3"]
+position = Vector2(-128, 84)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint5" type="Marker2D" parent="npc/WalkingStudent11/Walker" index="4"]
+position = Vector2(432, -198)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint6" type="Marker2D" parent="npc/WalkingStudent11/Walker" index="5"]
+position = Vector2(611, -243)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkingStudent12" parent="npc" instance=ExtResource("34_enclf")]
+position = Vector2(-594, -202)
+
+[node name="WalkerPoint" parent="npc/WalkingStudent12/Walker" index="0"]
+position = Vector2(694, 75)
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent12/Walker" index="1"]
+position = Vector2(576, 647)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint3" type="Marker2D" parent="npc/WalkingStudent12/Walker" index="2"]
+position = Vector2(800, 41)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint4" type="Marker2D" parent="npc/WalkingStudent12/Walker" index="3"]
+position = Vector2(1398, 49)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint5" type="Marker2D" parent="npc/WalkingStudent12/Walker" index="4"]
+position = Vector2(1118, 530)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
 [node name="CanvasLayer" parent="." instance=ExtResource("3_q6pyy")]
 
 [node name="HotBar" parent="CanvasLayer" index="1"]
@@ -1308,6 +1375,7 @@ time_stay_on_ms = 100000
 [editable path="Chests/Shelfs/Shelf4"]
 [editable path="Chests/Shelfs/Shelf5"]
 [editable path="Chests/Shelfs/Shelf6"]
+[editable path="Chests/Drawers/Drawer4"]
 [editable path="Chests/Drawers/Drawer"]
 [editable path="Chests/Drawers/Drawer2"]
 [editable path="Chests/Drawers/Drawer3"]
@@ -1325,5 +1393,7 @@ time_stay_on_ms = 100000
 [editable path="npc/WalkingStudent3"]
 [editable path="npc/WalkingStudent2"]
 [editable path="npc/WalkingStudent10"]
+[editable path="npc/WalkingStudent11"]
+[editable path="npc/WalkingStudent12"]
 [editable path="CanvasLayer"]
 [editable path="Principal"]
