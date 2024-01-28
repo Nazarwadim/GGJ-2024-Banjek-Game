@@ -1,5 +1,7 @@
 extends Control
 
+signal scene_falling
+
 enum ButtonState
 {
 	ButtonStart,
@@ -89,6 +91,7 @@ func _scene_fall():
 	$border.freeze = false
 	setting_button.freeze = false
 	true_start_animation.set_current_animation("true_start")
+	scene_falling.emit()
 
 func _on_setting_button_mouse_entered():
 	rotate_state = DirrectionRotation.RotateLeft

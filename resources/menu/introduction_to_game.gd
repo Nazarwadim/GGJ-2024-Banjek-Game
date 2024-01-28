@@ -6,7 +6,7 @@ extends Control
 
 var _can_skip:bool = false
 			
-func _ready():
+func _on_scene_falling():
 	get_tree().create_timer(introduction_duration).timeout.connect(_on_timer_time_out)
 	get_tree().create_timer(cant_skip_duration).timeout.connect(_on_cant_skip_timeout)
 

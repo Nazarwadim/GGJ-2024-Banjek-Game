@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://byhr86i0q8q6q"]
+[gd_scene load_steps=10 format=3 uid="uid://da4ythdi5cqcm"]
 
 [ext_resource type="Script" path="res://resources/menu/introduction_to_game.gd" id="1_0m6h7"]
 [ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://resources/fonts/stanberry.ttf" id="1_6vob4"]
@@ -8,6 +8,21 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_q786p"]
 font = ExtResource("5_rerhx")
+
+[sub_resource type="Animation" id="Animation_ic3j6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_vkpw4"]
 resource_name = "StartShowing"
@@ -23,21 +38,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.792157), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ic3j6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4iwj4"]
@@ -99,7 +99,7 @@ offset_left = 414.0
 offset_top = 403.0
 offset_right = 573.0
 offset_bottom = 426.0
-text = "Press enter to skip"
+text = "Press enter to continue"
 label_settings = SubResource("LabelSettings_q786p")
 
 [node name="LabelAnimationPlayer" type="AnimationPlayer" parent="CanSkipLabel"]
