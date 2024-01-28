@@ -1,5 +1,7 @@
 extends Control
 
+signal scene_falling
+
 enum ButtonState
 {
 	ButtonStart,
@@ -89,6 +91,7 @@ func _scene_fall():
 	$border.freeze = false
 	setting_button.freeze = false
 	true_start_animation.set_current_animation("true_start")
+	scene_falling.emit()
 
 func _on_setting_button_mouse_entered():
 	rotate_state = DirrectionRotation.RotateLeft
@@ -115,7 +118,7 @@ func _on_setting_button_pressed():
 
 func _on_true_start_animation_animation_finished(anim_name):
 	if(anim_name == "true_start"):
-		get_tree().change_scene_to_packed.call_deferred(start_scene)
+		GuiTransitions.go_to("introduction_to_game")
 		$walk.position = Vector2(-182,225)
 		$rock.visible = false
 		$rock.scale = Vector2(1,1)
