@@ -8,5 +8,5 @@ script = ExtResource("1_rf2mw")
 name = "apple"
 texture = ExtResource("2_caxdo")
 properties = {
-"description": "notimplemetnded"
+"description": "I cant eat it"
 }

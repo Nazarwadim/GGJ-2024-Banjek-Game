@@ -14,7 +14,6 @@ item = ExtResource("2_pkqeu")
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(8.19564e-07, 5.96046e-07)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_iso8x")
 
 [node name="Sprite2D" parent="." index="1"]

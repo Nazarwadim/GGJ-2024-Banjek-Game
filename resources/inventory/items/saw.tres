@@ -8,5 +8,5 @@ script = ExtResource("1_c1qd1")
 name = "saw"
 texture = ExtResource("2_tmh52")
 properties = {
-"description": "notimplemetnded"
+"description": "it is convenient to draw something on the board"
 }

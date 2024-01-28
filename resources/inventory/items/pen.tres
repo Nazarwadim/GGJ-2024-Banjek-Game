@@ -8,5 +8,5 @@ script = ExtResource("1_34h17")
 name = "pen"
 texture = ExtResource("2_vykxs")
 properties = {
-"description": "notimplemetnded"
+"description": "pen"
 }

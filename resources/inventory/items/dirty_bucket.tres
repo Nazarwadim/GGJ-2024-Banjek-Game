@@ -8,5 +8,5 @@ script = ExtResource("1_3o87g")
 name = "dirty_bucket"
 texture = ExtResource("2_1i7ac")
 properties = {
-"description": "notimplemetnded"
+"description": "nothing can be washed with such a bucket"
 }
