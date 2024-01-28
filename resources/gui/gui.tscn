@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ovbs8p5ih66g"]
+[gd_scene load_steps=16 format=3 uid="uid://ovbs8p5ih66g"]
 
 [ext_resource type="PackedScene" uid="uid://b8fovaesjaw4s" path="res://resources/inventory/ui/main_chest_inventory/main_chest_inventory.tscn" id="1_vobyk"]
 [ext_resource type="PackedScene" uid="uid://da63d4xi31igy" path="res://resources/inventory/ui/hotbar/hot_bar.tscn" id="2_u2dv8"]
@@ -12,6 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://bhbhkr5b4wgax" path="res://assets/progress_bar/over.png" id="10_gt476"]
 [ext_resource type="Texture2D" uid="uid://dwgs3ff50qckj" path="res://assets/progress_bar/progress.png" id="11_g7dvp"]
 [ext_resource type="Script" path="res://resources/gui/progress_bar.gd" id="12_qnop5"]
+[ext_resource type="Script" path="res://resources/scenes/school/GameOver.gd" id="13_s8c8f"]
+[ext_resource type="Script" path="res://resources/gui/win.gd" id="14_y5a0e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8x6pp"]
+font_size = 32
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -90,6 +95,39 @@ texture_under = ExtResource("9_7hulg")
 texture_over = ExtResource("10_gt476")
 texture_progress = ExtResource("11_g7dvp")
 script = ExtResource("12_qnop5")
+
+[node name="Lose" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_s8c8f")
+
+[node name="Label" type="Label" parent="Lose"]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 232.0
+offset_right = 582.0
+offset_bottom = 277.0
+text = "You lose ("
+label_settings = SubResource("LabelSettings_8x6pp")
+
+[node name="Win" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("14_y5a0e")
+
+[node name="Label2" type="Label" parent="Win"]
+offset_left = 434.0
+offset_top = 232.0
+offset_right = 582.0
+offset_bottom = 277.0
+text = "You win )"
+label_settings = SubResource("LabelSettings_8x6pp")
 
 [connection signal="current_slot_changed" from="MainChestInventory" to="ItemSlotAudioPlayer" method="play"]
 [connection signal="select_double_clicked" from="MainChestInventory" to="ItemMover" method="_on_main_chest_inventory_select_double_clicked"]
