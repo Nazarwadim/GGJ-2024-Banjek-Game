@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=44 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://i67ghqws6hdd" path="res://resources/prefabs/area_using_item_containers/sink.tscn" id="22_n6s7s"]
 [ext_resource type="PackedScene" uid="uid://bi4cmb7hsrj88" path="res://resources/prefabs/area_using_item_containers/guitar.tscn" id="23_y83c6"]
 [ext_resource type="PackedScene" uid="uid://dwslrgxiwp7it" path="res://resources/prefabs/area_using_item_containers/desk.tscn" id="24_rumqv"]
+[ext_resource type="PackedScene" uid="uid://b831w3ywon2jp" path="res://resources/prefabs/npc/principal/principal.tscn" id="34_b2gys"]
 [ext_resource type="PackedScene" uid="uid://davul73rk33sk" path="res://resources/prefabs/npc/walking_student/walking_student.tscn" id="34_enclf"]
 [ext_resource type="Script" path="res://resources/prefabs/npc/walking_student/scripts/student_walker_point.gd" id="35_ceb1n"]
 
@@ -544,7 +545,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("items_spawn_node", "_hot_bar") instance=ExtResource("2_vmcjx")]
 z_index = 1
-position = Vector2(1772, -63)
+position = Vector2(1772, 75)
 items_spawn_node = NodePath("../Items")
 _hot_bar = NodePath("../CanvasLayer/HotBar")
 
@@ -574,12 +575,10 @@ script = ExtResource("35_ceb1n")
 [node name="WalkerPoint4" type="Marker2D" parent="WalkingStudent/Walker" index="3"]
 position = Vector2(594, 25)
 script = ExtResource("35_ceb1n")
-time_student_stay_on_ms = 20000
 
 [node name="WalkerPoint5" type="Marker2D" parent="WalkingStudent/Walker" index="4"]
 position = Vector2(-1218, 65)
 script = ExtResource("35_ceb1n")
-time_student_stay_on_ms = 20000
 
 [node name="WalkerPoint6" type="Marker2D" parent="WalkingStudent/Walker" index="5"]
 position = Vector2(-441, 24)
@@ -592,7 +591,10 @@ script = ExtResource("35_ceb1n")
 [node name="WalkerPoint8" type="Marker2D" parent="WalkingStudent/Walker" index="7"]
 position = Vector2(-754, -909)
 script = ExtResource("35_ceb1n")
-time_student_stay_on_ms = 600000
+
+[node name="Principal" parent="." instance=ExtResource("34_b2gys")]
+z_index = 1
+position = Vector2(1331, 70)
 
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]

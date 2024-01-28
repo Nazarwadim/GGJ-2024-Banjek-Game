@@ -34,6 +34,7 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="res://assets/cursor/cursor2.png"
+mouse_cursor/custom_image_hotspot=Vector2(18, 6)
 
 [editor_plugins]
 

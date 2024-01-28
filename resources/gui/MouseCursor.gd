@@ -5,10 +5,11 @@ var cursor2 = load("res://assets/cursor/cursor2.png")
 # Called when the node enters the scene tree for the first time.
 
 func load_cursor1():
-	Input.set_custom_mouse_cursor(cursor1)
+	Input.set_custom_mouse_cursor(cursor1,Input.CURSOR_ARROW, Vector2(18, 5))
+	
 
 func load_cursor2():
-	Input.set_custom_mouse_cursor(cursor2)
+	Input.set_custom_mouse_cursor(cursor2,Input.CURSOR_ARROW, Vector2(18, 5))
 	
 func _on_mouse_object_observer_area_using_item_mouse_entered(_area_using_item):
 	load_cursor1()

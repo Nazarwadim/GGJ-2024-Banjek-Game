@@ -7,3 +7,6 @@ signal break_started
 signal lessons_started
 
 signal global_mood_changed(value)
+
+signal player_detected
+signal player_died
