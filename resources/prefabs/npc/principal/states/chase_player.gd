@@ -3,6 +3,7 @@ extends StatePrincipalBase
 @export var player_notifier:PlayerNotifier
 @onready var player_dead_area = $"../../Areas/PlayerDead"
 @onready var update_position_timer = $UpdatePositionTimer
+@onready var player_detector_area :PlayerDetectorArea= $"../../Areas/PlayerDetectorArea"
 
 @export var speed_increase:float = 5
 
@@ -19,7 +20,7 @@ func on_enter():
 func on_physics_process(_delta):
 	_player_direction = principal.velocity.normalized()
 	_set_animation_tree_blend_position()
-	var player := player_notifier.get_player()
+	var player := player_detector_area.get_first_overlapping_player()
 	if player == null:
 		change_state("Idle")	
 		return
