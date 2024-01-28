@@ -8,5 +8,5 @@ script = ExtResource("1_x2g1i")
 name = "perry"
 texture = ExtResource("2_3aohw")
 properties = {
-"description": "notimplemetnded"
+"description": "very helpful against weeds"
 }

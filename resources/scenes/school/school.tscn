@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="5_nvcen"]
 [ext_resource type="PackedScene" uid="uid://dmxatu2p38w4w" path="res://resources/prefabs/area_using_item_containers/glue_black_chair.tscn" id="5_nwrxo"]
 [ext_resource type="Resource" uid="uid://2tqkhux857ep" path="res://resources/inventory/items/glue.tres" id="6_a2i64"]
-[ext_resource type="PackedScene" uid="uid://dcyrd8y1dums8" path="res://resources/prefabs/area_using_item_containers/basketball.tscn" id="6_lpigu"]
+[ext_resource type="PackedScene" uid="uid://c4wdbrcj061pq" path="res://resources/prefabs/area_using_item_containers/basketball.tscn" id="6_lpigu"]
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="6_wjxho"]
 [ext_resource type="Resource" uid="uid://b2bx77ek5le0p" path="res://resources/inventory/items/pen.tres" id="8_loop8"]
 [ext_resource type="Resource" uid="uid://3kuoxtdtn6sr" path="res://resources/inventory/items/bowling_ball.tres" id="9_5sfwh"]
@@ -62,7 +62,7 @@ items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("
 
 [sub_resource type="Resource" id="Resource_6w68g"]
 script = ExtResource("6_wjxho")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_dfk1w"), ExtResource("9_v6ayq"), ExtResource("5_dfk1w"), ExtResource("5_dfk1w"), ExtResource("5_dfk1w"), ExtResource("9_v6ayq")])
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_dfk1w"), ExtResource("9_v6ayq"), ExtResource("5_dfk1w"), ExtResource("5_dfk1w"), ExtResource("5_dfk1w"), ExtResource("12_oiceu")])
 
 [sub_resource type="Resource" id="Resource_nmvmq"]
 script = ExtResource("6_wjxho")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcyrd8y1dums8"]
+[gd_scene load_steps=9 format=3 uid="uid://c4wdbrcj061pq"]
 
 [ext_resource type="PackedScene" uid="uid://vd5yb4smm72s" path="res://resources/prefabs/area_using_item_containers/area_using_item_container.tscn" id="1_7bdux"]
 [ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/basketball.gd" id="1_xv8fg"]
@@ -41,6 +41,7 @@ shape = SubResource("CircleShape2D_0kr8e")
 
 [node name="AreaUsingItemContainer" parent="." instance=ExtResource("1_7bdux")]
 item_can_use = ExtResource("2_kn8pe")
+happiness_increase = 10
 
 [node name="CollisionShape2D" parent="AreaUsingItemContainer" index="0"]
 shape = SubResource("CircleShape2D_i6j1h")

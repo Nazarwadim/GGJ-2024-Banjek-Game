@@ -8,5 +8,5 @@ script = ExtResource("1_yw3dr")
 name = "scissors"
 texture = ExtResource("2_7u6mq")
 properties = {
-"description": "notimplemetnded"
+"description": "a good string tuning tool"
 }

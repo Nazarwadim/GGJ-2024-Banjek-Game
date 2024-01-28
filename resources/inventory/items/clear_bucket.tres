@@ -8,5 +8,5 @@ script = ExtResource("1_mwsgh")
 name = "clear_bucket"
 texture = ExtResource("2_kbu2y")
 properties = {
-"description": "notimplemetnded"
+"description": "just not a full buckettnded"
 }

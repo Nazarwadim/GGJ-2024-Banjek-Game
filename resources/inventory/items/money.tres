@@ -8,5 +8,5 @@ script = ExtResource("1_r865w")
 name = "money"
 texture = ExtResource("2_p0nyy")
 properties = {
-"description": "notimplemetnded"
+"description": "useless piece of paper"
 }
