@@ -39,7 +39,6 @@ func _on_update_position_timer_timeout():
 	principal.navigation_agent.target_position = player.global_position
 
 func _on_body_entered(body):
-	print(body)
 	if body is Player:
 		principal.player_trapped.emit()
 

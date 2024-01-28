@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ovbs8p5ih66g"]
+[gd_scene load_steps=18 format=3 uid="uid://ovbs8p5ih66g"]
 
 [ext_resource type="PackedScene" uid="uid://b8fovaesjaw4s" path="res://resources/inventory/ui/main_chest_inventory/main_chest_inventory.tscn" id="1_vobyk"]
 [ext_resource type="PackedScene" uid="uid://da63d4xi31igy" path="res://resources/inventory/ui/hotbar/hot_bar.tscn" id="2_u2dv8"]
@@ -14,6 +14,8 @@
 [ext_resource type="Script" path="res://resources/gui/progress_bar.gd" id="12_qnop5"]
 [ext_resource type="Script" path="res://resources/scenes/school/GameOver.gd" id="13_s8c8f"]
 [ext_resource type="Script" path="res://resources/gui/win.gd" id="14_y5a0e"]
+[ext_resource type="Texture2D" uid="uid://dc720i2thee80" path="res://assets/arrow/arrow.png" id="15_4fkgn"]
+[ext_resource type="Script" path="res://resources/gui/ArrowDirector.gd" id="15_p62dt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8x6pp"]
 font_size = 32
@@ -128,6 +130,12 @@ offset_right = 582.0
 offset_bottom = 277.0
 text = "You win )"
 label_settings = SubResource("LabelSettings_8x6pp")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(486, 94)
+scale = Vector2(2, 2)
+texture = ExtResource("15_4fkgn")
+script = ExtResource("15_p62dt")
 
 [connection signal="current_slot_changed" from="MainChestInventory" to="ItemSlotAudioPlayer" method="play"]
 [connection signal="select_double_clicked" from="MainChestInventory" to="ItemMover" method="_on_main_chest_inventory_select_double_clicked"]

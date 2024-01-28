@@ -559,6 +559,14 @@ inventory = ExtResource("4_wa1p7")
 
 [node name="Label2" parent="CanvasLayer/Win" index="0"]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 148.0
+offset_bottom = 45.0
+
+[node name="Arrow" parent="CanvasLayer" index="11" node_paths=PackedStringArray("player", "principal")]
+player = NodePath("../../Player")
+principal = NodePath("../../Principal")
 
 [node name="WalkingStudent" parent="." instance=ExtResource("34_enclf")]
 z_index = 1

@@ -21,7 +21,3 @@ func _physics_process(_delta):
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	velocity = safe_velocity
-
-
-func _on_finite_state_machine_state_changed(new_state):
-	print(new_state.name)
