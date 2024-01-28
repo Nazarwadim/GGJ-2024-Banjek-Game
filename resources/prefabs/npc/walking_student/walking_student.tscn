@@ -137,8 +137,9 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_2332i")
+disabled = true
 
 [node name="Walker" type="Node" parent="."]
 script = ExtResource("1_ldyfr")
