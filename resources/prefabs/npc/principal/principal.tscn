@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b831w3ywon2jp"]
+[gd_scene load_steps=44 format=3 uid="uid://b831w3ywon2jp"]
 
 [ext_resource type="Texture2D" uid="uid://b6iuvt7bqgepe" path="res://assets/npc/director.png" id="1_fkvd6"]
 [ext_resource type="Script" path="res://resources/prefabs/npc/principal/principal.gd" id="1_s8nsj"]
@@ -55,6 +55,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_bdsht"]
 resource_name = "walk_down"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,6 +71,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_vcrhr"]
 resource_name = "walk_left"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -85,6 +87,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_g6f8b"]
 resource_name = "walk_right"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -150,23 +153,113 @@ _data = {
 "walk_up": SubResource("Animation_1bryn")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sl1gn"]
+animation = &"angry"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_h11by"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_sl1gn")
+blend_point_0/pos = 0.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6mtk2"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fqhm1"]
+animation = &"walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8q2sv"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_amlsj"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_kavac"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_6mtk2")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_fqhm1")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_8q2sv")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_amlsj")
+blend_point_3/pos = Vector2(1, 0)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_diak6"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_suur4"]
+animation = &"walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0umt1"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_odpr5"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_e40wf"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_diak6")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_suur4")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_0umt1")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_odpr5")
+blend_point_3/pos = Vector2(1, 0)
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a2f02"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ge8ee"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yp551"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uocsl"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mrhl2"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ey8dr"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_wtgix"]
+states/Angry/node = SubResource("AnimationNodeBlendSpace1D_h11by")
+states/Angry/position = Vector2(484, 139.333)
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_kavac")
+states/Idle/position = Vector2(345.333, 69.1111)
+states/WalkToPoint/node = SubResource("AnimationNodeBlendSpace2D_e40wf")
+states/WalkToPoint/position = Vector2(537.333, 60.6667)
+transitions = ["Idle", "Angry", SubResource("AnimationNodeStateMachineTransition_a2f02"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ge8ee"), "Idle", "WalkToPoint", SubResource("AnimationNodeStateMachineTransition_yp551"), "WalkToPoint", "Angry", SubResource("AnimationNodeStateMachineTransition_uocsl"), "Angry", "WalkToPoint", SubResource("AnimationNodeStateMachineTransition_mrhl2"), "Angry", "Idle", SubResource("AnimationNodeStateMachineTransition_ey8dr")]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1t07p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3jcdf"]
-radius = 158.003
+radius = 118.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w6t8b"]
+radius = 23.0
+height = 70.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_br5ex"]
-size = Vector2(435, 250)
+size = Vector2(190.822, 184.143)
 
 [node name="Principal" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
 slide_on_ceiling = false
 floor_stop_on_slope = false
 floor_block_on_wall = false
 script = ExtResource("1_s8nsj")
+speed = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -18)
 texture = ExtResource("1_fkvd6")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x5c7u")
+}
+tree_root = SubResource("AnimationNodeStateMachine_wtgix")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Angry/blend_position = -0.00257069
+parameters/Idle/blend_position = Vector2(-0.0027855, -0.017647)
+parameters/WalkToPoint/blend_position = Vector2(0, 0.00588238)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -193,6 +286,7 @@ target_position = Vector2(31, -2)
 collision_mask = 3
 
 [node name="Areas" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="PlayerDead" type="Area2D" parent="Areas"]
 position = Vector2(-18, 15)
@@ -208,14 +302,27 @@ monitorable = false
 script = ExtResource("4_b1owe")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/PlayerDetectorArea"]
-polygon = PackedVector2Array(-72, -76, -35, -162, 162, -145, 279, -90, 280, -32, 258, 51, 194, 72, 118, 77, -60, 85, -83, -1)
+position = Vector2(-10, -13)
+scale = Vector2(0.850456, 0.850455)
+polygon = PackedVector2Array(-117.061, -110.882, -35, -162, 162, -145, 279, -90, 280, -32, 258, 51, 194, 72, 117.733, 97.0289, -60.9627, 93.6388, -127.41, 0.646164)
+
+[node name="AreaUsingItemDetectorToFix" type="Area2D" parent="Areas"]
+rotation = 0.0189692
+scale = Vector2(1, 1)
+script = ExtResource("6_5stvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/AreaUsingItemDetectorToFix"]
+position = Vector2(0, -21)
+shape = SubResource("CapsuleShape2D_w6t8b")
+debug_color = Color(0.87451, 0.298039, 0.454902, 0.141176)
 
 [node name="AreaUsingItemDetector" type="Area2D" parent="Areas"]
 position = Vector2(-10, 29)
 script = ExtResource("6_5stvy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/AreaUsingItemDetector"]
-position = Vector2(135.5, -37)
+position = Vector2(13.4112, -32.0713)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_br5ex")
 debug_color = Color(0, 0.6, 0.701961, 0.188235)
 
@@ -237,16 +344,23 @@ walker = NodePath("../../Walker")
 area_using_item_detector = NodePath("../../Areas/AreaUsingItemDetector")
 principal = NodePath("../..")
 
-[node name="WalkToPoint" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("principal")]
+[node name="WalkToPoint" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("area_using_item_detector", "player_notifier", "principal")]
 script = ExtResource("10_pcw16")
+area_using_item_detector = NodePath("../../Areas/AreaUsingItemDetector")
+player_notifier = NodePath("../../PlayerNotifier")
 principal = NodePath("../..")
 
-[node name="ChasePlayer" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("principal")]
+[node name="ChasePlayer" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player_notifier", "principal")]
 script = ExtResource("11_66ge5")
+player_notifier = NodePath("../../PlayerNotifier")
 principal = NodePath("../..")
+
+[node name="UpdatePositionTimer" type="Timer" parent="FiniteStateMachine/ChasePlayer"]
+wait_time = 0.5
 
 [node name="FixingBrokenAreaUsingItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("principal")]
 script = ExtResource("12_voll4")
 principal = NodePath("../..")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="state_changed" from="FiniteStateMachine" to="." method="_on_finite_state_machine_state_changed"]

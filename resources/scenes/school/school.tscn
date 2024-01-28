@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=46 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://i67ghqws6hdd" path="res://resources/prefabs/area_using_item_containers/sink.tscn" id="22_n6s7s"]
 [ext_resource type="PackedScene" uid="uid://bi4cmb7hsrj88" path="res://resources/prefabs/area_using_item_containers/guitar.tscn" id="23_y83c6"]
 [ext_resource type="PackedScene" uid="uid://dwslrgxiwp7it" path="res://resources/prefabs/area_using_item_containers/desk.tscn" id="24_rumqv"]
+[ext_resource type="Script" path="res://resources/scenes/school/GameOver.gd" id="32_6iowo"]
 [ext_resource type="PackedScene" uid="uid://b831w3ywon2jp" path="res://resources/prefabs/npc/principal/principal.tscn" id="34_b2gys"]
 [ext_resource type="PackedScene" uid="uid://davul73rk33sk" path="res://resources/prefabs/npc/walking_student/walking_student.tscn" id="34_enclf"]
 [ext_resource type="Script" path="res://resources/prefabs/npc/walking_student/scripts/student_walker_point.gd" id="35_ceb1n"]
@@ -70,6 +71,9 @@ items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("
 [sub_resource type="Resource" id="Resource_y3l1r"]
 script = ExtResource("6_wjxho")
 items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_nvcen"), ExtResource("9_v6ayq"), ExtResource("5_nvcen"), ExtResource("11_df6qp"), ExtResource("18_nw4lu"), null])
+
+[sub_resource type="LabelSettings" id="LabelSettings_d5110"]
+font_size = 32
 
 [node name="School" type="Node2D"]
 y_sort_enabled = true
@@ -557,9 +561,27 @@ zoom = Vector2(3, 3)
 [node name="HotBar" parent="CanvasLayer" index="1"]
 inventory = ExtResource("4_wa1p7")
 
+[node name="Lose" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("32_6iowo")
+
+[node name="Label" type="Label" parent="CanvasLayer/Lose"]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 232.0
+offset_right = 582.0
+offset_bottom = 277.0
+text = "You lose ("
+label_settings = SubResource("LabelSettings_d5110")
+
 [node name="WalkingStudent" parent="." instance=ExtResource("34_enclf")]
 z_index = 1
 position = Vector2(637, -103)
+speed = 120
 
 [node name="WalkerPoint" parent="WalkingStudent/Walker" index="0"]
 position = Vector2(591, -115)
@@ -597,13 +619,132 @@ time_stay_on_ms = 60000
 
 [node name="Principal" parent="." instance=ExtResource("34_b2gys")]
 z_index = 1
-position = Vector2(1331, 70)
+position = Vector2(1303, 269)
+metadata/_edit_group_ = true
+
+[node name="WalkerPoint" parent="Principal/Walker" index="0"]
+position = Vector2(1303, 271)
+
+[node name="WalkerPoint2" type="Marker2D" parent="Principal/Walker" index="1"]
+position = Vector2(1403, 245)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 40000
+
+[node name="WalkerPoint3" type="Marker2D" parent="Principal/Walker" index="2"]
+position = Vector2(1449, 45)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint4" type="Marker2D" parent="Principal/Walker" index="3"]
+position = Vector2(-457, 66)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint5" type="Marker2D" parent="Principal/Walker" index="4"]
+position = Vector2(-452, -720)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint6" type="Marker2D" parent="Principal/Walker" index="5"]
+position = Vector2(-1087, -811)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint7" type="Marker2D" parent="Principal/Walker" index="6"]
+position = Vector2(-714, -897)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint8" type="Marker2D" parent="Principal/Walker" index="7"]
+position = Vector2(-1233, -464)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint9" type="Marker2D" parent="Principal/Walker" index="8"]
+position = Vector2(-1248, 80)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint10" type="Marker2D" parent="Principal/Walker" index="9"]
+position = Vector2(-684, 85)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint11" type="Marker2D" parent="Principal/Walker" index="10"]
+position = Vector2(-719, -434)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint12" type="Marker2D" parent="Principal/Walker" index="11"]
+position = Vector2(-724, -147)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint13" type="Marker2D" parent="Principal/Walker" index="12"]
+position = Vector2(-1072, -454)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint14" type="Marker2D" parent="Principal/Walker" index="13"]
+position = Vector2(92, -237)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint15" type="Marker2D" parent="Principal/Walker" index="14"]
+position = Vector2(450, -398)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint16" type="Marker2D" parent="Principal/Walker" index="15"]
+position = Vector2(1342, 514)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint17" type="Marker2D" parent="Principal/Walker" index="16"]
+position = Vector2(1342, 514)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint18" type="Marker2D" parent="Principal/Walker" index="17"]
+position = Vector2(1665, 35)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint19" type="Marker2D" parent="Principal/Walker" index="18"]
+position = Vector2(1191, 312)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint20" type="Marker2D" parent="Principal/Walker" index="19"]
+position = Vector2(47, 519)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint21" type="Marker2D" parent="Principal/Walker" index="20"]
+position = Vector2(420, 529)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 2000
+
+[node name="WalkerPoint22" type="Marker2D" parent="Principal/Walker" index="21"]
+position = Vector2(-507, 433)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 2000
+
+[node name="WalkerPoint23" type="Marker2D" parent="Principal/Walker" index="22"]
+position = Vector2(742, 49)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint24" type="Marker2D" parent="Principal/Walker" index="23"]
+position = Vector2(1783, 1)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 500
+
+[node name="WalkerPoint25" type="Marker2D" parent="Principal/Walker" index="24"]
+position = Vector2(1708, 145)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 500
+
+[node name="WalkerPoint26" type="Marker2D" parent="Principal/Walker" index="25"]
+position = Vector2(1956, 59)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 100000
 
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]
 [connection signal="item_droped" from="Player" to="CanvasLayer/HotBar" method="update_inventory"]
 [connection signal="item_picked" from="Player" to="CanvasLayer/HotBar" method="update_inventory"]
 [connection signal="item_used" from="Player" to="CanvasLayer/HotBar" method="update_inventory"]
+[connection signal="player_trapped" from="Principal" to="Player" method="_on_principal_player_trapped"]
+[connection signal="player_trapped" from="Principal" to="CanvasLayer/Lose" method="_on_principal_player_trapped"]
 
 [editable path="Chests/Shelfs/Shelf"]
 [editable path="Chests/Shelfs/Shelf2"]
@@ -618,3 +759,4 @@ position = Vector2(1331, 70)
 [editable path="UsingAreas/Ball/AreaUsingItemContainer"]
 [editable path="CanvasLayer"]
 [editable path="WalkingStudent"]
+[editable path="Principal"]

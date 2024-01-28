@@ -1,5 +1,5 @@
 extends Node
-
+class_name PlayerNotifier
 @export var ray_cast:RayCast2D
 @export var player_detector_area:PlayerDetectorArea
 

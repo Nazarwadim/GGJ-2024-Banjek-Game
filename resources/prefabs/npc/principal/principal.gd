@@ -1,9 +1,14 @@
 extends CharacterBody2D
 class_name Principal
 
+signal player_trapped
+signal player_chasing
+
+
 @export var speed:int
 @onready var navigation_agent = $NavigationAgent2D
-@onready var animation_player = $AnimationPlayer
+@onready var animation_tree = $AnimationTree
+
 
 func _ready():
 	Globals.principal = self
@@ -16,3 +21,7 @@ func _physics_process(_delta):
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	velocity = safe_velocity
+
+
+func _on_finite_state_machine_state_changed(new_state):
+	print(new_state.name)
