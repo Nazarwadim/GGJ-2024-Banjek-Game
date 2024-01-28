@@ -3,6 +3,7 @@ class_name Principal
 
 @export var speed:int
 @onready var navigation_agent = $NavigationAgent2D
+@onready var animation_player = $AnimationPlayer
 
 func _ready():
 	Globals.principal = self
