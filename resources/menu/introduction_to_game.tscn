@@ -1,9 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://byhr86i0q8q6q"]
+[gd_scene load_steps=10 format=3 uid="uid://byhr86i0q8q6q"]
 
 [ext_resource type="Script" path="res://resources/menu/introduction_to_game.gd" id="1_0m6h7"]
-[ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://assets/fonts/stanberry.ttf" id="1_6vob4"]
+[ext_resource type="FontFile" uid="uid://3tvh1t1h10le" path="res://resources/fonts/stanberry.ttf" id="1_6vob4"]
 [ext_resource type="PackedScene" uid="uid://c482u4huelhlb" path="res://resources/scenes/school/school.tscn" id="2_6u4rh"]
 [ext_resource type="Script" path="res://addons/simple-gui-transitions/transition.gd" id="3_ihuml"]
+[ext_resource type="FontFile" uid="uid://c4mm3of2mc8o5" path="res://addons/phantom_camera/fonts/Nunito-Black.ttf" id="5_rerhx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q786p"]
+font = ExtResource("5_rerhx")
+
+[sub_resource type="Animation" id="Animation_vkpw4"]
+resource_name = "StartShowing"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.792157), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ic3j6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4iwj4"]
+_data = {
+"RESET": SubResource("Animation_ic3j6"),
+"start_showing": SubResource("Animation_vkpw4")
+}
 
 [node name="introduction_to_game" type="Control"]
 layout_mode = 3
@@ -14,7 +55,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0m6h7")
 start_scene = ExtResource("2_6u4rh")
-introduction_duration = 20
+introduction_duration = 60
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -27,19 +68,20 @@ color = Color(0, 0, 0, 1)
 
 [node name="TextEdit" type="Label" parent="."]
 layout_mode = 0
-offset_left = 54.0
-offset_top = 22.0
-offset_right = 921.0
-offset_bottom = 454.0
+offset_left = 12.0
+offset_top = 17.0
+offset_right = 949.0
+offset_bottom = 449.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_6vob4")
 theme_override_font_sizes/font_size = 22
-text = "Ну шо тут розказати, я тіпа король школи і тут мене наказує директор за те що я
-вікно розбив, ха навіть за таку просту річ наказують?
-Ну кароче злапав він мене  і тепер я в директорській. І шо тепер робити?
+text = "Well, what can I say, I'm like the king of the school and then the principal punishes me for breaking a window.
+I broke a window, and they punish me even for such a simple thing?
+Anyway, he caught me and now I'm in the principal's office. What do I do now?
 .....
-Йому подзвонили і він казав залишатись тут, і звичайно я його \"послухаюсь\"!!!
-Час веселитись)"
+He called me and told me to stay here, and of course I \"obeyed\" him!!!
+Time to have fun)"
+autowrap_mode = 2
 
 [node name="GuiTransition" type="Node" parent="."]
 script = ExtResource("3_ihuml")
@@ -49,3 +91,18 @@ duration = 0.2
 delay = 0.1
 layout = NodePath("..")
 group = NodePath("..")
+
+[node name="CanSkipLabel" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 414.0
+offset_top = 403.0
+offset_right = 573.0
+offset_bottom = 426.0
+text = "Press enter to skip"
+label_settings = SubResource("LabelSettings_q786p")
+
+[node name="LabelAnimationPlayer" type="AnimationPlayer" parent="CanSkipLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_4iwj4")
+}
