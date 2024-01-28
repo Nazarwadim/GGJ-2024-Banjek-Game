@@ -75,10 +75,14 @@ offset_bottom = 40.0
 script = ExtResource("8_gejmu")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 845.0
+anchors_preset = -1
+anchor_left = 0.88
+anchor_right = 0.998
+anchor_bottom = 0.618
+offset_left = 0.199951
 offset_top = 106.0
-offset_right = 958.0
-offset_bottom = 307.0
+offset_right = -0.0800171
+offset_bottom = -26.72
 value = 100.0
 fill_mode = 3
 nine_patch_stretch = true

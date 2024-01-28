@@ -45,3 +45,6 @@ func _physics_process(_delta):
 func _on_finite_state_machine_state_changed(new_state):
 	if debug_print_states:
 		print("Time ", Time.get_ticks_msec() ,". State: ", new_state.name)
+
+func _on_principal_player_trapped():
+	$FiniteStateMachine.change_state("PlayerDie")
