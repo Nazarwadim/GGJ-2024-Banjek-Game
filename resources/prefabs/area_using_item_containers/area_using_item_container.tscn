@@ -4,7 +4,7 @@
 
 [node name="AreaUsingItemContainer" type="Area2D" groups=["area_using_item_containers"]]
 script = ExtResource("1_tmcuy")
-happiness_increase = 15
+happiness_increase = 25
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

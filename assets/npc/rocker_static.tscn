@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3w83y226hk2k"]
+
+[ext_resource type="Script" path="res://RockerStatic.gd" id="1_jp5ae"]
+[ext_resource type="Texture2D" uid="uid://jy8y7aec1r8u" path="res://assets/npc/curtkaban.png" id="2_lkq5y"]
+[ext_resource type="AudioStream" uid="uid://bptlsltckbwx4" path="res://assets/music/guitarix_session75.wav" id="3_6xq7o"]
+[ext_resource type="AudioStream" uid="uid://blja0l5syv42p" path="res://assets/music/guitarix_session37 (2).wav" id="4_uwikx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ual6s"]
+size = Vector2(18, 12)
+
+[sub_resource type="Animation" id="Animation_05mnu"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_gvlqr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wbypg"]
+_data = {
+"RESET": SubResource("Animation_gvlqr"),
+"idle": SubResource("Animation_05mnu")
+}
+
+[node name="RockerStatic" type="AnimatableBody2D"]
+script = ExtResource("1_jp5ae")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lkq5y")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 17)
+shape = SubResource("RectangleShape2D_ual6s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wbypg")
+}
+autoplay = "idle"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6xq7o")
+volume_db = 1.0
+bus = &"Music"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_uwikx")
+volume_db = 20.0
+bus = &"Music"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

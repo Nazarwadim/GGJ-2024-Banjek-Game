@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi4cmb7hsrj88"]
+[gd_scene load_steps=7 format=3 uid="uid://bi4cmb7hsrj88"]
 
 [ext_resource type="PackedScene" uid="uid://vd5yb4smm72s" path="res://resources/prefabs/area_using_item_containers/area_using_item_container.tscn" id="1_gxqol"]
+[ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/guitar_node.gd" id="1_x1moq"]
 [ext_resource type="Resource" uid="uid://cerjd215pbeae" path="res://resources/inventory/items/scissors.tres" id="2_bq0bl"]
 [ext_resource type="Texture2D" uid="uid://b2ck0k05fquq8" path="res://assets/decorations/GUITAR.png" id="2_ks7a4"]
 [ext_resource type="Script" path="res://resources/prefabs/area_using_item_containers/guitar.gd" id="3_buuga"]
@@ -10,9 +11,11 @@ size = Vector2(21, 60)
 
 [node name="Guitar" type="Node2D"]
 z_index = -1
+script = ExtResource("1_x1moq")
 
 [node name="AreaUsingItemContainer" parent="." instance=ExtResource("1_gxqol")]
 item_can_use = ExtResource("2_bq0bl")
+remove_item_after_use = false
 
 [node name="CollisionShape2D" parent="AreaUsingItemContainer" index="0"]
 position = Vector2(0.5, 1)
@@ -24,7 +27,13 @@ texture = ExtResource("2_ks7a4")
 hframes = 2
 script = ExtResource("3_buuga")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+
 [connection signal="fixed" from="AreaUsingItemContainer" to="AreaUsingItemContainer/Sprite2D" method="_on_area_using_item_container_fixed"]
+[connection signal="used" from="AreaUsingItemContainer" to="." method="_on_area_using_item_container_used"]
 [connection signal="used" from="AreaUsingItemContainer" to="AreaUsingItemContainer/Sprite2D" method="_on_area_using_item_container_used"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="AreaUsingItemContainer/Sprite2D" method="_on_timer_timeout"]
 
 [editable path="AreaUsingItemContainer"]

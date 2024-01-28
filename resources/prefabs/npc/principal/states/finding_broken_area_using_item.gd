@@ -9,7 +9,6 @@ func on_enter():
 	var area_to_fix = areas_to_fix[0]
 	principal.navigation_agent.target_position = area_to_fix.global_position
 	walk_to_point.area_to_fix = area_to_fix
-	Globals.school_mood = Globals.school_mood + area_to_fix.happiness_increase
 	print(area_to_fix.happiness_increase)
 	await principal.animation_tree.animation_finished
 	change_state("WalkToPoint")

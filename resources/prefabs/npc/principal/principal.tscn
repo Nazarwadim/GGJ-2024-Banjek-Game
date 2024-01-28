@@ -53,6 +53,33 @@ tracks/2/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_3apd3"]
+resource_name = "angry"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -18), Vector2(0, -44), Vector2(5, -17), Vector2(-5, -23), Vector2(0, -18), Vector2(-13, -13), Vector2(0, -18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 3.04036, 6.28319, 0.0]
+}
+
 [sub_resource type="Animation" id="Animation_bdsht"]
 resource_name = "walk_down"
 loop_mode = 1
@@ -114,33 +141,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-1.5708]
-}
-
-[sub_resource type="Animation" id="Animation_3apd3"]
-resource_name = "angry"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -18), Vector2(0, -44), Vector2(5, -17), Vector2(-5, -23), Vector2(0, -18), Vector2(-13, -13), Vector2(0, -18)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 3.04036, 6.28319, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x5c7u"]
@@ -309,7 +309,6 @@ polygon = PackedVector2Array(-117.061, -110.882, -35, -162, 162, -145, 279, -90,
 
 [node name="AreaUsingItemDetectorToFix" type="Area2D" parent="Areas"]
 rotation = 0.0189692
-scale = Vector2(1, 1)
 script = ExtResource("6_5stvy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/AreaUsingItemDetectorToFix"]
@@ -323,7 +322,6 @@ script = ExtResource("6_5stvy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/AreaUsingItemDetector"]
 position = Vector2(13.4112, -32.0713)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_br5ex")
 debug_color = Color(0, 0.6, 0.701961, 0.188235)
 

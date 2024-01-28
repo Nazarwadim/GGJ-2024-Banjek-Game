@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c482u4huelhlb"]
+[gd_scene load_steps=47 format=3 uid="uid://c482u4huelhlb"]
 
 [ext_resource type="PackedScene" uid="uid://bdqdkk02ck32k" path="res://resources/scenes/school/school_tile_map.tscn" id="1_sm8qs"]
 [ext_resource type="PackedScene" uid="uid://3p8xa0bhhhfh" path="res://resources/prefabs/items/apple.tscn" id="2_25cru"]
@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="5_nvcen"]
 [ext_resource type="PackedScene" uid="uid://dmxatu2p38w4w" path="res://resources/prefabs/area_using_item_containers/glue_black_chair.tscn" id="5_nwrxo"]
 [ext_resource type="Resource" uid="uid://2tqkhux857ep" path="res://resources/inventory/items/glue.tres" id="6_a2i64"]
-[ext_resource type="PackedScene" uid="uid://dcyrd8y1dums8" path="res://resources/prefabs/area_using_item_containers/basketball.tscn" id="6_lpigu"]
+[ext_resource type="PackedScene" uid="uid://c4wdbrcj061pq" path="res://resources/prefabs/area_using_item_containers/basketball.tscn" id="6_lpigu"]
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="6_wjxho"]
 [ext_resource type="Resource" uid="uid://b2bx77ek5le0p" path="res://resources/inventory/items/pen.tres" id="8_loop8"]
 [ext_resource type="Resource" uid="uid://3kuoxtdtn6sr" path="res://resources/inventory/items/bowling_ball.tres" id="9_5sfwh"]
@@ -31,6 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://i67ghqws6hdd" path="res://resources/prefabs/area_using_item_containers/sink.tscn" id="22_n6s7s"]
 [ext_resource type="PackedScene" uid="uid://bi4cmb7hsrj88" path="res://resources/prefabs/area_using_item_containers/guitar.tscn" id="23_y83c6"]
 [ext_resource type="PackedScene" uid="uid://dwslrgxiwp7it" path="res://resources/prefabs/area_using_item_containers/desk.tscn" id="24_rumqv"]
+[ext_resource type="Texture2D" uid="uid://dwv14xjscv85t" path="res://assets/npc/Student on chair.png" id="29_o5t7x"]
+[ext_resource type="PackedScene" uid="uid://b3w83y226hk2k" path="res://assets/npc/rocker_static.tscn" id="33_ijy2p"]
 [ext_resource type="PackedScene" uid="uid://b831w3ywon2jp" path="res://resources/prefabs/npc/principal/principal.tscn" id="34_b2gys"]
 [ext_resource type="PackedScene" uid="uid://davul73rk33sk" path="res://resources/prefabs/npc/walking_student/walking_student.tscn" id="34_enclf"]
 [ext_resource type="Script" path="res://resources/prefabs/npc/walking_student/scripts/student_walker_point.gd" id="35_ceb1n"]
@@ -49,15 +51,19 @@ items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("
 
 [sub_resource type="Resource" id="Resource_wjale"]
 script = ExtResource("6_wjxho")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("6_a2i64"), ExtResource("11_df6qp"), ExtResource("8_loop8"), null, null, null, null, null, null, null])
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("6_a2i64"), ExtResource("11_df6qp"), ExtResource("8_loop8"), null, null, ExtResource("5_dfk1w"), ExtResource("13_lbpvh"), ExtResource("5_dfk1w"), null, null])
 
 [sub_resource type="Resource" id="Resource_idy6h"]
 script = ExtResource("6_wjxho")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("12_oiceu"), ExtResource("13_lbpvh"), ExtResource("5_dfk1w"), ExtResource("5_dfk1w"), null, null, null, null, null, null])
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("12_oiceu"), ExtResource("6_a2i64"), ExtResource("5_dfk1w"), ExtResource("5_dfk1w"), null, null, ExtResource("12_oiceu"), null, null, null])
 
 [sub_resource type="Resource" id="Resource_ntnan"]
 script = ExtResource("6_wjxho")
 items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("14_8a87r"), ExtResource("15_qaeew"), ExtResource("6_a2i64"), ExtResource("9_v6ayq"), null, null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_rqk3m"]
+script = ExtResource("6_wjxho")
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("9_v6ayq"), ExtResource("9_v6ayq"), ExtResource("9_v6ayq"), ExtResource("9_v6ayq"), ExtResource("9_v6ayq"), ExtResource("5_nvcen")])
 
 [sub_resource type="Resource" id="Resource_6w68g"]
 script = ExtResource("6_wjxho")
@@ -455,6 +461,12 @@ bus = &"Master"
 y_sort_enabled = true
 metadata/_edit_lock_ = true
 
+[node name="Drawer4" parent="Chests/Drawers" instance=ExtResource("9_wptoe")]
+position = Vector2(-721, -502)
+
+[node name="ChestContainer" parent="Chests/Drawers/Drawer4" index="0"]
+inventory = SubResource("Resource_rqk3m")
+
 [node name="Drawer" parent="Chests/Drawers" instance=ExtResource("9_wptoe")]
 position = Vector2(1358, 216)
 
@@ -540,17 +552,676 @@ z_index = 3
 position = Vector2(-192, -310)
 metadata/_edit_group_ = true
 
+[node name="StaticStudent" type="CanvasGroup" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="StudentOnChair" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(-399, 389)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair2" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(-335, 388)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair3" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(-335, 486)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair4" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(-335, 582)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair5" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(-271, 677)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair6" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(-207, 677)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair7" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(-335, 677)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair8" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(145, 678)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair9" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(145, 582)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair10" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(209, 582)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair11" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(273, 582)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair12" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(273, 678)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair13" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(337, 678)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair14" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(337, 485)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair15" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(273, 485)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair16" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(273, 391)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair17" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(721, 391)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair18" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(721, 485)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair19" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(785, 485)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair20" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(849, 485)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair21" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(657, 485)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair22" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(657, 581)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair23" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(786, 581)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair24" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(785, 677)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair25" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(849, 678)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+
+[node name="StudentOnChair26" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(592, -315)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+frame = 1
+
+[node name="StudentOnChair27" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(560, -315)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+frame = 1
+
+[node name="StudentOnChair28" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(496, -315)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+frame = 1
+
+[node name="StudentOnChair29" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(464, -315)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+frame = 1
+
+[node name="StudentOnChair30" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(464, -379)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+frame = 1
+
+[node name="StudentOnChair35" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(592, -379)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+frame = 1
+
+[node name="StudentOnChair36" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(560, -379)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+frame = 1
+
+[node name="StudentOnChair37" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(528, -379)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+frame = 1
+
+[node name="StudentOnChair31" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(432, -379)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+frame = 1
+
+[node name="StudentOnChair32" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(368, -379)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+frame = 1
+
+[node name="StudentOnChair33" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(368, -315)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+frame = 1
+
+[node name="StudentOnChair34" type="Sprite2D" parent="StaticStudent"]
+position = Vector2(400, -315)
+texture = ExtResource("29_o5t7x")
+hframes = 2
+frame = 1
+
 [node name="Doors" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("items_spawn_node", "_hot_bar") instance=ExtResource("2_vmcjx")]
 z_index = 1
-position = Vector2(1772, 75)
+position = Vector2(1962, 59)
 items_spawn_node = NodePath("../Items")
 _hot_bar = NodePath("../CanvasLayer/HotBar")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
+
+[node name="npc" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(1303, 269)
+
+[node name="RockerStatic" parent="npc" node_paths=PackedStringArray("guitar") instance=ExtResource("33_ijy2p")]
+position = Vector2(-850, -799)
+guitar = NodePath("../../UsingAreas/Guitar")
+
+[node name="WalkingStudent" parent="npc" instance=ExtResource("34_enclf")]
+z_index = 1
+position = Vector2(-666, -372)
+speed = 120
+
+[node name="WalkerPoint" parent="npc/WalkingStudent/Walker" index="0"]
+position = Vector2(591, -115)
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent/Walker" index="1"]
+position = Vector2(354, -128)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint3" type="Marker2D" parent="npc/WalkingStudent/Walker" index="2"]
+position = Vector2(351, 56)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint4" type="Marker2D" parent="npc/WalkingStudent/Walker" index="3"]
+position = Vector2(594, 25)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 20000
+
+[node name="WalkerPoint5" type="Marker2D" parent="npc/WalkingStudent/Walker" index="4"]
+position = Vector2(-1218, 65)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 60000
+
+[node name="WalkerPoint6" type="Marker2D" parent="npc/WalkingStudent/Walker" index="5"]
+position = Vector2(-441, 24)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint7" type="Marker2D" parent="npc/WalkingStudent/Walker" index="6"]
+position = Vector2(-465, -711)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint8" type="Marker2D" parent="npc/WalkingStudent/Walker" index="7"]
+position = Vector2(-754, -909)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 60000
+
+[node name="WalkingStudent6" parent="npc" instance=ExtResource("34_enclf")]
+z_index = 1
+position = Vector2(-1154, -505)
+speed = 120
+
+[node name="WalkerPoint" parent="npc/WalkingStudent6/Walker" index="0"]
+position = Vector2(103, -237)
+time_stay_on_ms = 1000
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent6/Walker" index="1"]
+position = Vector2(-277, -241)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 1000
+
+[node name="FiniteStateMachine" parent="npc/WalkingStudent6" index="5" node_paths=PackedStringArray("current_state")]
+current_state = NodePath("../../WalkingStudent/FiniteStateMachine/Start")
+
+[node name="Idle" parent="npc/WalkingStudent6/FiniteStateMachine" index="1" node_paths=PackedStringArray("walker", "student")]
+walker = NodePath("../../../WalkingStudent/Walker")
+student = NodePath("../../../WalkingStudent")
+
+[node name="Walk" parent="npc/WalkingStudent6/FiniteStateMachine" index="2" node_paths=PackedStringArray("student")]
+student = NodePath("../../../WalkingStudent")
+
+[node name="WalkingStudent7" parent="npc" instance=ExtResource("34_enclf")]
+z_index = 1
+position = Vector2(-1565, -623)
+speed = 120
+
+[node name="WalkerPoint" parent="npc/WalkingStudent7/Walker" index="0"]
+position = Vector2(-245, -360)
+time_stay_on_ms = 1000
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent7/Walker" index="1"]
+position = Vector2(82, -391)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 1000
+
+[node name="FiniteStateMachine" parent="npc/WalkingStudent7" index="5" node_paths=PackedStringArray("current_state")]
+current_state = NodePath("../../WalkingStudent/FiniteStateMachine/Start")
+
+[node name="Idle" parent="npc/WalkingStudent7/FiniteStateMachine" index="1" node_paths=PackedStringArray("walker", "student")]
+walker = NodePath("../../../WalkingStudent/Walker")
+student = NodePath("../../../WalkingStudent")
+
+[node name="Walk" parent="npc/WalkingStudent7/FiniteStateMachine" index="2" node_paths=PackedStringArray("student")]
+student = NodePath("../../../WalkingStudent")
+
+[node name="WalkingStudent5" parent="npc" instance=ExtResource("34_enclf")]
+z_index = 1
+position = Vector2(-993, -707)
+speed = 120
+
+[node name="WalkerPoint" parent="npc/WalkingStudent5/Walker" index="0"]
+position = Vector2(327, -227)
+time_stay_on_ms = 1000
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent5/Walker" index="1"]
+position = Vector2(114, 28)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint3" type="Marker2D" parent="npc/WalkingStudent5/Walker" index="2"]
+position = Vector2(-465, -168)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint4" type="Marker2D" parent="npc/WalkingStudent5/Walker" index="3"]
+position = Vector2(188, -167)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 20000
+
+[node name="WalkerPoint5" type="Marker2D" parent="npc/WalkingStudent5/Walker" index="4"]
+position = Vector2(-38, -163)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 6000
+
+[node name="WalkerPoint6" type="Marker2D" parent="npc/WalkingStudent5/Walker" index="5"]
+position = Vector2(-453, -78)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint7" type="Marker2D" parent="npc/WalkingStudent5/Walker" index="6"]
+position = Vector2(-721, -437)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint8" type="Marker2D" parent="npc/WalkingStudent5/Walker" index="7"]
+position = Vector2(-1178, -445)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 30000
+
+[node name="FiniteStateMachine" parent="npc/WalkingStudent5" index="5" node_paths=PackedStringArray("current_state")]
+current_state = NodePath("../../WalkingStudent/FiniteStateMachine/Start")
+
+[node name="Idle" parent="npc/WalkingStudent5/FiniteStateMachine" index="1" node_paths=PackedStringArray("walker", "student")]
+walker = NodePath("../../../WalkingStudent/Walker")
+student = NodePath("../../../WalkingStudent")
+
+[node name="Walk" parent="npc/WalkingStudent5/FiniteStateMachine" index="2" node_paths=PackedStringArray("student")]
+student = NodePath("../../../WalkingStudent")
+
+[node name="WalkingStudent8" parent="npc" instance=ExtResource("34_enclf")]
+z_index = 1
+position = Vector2(-963, -707)
+speed = 120
+
+[node name="WalkerPoint" parent="npc/WalkingStudent8/Walker" index="0"]
+position = Vector2(327, -227)
+time_stay_on_ms = 1000
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent8/Walker" index="1"]
+position = Vector2(114, 28)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint3" type="Marker2D" parent="npc/WalkingStudent8/Walker" index="2"]
+position = Vector2(-465, -168)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint4" type="Marker2D" parent="npc/WalkingStudent8/Walker" index="3"]
+position = Vector2(188, -167)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 20000
+
+[node name="WalkerPoint5" type="Marker2D" parent="npc/WalkingStudent8/Walker" index="4"]
+position = Vector2(-38, -163)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 6000
+
+[node name="WalkerPoint6" type="Marker2D" parent="npc/WalkingStudent8/Walker" index="5"]
+position = Vector2(-453, -78)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint7" type="Marker2D" parent="npc/WalkingStudent8/Walker" index="6"]
+position = Vector2(-721, -437)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint8" type="Marker2D" parent="npc/WalkingStudent8/Walker" index="7"]
+position = Vector2(-1178, -445)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 30000
+
+[node name="FiniteStateMachine" parent="npc/WalkingStudent8" index="5" node_paths=PackedStringArray("current_state")]
+current_state = NodePath("../../WalkingStudent/FiniteStateMachine/Start")
+
+[node name="Idle" parent="npc/WalkingStudent8/FiniteStateMachine" index="1" node_paths=PackedStringArray("walker", "student")]
+walker = NodePath("../../../WalkingStudent/Walker")
+student = NodePath("../../../WalkingStudent")
+
+[node name="Walk" parent="npc/WalkingStudent8/FiniteStateMachine" index="2" node_paths=PackedStringArray("student")]
+student = NodePath("../../../WalkingStudent")
+
+[node name="WalkingStudent9" parent="npc" instance=ExtResource("34_enclf")]
+z_index = 1
+position = Vector2(-930, -707)
+speed = 120
+
+[node name="WalkerPoint" parent="npc/WalkingStudent9/Walker" index="0"]
+position = Vector2(327, -227)
+time_stay_on_ms = 1000
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent9/Walker" index="1"]
+position = Vector2(114, 28)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint3" type="Marker2D" parent="npc/WalkingStudent9/Walker" index="2"]
+position = Vector2(-465, -168)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint4" type="Marker2D" parent="npc/WalkingStudent9/Walker" index="3"]
+position = Vector2(188, -167)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 20000
+
+[node name="WalkerPoint5" type="Marker2D" parent="npc/WalkingStudent9/Walker" index="4"]
+position = Vector2(-38, -163)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 6000
+
+[node name="WalkerPoint6" type="Marker2D" parent="npc/WalkingStudent9/Walker" index="5"]
+position = Vector2(-453, -78)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint7" type="Marker2D" parent="npc/WalkingStudent9/Walker" index="6"]
+position = Vector2(-721, -437)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint8" type="Marker2D" parent="npc/WalkingStudent9/Walker" index="7"]
+position = Vector2(-1178, -445)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 30000
+
+[node name="FiniteStateMachine" parent="npc/WalkingStudent9" index="5" node_paths=PackedStringArray("current_state")]
+current_state = NodePath("../../WalkingStudent/FiniteStateMachine/Start")
+
+[node name="Idle" parent="npc/WalkingStudent9/FiniteStateMachine" index="1" node_paths=PackedStringArray("walker", "student")]
+walker = NodePath("../../../WalkingStudent/Walker")
+student = NodePath("../../../WalkingStudent")
+
+[node name="Walk" parent="npc/WalkingStudent9/FiniteStateMachine" index="2" node_paths=PackedStringArray("student")]
+student = NodePath("../../../WalkingStudent")
+
+[node name="WalkingStudent4" parent="npc" instance=ExtResource("34_enclf")]
+z_index = 1
+position = Vector2(-1814, 122)
+speed = 120
+
+[node name="WalkerPoint" parent="npc/WalkingStudent4/Walker" index="0"]
+position = Vector2(-431, 265)
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent4/Walker" index="1"]
+position = Vector2(-215, 262)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint3" type="Marker2D" parent="npc/WalkingStudent4/Walker" index="2"]
+position = Vector2(-105, 404)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint4" type="Marker2D" parent="npc/WalkingStudent4/Walker" index="3"]
+position = Vector2(-464, 93)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 20000
+
+[node name="WalkerPoint5" type="Marker2D" parent="npc/WalkingStudent4/Walker" index="4"]
+position = Vector2(-741, -99)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 60000
+
+[node name="WalkerPoint6" type="Marker2D" parent="npc/WalkingStudent4/Walker" index="5"]
+position = Vector2(-675, -264)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint7" type="Marker2D" parent="npc/WalkingStudent4/Walker" index="6"]
+position = Vector2(-930, -453)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint8" type="Marker2D" parent="npc/WalkingStudent4/Walker" index="7"]
+position = Vector2(-1210, -411)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 60000
+
+[node name="FiniteStateMachine" parent="npc/WalkingStudent4" index="5" node_paths=PackedStringArray("current_state")]
+current_state = NodePath("../../WalkingStudent/FiniteStateMachine/Start")
+
+[node name="Idle" parent="npc/WalkingStudent4/FiniteStateMachine" index="1" node_paths=PackedStringArray("walker", "student")]
+walker = NodePath("../../../WalkingStudent/Walker")
+student = NodePath("../../../WalkingStudent")
+
+[node name="Walk" parent="npc/WalkingStudent4/FiniteStateMachine" index="2" node_paths=PackedStringArray("student")]
+student = NodePath("../../../WalkingStudent")
+
+[node name="WalkingStudent3" parent="npc" instance=ExtResource("34_enclf")]
+z_index = 1
+position = Vector2(-1245, 125)
+speed = 120
+
+[node name="WalkerPoint" parent="npc/WalkingStudent3/Walker" index="0"]
+position = Vector2(47, 427)
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent3/Walker" index="1"]
+position = Vector2(193, 288)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint3" type="Marker2D" parent="npc/WalkingStudent3/Walker" index="2"]
+position = Vector2(330, 303)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint4" type="Marker2D" parent="npc/WalkingStudent3/Walker" index="3"]
+position = Vector2(427, 367)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 20000
+
+[node name="WalkerPoint5" type="Marker2D" parent="npc/WalkingStudent3/Walker" index="4"]
+position = Vector2(414, 629)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 60000
+
+[node name="WalkerPoint6" type="Marker2D" parent="npc/WalkingStudent3/Walker" index="5"]
+position = Vector2(62, 699)
+script = ExtResource("35_ceb1n")
+
+[node name="FiniteStateMachine" parent="npc/WalkingStudent3" index="5" node_paths=PackedStringArray("current_state")]
+current_state = NodePath("../../WalkingStudent/FiniteStateMachine/Start")
+
+[node name="Idle" parent="npc/WalkingStudent3/FiniteStateMachine" index="1" node_paths=PackedStringArray("walker", "student")]
+walker = NodePath("../../../WalkingStudent/Walker")
+student = NodePath("../../../WalkingStudent")
+
+[node name="Walk" parent="npc/WalkingStudent3/FiniteStateMachine" index="2" node_paths=PackedStringArray("student")]
+student = NodePath("../../../WalkingStudent")
+
+[node name="WalkingStudent2" parent="npc" instance=ExtResource("34_enclf")]
+z_index = 1
+position = Vector2(-1041, -237)
+speed = 120
+
+[node name="WalkerPoint" parent="npc/WalkingStudent2/Walker" index="0"]
+position = Vector2(300, 77)
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent2/Walker" index="1"]
+position = Vector2(583, 69)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint3" type="Marker2D" parent="npc/WalkingStudent2/Walker" index="2"]
+position = Vector2(578, 139)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint4" type="Marker2D" parent="npc/WalkingStudent2/Walker" index="3"]
+position = Vector2(546, 294)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 20000
+
+[node name="WalkerPoint5" type="Marker2D" parent="npc/WalkingStudent2/Walker" index="4"]
+position = Vector2(-1218, 65)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 60000
+
+[node name="WalkerPoint6" type="Marker2D" parent="npc/WalkingStudent2/Walker" index="5"]
+position = Vector2(-270, 53)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint7" type="Marker2D" parent="npc/WalkingStudent2/Walker" index="6"]
+position = Vector2(-302, -391)
+script = ExtResource("35_ceb1n")
+
+[node name="WalkerPoint8" type="Marker2D" parent="npc/WalkingStudent2/Walker" index="7"]
+position = Vector2(180, -399)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 60000
+
+[node name="FiniteStateMachine" parent="npc/WalkingStudent2" index="5" node_paths=PackedStringArray("current_state")]
+current_state = NodePath("../../WalkingStudent/FiniteStateMachine/Start")
+
+[node name="Idle" parent="npc/WalkingStudent2/FiniteStateMachine" index="1" node_paths=PackedStringArray("walker", "student")]
+walker = NodePath("../../../WalkingStudent/Walker")
+student = NodePath("../../../WalkingStudent")
+
+[node name="Walk" parent="npc/WalkingStudent2/FiniteStateMachine" index="2" node_paths=PackedStringArray("student")]
+student = NodePath("../../../WalkingStudent")
+
+[node name="WalkingStudent10" parent="npc" instance=ExtResource("34_enclf")]
+position = Vector2(-1610, -446)
+
+[node name="WalkerPoint" parent="npc/WalkingStudent10/Walker" index="0"]
+position = Vector2(-303, -173)
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent10/Walker" index="1"]
+position = Vector2(-50, -266)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 1000
+
+[node name="WalkerPoint3" type="Marker2D" parent="npc/WalkingStudent10/Walker" index="2"]
+position = Vector2(117, -406)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 2000
+
+[node name="WalkingStudent11" parent="npc" instance=ExtResource("34_enclf")]
+position = Vector2(-33, 34)
+
+[node name="WalkerPoint" parent="npc/WalkingStudent11/Walker" index="0"]
+position = Vector2(1260, 312)
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent11/Walker" index="1"]
+position = Vector2(1023, 85)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint3" type="Marker2D" parent="npc/WalkingStudent11/Walker" index="2"]
+position = Vector2(741, 343)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint4" type="Marker2D" parent="npc/WalkingStudent11/Walker" index="3"]
+position = Vector2(-128, 84)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint5" type="Marker2D" parent="npc/WalkingStudent11/Walker" index="4"]
+position = Vector2(432, -198)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint6" type="Marker2D" parent="npc/WalkingStudent11/Walker" index="5"]
+position = Vector2(611, -243)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkingStudent12" parent="npc" instance=ExtResource("34_enclf")]
+position = Vector2(-594, -202)
+
+[node name="WalkerPoint" parent="npc/WalkingStudent12/Walker" index="0"]
+position = Vector2(694, 75)
+
+[node name="WalkerPoint2" type="Marker2D" parent="npc/WalkingStudent12/Walker" index="1"]
+position = Vector2(576, 647)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint3" type="Marker2D" parent="npc/WalkingStudent12/Walker" index="2"]
+position = Vector2(800, 41)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint4" type="Marker2D" parent="npc/WalkingStudent12/Walker" index="3"]
+position = Vector2(1398, 49)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
+
+[node name="WalkerPoint5" type="Marker2D" parent="npc/WalkingStudent12/Walker" index="4"]
+position = Vector2(1118, 530)
+script = ExtResource("35_ceb1n")
+time_stay_on_ms = 10000
 
 [node name="CanvasLayer" parent="." instance=ExtResource("3_q6pyy")]
 
@@ -567,45 +1238,6 @@ offset_bottom = 45.0
 [node name="Arrow" parent="CanvasLayer" index="11" node_paths=PackedStringArray("player", "principal")]
 player = NodePath("../../Player")
 principal = NodePath("../../Principal")
-
-[node name="WalkingStudent" parent="." instance=ExtResource("34_enclf")]
-z_index = 1
-position = Vector2(637, -103)
-speed = 120
-
-[node name="WalkerPoint" parent="WalkingStudent/Walker" index="0"]
-position = Vector2(591, -115)
-
-[node name="WalkerPoint2" type="Marker2D" parent="WalkingStudent/Walker" index="1"]
-position = Vector2(354, -128)
-script = ExtResource("35_ceb1n")
-
-[node name="WalkerPoint3" type="Marker2D" parent="WalkingStudent/Walker" index="2"]
-position = Vector2(351, 56)
-script = ExtResource("35_ceb1n")
-
-[node name="WalkerPoint4" type="Marker2D" parent="WalkingStudent/Walker" index="3"]
-position = Vector2(594, 25)
-script = ExtResource("35_ceb1n")
-time_stay_on_ms = 20000
-
-[node name="WalkerPoint5" type="Marker2D" parent="WalkingStudent/Walker" index="4"]
-position = Vector2(-1218, 65)
-script = ExtResource("35_ceb1n")
-time_stay_on_ms = 60000
-
-[node name="WalkerPoint6" type="Marker2D" parent="WalkingStudent/Walker" index="5"]
-position = Vector2(-441, 24)
-script = ExtResource("35_ceb1n")
-
-[node name="WalkerPoint7" type="Marker2D" parent="WalkingStudent/Walker" index="6"]
-position = Vector2(-465, -711)
-script = ExtResource("35_ceb1n")
-
-[node name="WalkerPoint8" type="Marker2D" parent="WalkingStudent/Walker" index="7"]
-position = Vector2(-754, -909)
-script = ExtResource("35_ceb1n")
-time_stay_on_ms = 60000
 
 [node name="Principal" parent="." instance=ExtResource("34_b2gys")]
 z_index = 1
@@ -728,6 +1360,7 @@ position = Vector2(1956, 59)
 script = ExtResource("35_ceb1n")
 time_stay_on_ms = 100000
 
+[connection signal="used" from="UsingAreas/Guitar/AreaUsingItemContainer" to="npc/RockerStatic" method="_on_area_using_item_container_used"]
 [connection signal="inventory_closed" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_closed"]
 [connection signal="inventory_opened" from="Player" to="CanvasLayer/MainChestInventory" method="_on_player_inventory_opened"]
 [connection signal="item_droped" from="Player" to="CanvasLayer/HotBar" method="update_inventory"]
@@ -742,11 +1375,25 @@ time_stay_on_ms = 100000
 [editable path="Chests/Shelfs/Shelf4"]
 [editable path="Chests/Shelfs/Shelf5"]
 [editable path="Chests/Shelfs/Shelf6"]
+[editable path="Chests/Drawers/Drawer4"]
 [editable path="Chests/Drawers/Drawer"]
 [editable path="Chests/Drawers/Drawer2"]
 [editable path="Chests/Drawers/Drawer3"]
+[editable path="UsingAreas/Guitar"]
+[editable path="UsingAreas/Guitar/AreaUsingItemContainer"]
 [editable path="UsingAreas/Ball"]
 [editable path="UsingAreas/Ball/AreaUsingItemContainer"]
+[editable path="npc/WalkingStudent"]
+[editable path="npc/WalkingStudent6"]
+[editable path="npc/WalkingStudent7"]
+[editable path="npc/WalkingStudent5"]
+[editable path="npc/WalkingStudent8"]
+[editable path="npc/WalkingStudent9"]
+[editable path="npc/WalkingStudent4"]
+[editable path="npc/WalkingStudent3"]
+[editable path="npc/WalkingStudent2"]
+[editable path="npc/WalkingStudent10"]
+[editable path="npc/WalkingStudent11"]
+[editable path="npc/WalkingStudent12"]
 [editable path="CanvasLayer"]
-[editable path="WalkingStudent"]
 [editable path="Principal"]
