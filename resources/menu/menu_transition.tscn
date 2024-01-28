@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cydf2i43u3q27"]
+[gd_scene load_steps=6 format=3 uid="uid://cydf2i43u3q27"]
 
 [ext_resource type="Script" path="res://resources/menu/menu_transition.gd" id="1_cy48m"]
 [ext_resource type="PackedScene" uid="uid://56jj7k2t6jkd" path="res://resources/menu/menu.tscn" id="1_fkl47"]
 [ext_resource type="PackedScene" uid="uid://bbsvwigy53xir" path="res://resources/menu/settings.tscn" id="2_si2u6"]
 [ext_resource type="AudioStream" uid="uid://bptlsltckbwx4" path="res://assets/music/guitarix_session75.wav" id="4_woaun"]
+[ext_resource type="PackedScene" uid="uid://byhr86i0q8q6q" path="res://resources/menu/introduction_to_game.tscn" id="4_vfsq5"]
 
 [node name="menu_transition" type="Control"]
 layout_mode = 3
@@ -28,6 +29,11 @@ color = Color(0.0862745, 0.0941176, 0.0941176, 1)
 [node name="settings" parent="." instance=ExtResource("2_si2u6")]
 visible = false
 layout_mode = 1
+
+[node name="introduction_to_game" parent="." instance=ExtResource("4_vfsq5")]
+visible = false
+layout_mode = 1
+introduction_duration = 20
 
 [node name="main_theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_woaun")

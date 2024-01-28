@@ -115,7 +115,7 @@ func _on_setting_button_pressed():
 
 func _on_true_start_animation_animation_finished(anim_name):
 	if(anim_name == "true_start"):
-		get_tree().change_scene_to_packed.call_deferred(start_scene)
+		GuiTransitions.go_to("introduction_to_game")
 		$walk.position = Vector2(-182,225)
 		$rock.visible = false
 		$rock.scale = Vector2(1,1)
