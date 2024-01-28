@@ -48,7 +48,8 @@ func _on_area_using_timeout(area_using_item:AreaUsingItem, hot_bar_using_slot:in
 	if _is_interupted:
 		return
 	_is_interupted = true
-	inventory_container.inventory.items[hot_bar_using_slot] = null
+	if area_using_item.remove_item_after_use:
+		inventory_container.inventory.items[hot_bar_using_slot] = null
 	area_using_item.use()
 	player.item_used.emit()
 	change_state("Idle")
