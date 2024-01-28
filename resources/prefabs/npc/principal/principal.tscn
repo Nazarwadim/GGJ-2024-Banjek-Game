@@ -1,0 +1,199 @@
+[gd_scene load_steps=23 format=3 uid="uid://b831w3ywon2jp"]
+
+[ext_resource type="Texture2D" uid="uid://b6iuvt7bqgepe" path="res://assets/npc/director.png" id="1_fkvd6"]
+[ext_resource type="Script" path="res://resources/prefabs/npc/principal/principal.gd" id="1_s8nsj"]
+[ext_resource type="Script" path="res://resources/prefabs/npc/walking_student/scripts/walker.gd" id="2_emjcj"]
+[ext_resource type="Script" path="res://resources/prefabs/npc/walking_student/scripts/student_walker_point.gd" id="3_moc3i"]
+[ext_resource type="Script" path="res://resources/scripts/player_detector_area.gd" id="4_b1owe"]
+[ext_resource type="Script" path="res://resources/scripts/player_notifier.gd" id="5_s8cda"]
+[ext_resource type="Script" path="res://resources/scripts/using_item/area_using_item_detector.gd" id="6_5stvy"]
+[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="7_r12w8"]
+[ext_resource type="Script" path="res://resources/prefabs/player/states/start.gd" id="8_tsybu"]
+[ext_resource type="Script" path="res://resources/prefabs/npc/principal/states/idle.gd" id="9_32yv0"]
+[ext_resource type="Script" path="res://resources/prefabs/npc/principal/states/walk_to_point.gd" id="10_pcw16"]
+[ext_resource type="Script" path="res://resources/prefabs/npc/principal/states/chase_player.gd" id="11_66ge5"]
+[ext_resource type="Script" path="res://resources/prefabs/npc/principal/states/finding_broken_area_using_item.gd" id="12_voll4"]
+
+[sub_resource type="Animation" id="Animation_1bryn"]
+resource_name = "walk_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Areas:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_vcrhr"]
+resource_name = "walk_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Areas:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_g6f8b"]
+resource_name = "walk_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Areas:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bdsht"]
+resource_name = "walk_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Areas:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_nxa8d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Areas:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x5c7u"]
+_data = {
+"RESET": SubResource("Animation_nxa8d"),
+"walk_down": SubResource("Animation_bdsht"),
+"walk_left": SubResource("Animation_vcrhr"),
+"walk_right": SubResource("Animation_g6f8b"),
+"walk_up": SubResource("Animation_1bryn")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1t07p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3jcdf"]
+radius = 99.6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_br5ex"]
+size = Vector2(435, 250)
+
+[node name="Principal" type="CharacterBody2D"]
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("1_s8nsj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -18)
+texture = ExtResource("1_fkvd6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x5c7u")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1t07p")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 11.0
+
+[node name="Walker" type="Node" parent="."]
+script = ExtResource("2_emjcj")
+
+[node name="WalkerPoint" type="Marker2D" parent="Walker"]
+script = ExtResource("3_moc3i")
+
+[node name="PlayerDetectorRayCast" type="RayCast2D" parent="."]
+position = Vector2(0, -16)
+target_position = Vector2(31, -2)
+collision_mask = 3
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="PlayerDead" type="Area2D" parent="Areas"]
+position = Vector2(-18, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/PlayerDead"]
+position = Vector2(24, -15)
+shape = SubResource("CircleShape2D_3jcdf")
+debug_color = Color(1, 0, 0, 0)
+
+[node name="PlayerDetectorArea" type="Area2D" parent="Areas"]
+position = Vector2(-11, 30)
+monitorable = false
+script = ExtResource("4_b1owe")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/PlayerDetectorArea"]
+polygon = PackedVector2Array(-72, -76, -35, -162, 159, -160, 306, -99, 358, -11, 326, 61, 240, 92, 121, 91, -60, 85, -83, -1)
+
+[node name="AreaUsingItemDetector" type="Area2D" parent="Areas"]
+position = Vector2(-10, 29)
+script = ExtResource("6_5stvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/AreaUsingItemDetector"]
+position = Vector2(135.5, -37)
+shape = SubResource("RectangleShape2D_br5ex")
+debug_color = Color(0, 0.6, 0.701961, 0.188235)
+
+[node name="PlayerNotifier" type="Node" parent="." node_paths=PackedStringArray("ray_cast", "player_detector_area")]
+script = ExtResource("5_s8cda")
+ray_cast = NodePath("../PlayerDetectorRayCast")
+player_detector_area = NodePath("../Areas/PlayerDetectorArea")
+
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
+script = ExtResource("7_r12w8")
+current_state = NodePath("Start")
+
+[node name="Start" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("8_tsybu")
+
+[node name="Idle" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("walker", "principal")]
+script = ExtResource("9_32yv0")
+walker = NodePath("../../Walker")
+principal = NodePath("../..")
+
+[node name="WalkToPoint" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("principal")]
+script = ExtResource("10_pcw16")
+principal = NodePath("../..")
+
+[node name="ChasePlayer" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("principal")]
+script = ExtResource("11_66ge5")
+principal = NodePath("../..")
+
+[node name="FixingBrokenAreaUsingItem" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("principal")]
+script = ExtResource("12_voll4")
+principal = NodePath("../..")
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

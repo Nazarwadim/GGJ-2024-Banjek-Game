@@ -2,7 +2,7 @@ extends StateMachineState
 
 @export var student:CharacterBody2D
 
-func on_physics_process(delta):
+func on_physics_process(_delta):
 	if student.navigation_agent.is_navigation_finished():
 		change_state("Idle")
 		return

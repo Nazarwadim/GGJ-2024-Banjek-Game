@@ -11,6 +11,8 @@ enum TimeState
 var current_time_state := TimeState.Lesson
 var current_time:int = 43
 
+var principal:CharacterBody2D
+
 var _update_timer:Timer
 
 var school_mood:int = 10:

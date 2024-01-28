@@ -366,8 +366,11 @@ radius = 20.0
 height = 58.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
 collision_mask = 3
 slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
 platform_on_leave = 2
 script = ExtResource("1_qvpmr")
 speed = 120
