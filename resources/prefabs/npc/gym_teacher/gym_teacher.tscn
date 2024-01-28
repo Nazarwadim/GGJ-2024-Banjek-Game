@@ -1,0 +1,164 @@
+[gd_scene load_steps=16 format=3 uid="uid://cma1pm5ofnjla"]
+
+[ext_resource type="Script" path="res://resources/prefabs/npc/walking_student/walking_student.gd" id="1_j32ns"]
+[ext_resource type="Script" path="res://resources/prefabs/npc/walking_student/scripts/walker.gd" id="2_cewu8"]
+[ext_resource type="Script" path="res://resources/prefabs/npc/walking_student/scripts/student_walker_point.gd" id="3_rrty0"]
+[ext_resource type="Texture2D" uid="uid://bushswnvvi3kp" path="res://assets/npc/fizruk.png" id="4_twwfc"]
+[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="5_2lufl"]
+[ext_resource type="Script" path="res://resources/prefabs/player/states/start.gd" id="6_66rmm"]
+[ext_resource type="Script" path="res://resources/prefabs/npc/walking_student/states/idle.gd" id="7_l0ish"]
+[ext_resource type="Script" path="res://resources/prefabs/npc/walking_student/states/walk.gd" id="8_julh4"]
+
+[sub_resource type="Animation" id="Animation_nxnj3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_iboy2"]
+resource_name = "walk_left"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_n7pmg"]
+resource_name = "walk_right"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 5, 3]
+}
+
+[sub_resource type="Animation" id="Animation_r4gcy"]
+resource_name = "walk_down"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 8, 6]
+}
+
+[sub_resource type="Animation" id="Animation_bga7j"]
+resource_name = "walk_up"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 9, 12, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fs2gx"]
+_data = {
+"RESET": SubResource("Animation_nxnj3"),
+"walk_down": SubResource("Animation_r4gcy"),
+"walk_left": SubResource("Animation_iboy2"),
+"walk_right": SubResource("Animation_n7pmg"),
+"walk_up": SubResource("Animation_bga7j")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0t3n"]
+size = Vector2(13, 25)
+
+[node name="Gym_teacher" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_on_leave = 2
+script = ExtResource("1_j32ns")
+metadata/_edit_group_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fs2gx")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 4.5)
+shape = SubResource("RectangleShape2D_r0t3n")
+
+[node name="Walker" type="Node" parent="."]
+script = ExtResource("2_cewu8")
+
+[node name="WalkerPoint" type="Marker2D" parent="Walker"]
+position = Vector2(-14, -3)
+script = ExtResource("3_rrty0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_twwfc")
+offset = Vector2(0, -15)
+hframes = 4
+vframes = 4
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 13.0
+max_neighbors = 8
+
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
+script = ExtResource("5_2lufl")
+current_state = NodePath("")
+
+[node name="Start" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("6_66rmm")
+
+[node name="Idle" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("walker", "student")]
+script = ExtResource("7_l0ish")
+walker = NodePath("")
+student = NodePath("")
+
+[node name="Walk" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("student")]
+script = ExtResource("8_julh4")
+student = NodePath("")
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
