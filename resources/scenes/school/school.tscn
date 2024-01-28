@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://bx2g6ou77m3jj" path="res://resources/inventory/items/bacon.tres" id="5_nvcen"]
 [ext_resource type="PackedScene" uid="uid://dmxatu2p38w4w" path="res://resources/prefabs/area_using_item_containers/glue_black_chair.tscn" id="5_nwrxo"]
 [ext_resource type="Resource" uid="uid://2tqkhux857ep" path="res://resources/inventory/items/glue.tres" id="6_a2i64"]
-[ext_resource type="PackedScene" uid="uid://c4wdbrcj061pq" path="res://resources/prefabs/area_using_item_containers/basketball.tscn" id="6_lpigu"]
+[ext_resource type="PackedScene" uid="uid://dcyrd8y1dums8" path="res://resources/prefabs/area_using_item_containers/basketball.tscn" id="6_lpigu"]
 [ext_resource type="Script" path="res://resources/inventory/core/inventory.gd" id="6_wjxho"]
 [ext_resource type="Resource" uid="uid://b2bx77ek5le0p" path="res://resources/inventory/items/pen.tres" id="8_loop8"]
 [ext_resource type="Resource" uid="uid://3kuoxtdtn6sr" path="res://resources/inventory/items/bowling_ball.tres" id="9_5sfwh"]
@@ -64,7 +64,7 @@ items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("
 
 [sub_resource type="Resource" id="Resource_6w68g"]
 script = ExtResource("6_wjxho")
-items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_dfk1w"), ExtResource("9_v6ayq"), ExtResource("5_dfk1w"), ExtResource("5_dfk1w"), ExtResource("5_dfk1w"), ExtResource("12_oiceu")])
+items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_dfk1w"), ExtResource("9_v6ayq"), ExtResource("5_dfk1w"), ExtResource("5_dfk1w"), ExtResource("5_dfk1w"), ExtResource("9_v6ayq")])
 
 [sub_resource type="Resource" id="Resource_nmvmq"]
 script = ExtResource("6_wjxho")
@@ -73,9 +73,6 @@ items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("
 [sub_resource type="Resource" id="Resource_y3l1r"]
 script = ExtResource("6_wjxho")
 items = Array[Resource("res://resources/inventory/core/item.gd")]([ExtResource("5_nvcen"), ExtResource("9_v6ayq"), ExtResource("5_nvcen"), ExtResource("11_df6qp"), ExtResource("18_nw4lu"), null])
-
-[sub_resource type="LabelSettings" id="LabelSettings_d5110"]
-font_size = 32
 
 [node name="School" type="Node2D"]
 y_sort_enabled = true
@@ -1164,22 +1161,16 @@ time_stay_on_ms = 2000
 [node name="HotBar" parent="CanvasLayer" index="1"]
 inventory = ExtResource("4_wa1p7")
 
-[node name="Lose" type="Control" parent="CanvasLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("32_6iowo")
-
-[node name="Label" type="Label" parent="CanvasLayer/Lose"]
+[node name="Label2" parent="CanvasLayer/Win" index="0"]
 layout_mode = 0
-offset_left = 434.0
-offset_top = 232.0
-offset_right = 582.0
-offset_bottom = 277.0
-text = "You lose ("
-label_settings = SubResource("LabelSettings_d5110")
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 148.0
+offset_bottom = 45.0
+
+[node name="Arrow" parent="CanvasLayer" index="11" node_paths=PackedStringArray("player", "principal")]
+player = NodePath("../../Player")
+principal = NodePath("../../Principal")
 
 [node name="Principal" parent="." instance=ExtResource("34_b2gys")]
 z_index = 1

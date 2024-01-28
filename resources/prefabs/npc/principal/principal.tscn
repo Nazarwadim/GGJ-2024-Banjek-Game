@@ -229,7 +229,7 @@ transitions = ["Idle", "Angry", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="CircleShape2D" id="CircleShape2D_1t07p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3jcdf"]
-radius = 118.2
+radius = 105.005
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w6t8b"]
 radius = 23.0
@@ -270,6 +270,7 @@ libraries = {
 shape = SubResource("CircleShape2D_1t07p")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 120.0
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 11.0
@@ -292,7 +293,7 @@ metadata/_edit_lock_ = true
 position = Vector2(-18, 15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/PlayerDead"]
-position = Vector2(24, -15)
+position = Vector2(19.0947, -19.9801)
 shape = SubResource("CircleShape2D_3jcdf")
 debug_color = Color(1, 0, 0, 0)
 
@@ -351,6 +352,7 @@ principal = NodePath("../..")
 [node name="ChasePlayer" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player_notifier", "principal")]
 script = ExtResource("11_66ge5")
 player_notifier = NodePath("../../PlayerNotifier")
+speed_increase = 8.0
 principal = NodePath("../..")
 
 [node name="UpdatePositionTimer" type="Timer" parent="FiniteStateMachine/ChasePlayer"]
@@ -361,4 +363,3 @@ script = ExtResource("12_voll4")
 principal = NodePath("../..")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
-[connection signal="state_changed" from="FiniteStateMachine" to="." method="_on_finite_state_machine_state_changed"]
